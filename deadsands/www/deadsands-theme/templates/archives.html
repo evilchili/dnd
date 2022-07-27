@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block archclass %} class="active"{%endblock%}
+{% block title %}Site Index - {{SITENAME}}{%endblock%}
+{% block content %}
+
+<div class='box curled'>
+    <h2>Index</h2>
+    <hr>
+    {% for year, date_year in dates|groupby( 'date.year' )|sort(reverse=True) %}  
+    <!--<h3><a href="{{SITEURL}}/{{year}}">{{ year }}</a></h3>-->
+    <h3>{{ year }}</h3>
+    <table class='archive-list'>
+        {% for article in date_year %}
+        <tr>
+            <td class="date">{{article.locale_date}}</td>
+            <td class='category'>{{article.category}}</td>
+            <td class='title'><a href="{{ SITEURL }}/{{ article.url }}">{{article.title}}</a> </td>
+        </tr>
+        {% endfor %}
+     </table>
+     <hr>
+    {% endfor %}
+</div>
+{% endblock %}

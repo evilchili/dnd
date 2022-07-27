@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME }} - Tags{% endblock %}
+
+{% block content %}
+<section id="content" class="content">
+<div class='cards'>
+    <div class='card curled'>
+    <ul class='cloud'>
+    {% for tag, articles in tags|sort %}
+    <li><a href="{{ SITEURL }}/{{ tag.url }}" data-weight={{ articles|count }}>{{ tag }}</a></li>
+    {% endfor %}
+    </ul>
+    </div>
+</div>
+</section>
+{% endblock %}

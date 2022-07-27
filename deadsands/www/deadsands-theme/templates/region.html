@@ -1,0 +1,98 @@
+{% extends "base.html" %}
+{% block title %}{{ article.title|capitalize }} - {{SITENAME}}{% endblock title %}
+{% block content %}
+{% set r = article.metadata.region %}
+
+<section id="content">
+    <div class='box curled'>
+        <h2 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
+        {% import 'translations.html' as translations with context %}
+        {{ translations.translations_for(article) }}
+        <hr>
+        <div class='byline'>
+        <span class='date'>{{ article.locale_date }}</span>&nbsp;{% if article.tags %}{% for tag in article.tags %}<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a> {% endfor %}{% endif %}
+        </div>
+        {% if article.description %}
+        <div class='scrap'><div class='note'>{{ article.description }}</div></div>
+        {% endif %}
+
+        {{ article.content }}
+
+        <div class='statblock'>
+            <div class='two-column'>
+            <h3>{{ article.title }}</h3>
+            <table class='auto'>
+                <tr>
+                    <td colspan='2'>{{ r.description }}</td>
+                </tr>
+                <tr>
+                    <th>Size</th>
+                    <td>{{ r.size }} sq. miles</td>
+                </tr>
+                <tr>
+                    <th>Terrain</th>
+                    <td>{{ r.terrain }}</td>
+                </tr>
+                <tr>
+                    <th>Encounters On</th>
+                    <td>{{ r.encounters }}</td>
+                </tr>
+                <tr>
+                    <th>Challenge Rating</th>
+                    <td>{{ r.cr }}</td>
+                </tr>
+
+                <tr>
+                    <th>Regional Effects</th>
+                    <td>
+                        <ul>{% for e in  r.regional_effects %}<li>{{ e }}</li>{% endfor %}</ul>
+                    </td>
+                </tr>
+            </table>
+
+                <div>
+                    <h4>Weather</h4>
+                    <table class='auto'>
+                        <tr><th>Roll</th><th>Effect</td></tr>
+                        <tr><td>d1</td><td>{{ r.weather.d1 }}</td></tr>
+                        <tr><td>d2</td><td>{{ r.weather.d2 }}</td></tr>
+                        <tr><td>d3</td><td>{{ r.weather.d3 }}</td></tr>
+                        <tr><td>d4</td><td>{{ r.weather.d4 }}</td></tr>
+                        <tr><td>d5</td><td>{{ r.weather.d5 }}</td></tr>
+                        <tr><td>d6</td><td>{{ r.weather.d6 }}</td></tr>
+                        <tr><td>d7</td><td>{{ r.weather.d7 }}</td></tr>
+                        <tr><td>d8</td><td>{{ r.weather.d8 }}</td></tr>
+                    </table>
+                </div>
+            </div>
+            <br>
+            <h4>Activities</h4>
+            <table class='min'>
+                <thead>
+                    <tr>
+                        <th>&nbsp;</td>
+                        <th>DC</th>
+                        <th>Resources</th>
+                        <th>Notes</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for (k, v) in [ ('Travel', r.travel), ('Forage', r.forage), ('Track', r.track), ('Evade', r.evade), ('Survey', r.survey) ]  %}
+                    <tr>
+                        <th>{{ k }}</th>
+                        <td>{{ v.dc or ""}}</td>
+                        <td>{{ v.resources or ""}}</td>
+                        <td>
+                            {% if v.critical_success %}crit. success = {{ v.critical_success }}<br>{% endif %}
+                            {% if v.critical_failure %}crit. failure = {{ v.critical_failure }}<br>{% endif %}
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+
+        </div>
+        <hr>
+        {% include "bottom-nav.html" %}
+    </div>
+ </section>
+{% endblock %}

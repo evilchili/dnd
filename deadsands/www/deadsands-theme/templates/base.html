@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        {% block head %}
+        <title>{% block title %}{{ SITENAME }}{% endblock %}</title>
+        <meta charset="utf-8" />
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
+        <link href="{{ SITEURL }}/theme/deadsands/css/style.css" rel="stylesheet" />
+  {% if FAVICON %}
+  <link rel="shortcut icon" href="{{ SITEURL }}/{{ FAVICON }}" type="image/x-icon" />
+  {% endif %}
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        {% endblock head %}
+    </head>
+
+    <body id="index" class="archive">
+       <div id='header_background'>
+       <div class="header">
+          <div class='sun'></div>
+          <div class='title'><h1><a href="/">{{ SITENAME }}</a></h1></div>
+
+            <ul class="nav">
+               {% for category, articles in categories %}
+                    <li><a href="{{ SITEURL }}/{{ category.name }}">{{ category }}</a></li>
+               {% endfor %}
+               {% for p in pages %}
+                    <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>
+                {% endfor %}
+               {% for m in MENU_ITEMS %}<li><a href="{{ SITEURL }}/{{ m[1] }}">{{ m[0] }}</a></li>{% endfor %}
+            </ul>
+       </div>
+       </div>
+       <div id='background'>
+         <div class="container">{% block content %}{% endblock %}</div>
+         <footer id="contentinfo" class="footer">
+            <nav class="pull-right bottom-nav">
+                <a href="{{ FEED_DOMAIN }}/{{ FEED_ALL_ATOM }}">RSS</a>
+              </nav>
+              <address id="about" class="vcard body">
+                 <!--
+                 &copy; <a href="{{SITEURL}}">{{SITENAME}}</a> Proudly powered by <a href="http://getpelican.com/">Pelican</a>
+                     -->
+           </address><!-- /#about -->
+          </footer><!-- /#contentinfo -->
+      </div>
+    </body>
+</html>

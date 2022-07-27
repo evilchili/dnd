@@ -1,0 +1,22 @@
+{% set all = articles|selectattr('category', 'equalto', category)|list %}
+{% if article in all %}
+    {% set pos = all.index(article) %}
+    {% set next = all[pos - 1] if pos > 0 else "" %}
+    {% set prev = all[pos + 1] if pos < all|length else "" %}
+    <div class='pager'>
+        <div class='prev'>
+        {% if prev %}
+            <a href="{{ SITEURL }}/{{ prev.url }}">← {{ prev.title }}</a>
+        {% else %}
+            <a class='disabled'>← Previous</a>
+        {% endif %}
+    </div>
+    <div class='middle'>&nbsp;</div>
+    <div class='next'>
+       {% if next %}
+            <a href="{{ SITEURL }}/{{ next.url }}">{{ next.title }} →</a>
+       {% else %}
+            <a class='disabled'>Next →</a>
+       {% endif %}
+    </div>
+{% endif %}

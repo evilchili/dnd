@@ -1,0 +1,16 @@
+<div class='box curled'>
+    <hr>
+    </hr>
+</div>
+<div class='column'>
+    <div class='signs'>
+    <h3>Recent Sessions</h3>
+        {% with count=10, key='category', values=['sessions', 'test'] %}{% include "signs.html" %}{% endwith %}
+    </div>
+</div>
+<div class='column'>
+    <h3>Recent Lore</h3>
+    <div class='signs'>
+        {% with count=10, key='category', values=['lore', 'dm'] %}{% include "signs.html" %}{% endwith %}
+    </div>
+</div>

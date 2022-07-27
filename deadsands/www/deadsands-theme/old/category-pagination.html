@@ -1,0 +1,18 @@
+<div class='pager'>
+    <div class='prev'>
+       {% if articles_page.has_previous() %}
+       {% set num = articles_page.previous_page_number() %}
+       <a href="{{ SITEURL }}/{{ page_name }}{{ num if num > 1 else '' }}.html">← Previous</a>
+       {% else %}
+       <a>← Previous</a>
+       {% endif %}
+    </div>
+    <div class='middle'>&nbsp;</div>
+    <div class='next'>
+       {% if articles_page.has_next() %}
+       <a href="{{ SITEURL }}/{{ page_name }}{{ articles_page.next_page_number() }}.html">Next →</a>
+       {% else %}
+       <a>Next →</a>
+       {% endif %}
+    </div>
+</div>

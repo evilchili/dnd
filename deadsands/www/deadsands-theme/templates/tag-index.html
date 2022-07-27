@@ -1,0 +1,19 @@
+<div class='box curled'>
+    <h2>{{ tag }}</a></h2>
+    <hr>
+{% for year, date_year in dates|groupby( 'date.year' )|sort(reverse=True) %}  
+    <h3>{{ year }}</h3>
+    <table class='archive-list'>
+        {% for article in date_year %}
+        {% if tag in article.tags  %}
+        <tr>
+            <td class="date">{{article.locale_date}}</td>
+            <td class='category'>{{article.category}}</td>
+            <td class='title'><a href="{{ SITEURL }}/{{ article.url }}">{{article.title}}</a> </td>
+        </tr>
+        {% endif %}
+        {% endfor %}
+     </table>
+{% endfor %}
+    <hr>
+</div>

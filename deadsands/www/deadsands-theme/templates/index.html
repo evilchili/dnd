@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}{{ category if category else tag if tag else "" |capitalize }} - {{SITENAME}}{% endblock title %}
+{% block navclass %}active{%endblock%}
+{% block content %}
+<section id="content" class="content">
+    {% if category %}
+        {% with key='category', values=[category], title=category %}{% include "category-index.html" %}{% endwith %}
+    {% elif tag %}
+        {% include "tag-index.html" %}
+    {% endif %}
+</section>
+{% endblock content %}
+

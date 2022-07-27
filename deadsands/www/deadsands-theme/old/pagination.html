@@ -1,0 +1,17 @@
+<div class='pager'>
+    <div class='prev'>
+    {% if dates_previous_page %}
+        <a href="{{ SITEURL }}/{{ dates_previous_page.url }}">&#8647;</a>
+        <a href="{{ SITEURL }}/{{ dates_previous_page.url }}">&laquo;</a>
+    {% endif %}
+    </div>
+    <div class='middle'>
+    Page {{ dates_previous_page.number }} / {{ dates_next_page.num_pages }}
+    </div>
+    <div class='next'>
+    {% if dates_next_page %}
+        <a href="{{ SITEURL }}/{{ dates_next_page.url }}">&raquo;</a>
+        <a href="{{ SITEURL }}/{{ dates_next_page.url }}">&#8649;</a>
+    {% endif %}
+    </div>
+</div>

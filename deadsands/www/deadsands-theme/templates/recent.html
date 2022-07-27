@@ -1,0 +1,7 @@
+{% set lim = count or 10 %}
+{% set a = articles | selectattr(key, 'in', values) | list %} 
+{% for article in a[:lim] %}
+<article class='recent'>
+<a class='title' href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{article.title|striptags }}">{{ article.title }}</a><span class="summary"> {{ article.summary }} </span>
+</article>
+{% endfor %}
