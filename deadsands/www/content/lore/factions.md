@@ -17,17 +17,17 @@ The difference between a Faction and a garden-variety criminal syndicate is one 
 |-----------------|----------------|
 | **Established**    |  857 ME (268 yrs) |
 | **Headquarters**   |  Tano's Edge |
-| **Branches**       |  Anywhere there's a brothel (ie, everywhere) |
+| **Branches**       |  Anywhere there's a brothel (i.e., everywhere) |
 | **Alignment**      |  Lawful Neutral |
 | **Politics**       |  Libertarian |
 | **Leader**         |  Mama Grahlu |
 | **Interests**      |  Brothels, intelligence, assassination |
 | **Public Motive**  |  Security and self-determination for common folk   |
-| **Bonds**          |  Wildly popular outside the major cities; defacto government of Tano's Edge |
+| **Bonds**          |  Wildly popular outside the major cities; de facto government of Tano's Edge |
 | **Flaws**          |  Reputation for vicious, bloody violence is not undeserved |
 | **Motto**          |  "Liberty At Any Cost" |
 
-The Liberty Sisters Faction was founded in 857 ME after a union of brothel workers across the Dewa Q'Asos siezed control of their establishments and slit the throats of every madame, pimp, and abusive customer in a single night remembered now as the Night of Bloody Liberation. The current Faction head is  Mama Grahlu, an imposing half-orc who rules Tano's Edge. Publically, The Liberty Sisters build schools, roads, and social programs for minor settlements along the desert rim. Privately, they use their extensive network to sell blackmail, extortion, and assassination to anyone who can pay, provided these dealings do not jeopardize the safety of common folk. Despite the name, the Liberty Sisters welcome all members regardless of identity expression.
+The Liberty Sisters Faction was founded in 857 ME after a union of brothel workers across the Dewa Q'Asos seized control of their establishments and slit the throats of every madame, pimp, and abusive customer in a single night remembered now as the Night of Bloody Liberation. The current Faction head is  Mama Grahlu, an imposing half-orc who rules Tano's Edge. Publicly, The Liberty Sisters build schools, roads, and social programs for minor settlements along the desert rim. Privately, they use their extensive network to sell blackmail, extortion, and assassination to anyone who can pay, provided these dealings do not jeopardize the safety of common folk. Despite the name, the Liberty Sisters welcome all members regardless of identity expression.
 
 ### The Gunslingers
 
@@ -37,7 +37,7 @@ The Liberty Sisters Faction was founded in 857 ME after a union of brothel worke
 | **Headquarters**    |  Poshni Koth |
 | **Branches**        |  Gazakh Noch, Tano's Edge, Gunslinger Outposts |
 | **Alignment**       |  Neutral Evil |
-| **Politics**        |  Fascist Capialist |
+| **Politics**        |  Fascist Capitalist |
 | **Leader**          |  Repeater Joe |
 | **Interests**       |  Private security, bounty hunting, trade caravans |
 | **Public Motive**   |  Peace, Order, and Gold |
@@ -45,7 +45,7 @@ The Liberty Sisters Faction was founded in 857 ME after a union of brothel worke
 | **Flaws**           |  Paranoid; Hatred of magic and magic users |
 | **Motto**           |  "Peace Through Superior Firepower" |
 
-The Gunslingers were originally a clan of Dwarves in Poshni Koth that grew to prominence by gradually siezing control of private security contracts up and down the trade routes of Dewa Q'Asos, protecting caravans and wagon trains. It is rumoured this was accomplished by attacking any contract not given to them, though the Gunslingers maintain it was simply their competition's sheer  incompetence that led to their dominance. Nowadays the majority of the Gunslingers' business lies in the transportation of black powder exports from the Koth, though they will take any job suited for a private army geared with the latest in firearms advancements. They also maintain "Outposts," small groups of Gunslingers for hire by private citizens at frequently extortionate  rates, though discounts are readily available for any bounty on magic users. The Gunslingers are controlled by Repeater Joe, a grizzled, one-eyed dwarf who maintains a heavily-fortified compound in the foothills outside of Pashni Koth.
+The Gunslingers were originally a clan of Dwarves in Poshni Koth that grew to prominence by gradually seizing control of private security contracts up and down the trade routes of Dewa Q'Asos, protecting caravans and wagon trains. It is rumoured this was accomplished by attacking any contract not given to them, though the Gunslingers maintain it was simply their competition's sheer  incompetence that led to their dominance. Nowadays the majority of the Gunslingers' business lies in the transportation of black powder exports from the Koth, though they will take any job suited for a private army geared with the latest in firearms advancements. They also maintain "Outposts," small groups of Gunslingers for hire by private citizens at frequently extortionate  rates, though discounts are readily available for any bounty on magic users. The Gunslingers are controlled by Repeater Joe, a grizzled, one-eyed dwarf who maintains a heavily-fortified compound in the foothills outside of Poshni Koth.
 
 
 ### The Guild of Makers
@@ -64,6 +64,7 @@ The Gunslingers were originally a clan of Dwarves in Poshni Koth that grew to pr
 | **Flaws**        | Believes technology will solve all society's problems
 | **Motto**        | "Mechanize! Modernize! Prosper!"
 
-The Guild of Makers (popularly "The Guild") is the newest Faction to rise to legitimate status, having been recognized first by Gazakh Noch just 75 years ago, on the strength of *Radiant's Radiance*, a series of unique gearforged automata designed by Radiant, a Halfing artificer and the most famous gearforged designer of his time. Radiant's progressive politics and prominent status attracted artisans and craftspeople throughout Gazakh Noch, who essentially pushed him into establishing a Faction to further their own interests and ensure the continued rock-star status of the best makers. Today Radiant reluctantly heads the Guild together with Rat's Nest Six, the first -- and so far only -- gearforged of the Radiance line to achieve sentience.
+
+The Guild of Makers (popularly "The Guild") is the newest Faction to rise to legitimate status, having been recognized first by Gazakh Noch just 75 years ago, on the strength of *Radiant's Radiance*, a series of unique gearforged automata designed by Radiant, a halfing artificer and the most famous gearforged designer of his time. Radiant's progressive politics and prominent status attracted artisans and craftspeople throughout Gazakh Noch, who essentially pushed him into establishing a Faction to further their own interests and ensure the continued rock-star status of the best makers. Today Radiant reluctantly heads the Guild together with Rat's Nest Six, the first -- and so far only -- gearforged of the Radiance line to achieve sentience.
 
 The Guild's relationship with the other Factions is somewhat complicated: The Gunslingers disapprove of their politics but rely on their expertise to maintain and improve the automata upon which the Koth's industry relies. The Liberty Sisters see the Guild as insular and arrogant, dismissive of the common people and seeking to disrupt their livelihoods with unasked-for automation.
