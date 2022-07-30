@@ -1,0 +1,72 @@
+metadata:
+  headers:
+      - Roll
+      - Frequency
+      - Description
+      - Effect
+  die: 20
+  frequencies:
+    default:
+      Common: 0.5
+      Uncommon: 0.3
+      Rare: 0.15
+      Weird: 0.05
+    deadly:
+      Common: 0.05
+      Uncommon: 0.15
+      Rare: 0.3
+      Weird: 0.5
+Common:
+  - Clear Skies: No effect
+Uncommon:
+  - Scorching Temperatures: 2x water consumption
+  - Clinging Sand: Disadvantage on STR checks and saves
+  - Searing Light: Disadvantage on DEX checks and saves
+  - Ghostly Wailing: Disadvantage on CON checks for concentration checks
+  - Low Oxygen: Disadvantage on INT checks and saves
+  - Glowing Dust Storm: Disadvantge on WIS checks and saves
+  - Psychic Fog: Disadvantage on CHA checks and saves
+  - Sand Storm:
+      Heavily obscured; visibility 5ft, disadvantage on WIS
+      (Perception) checks and INT (Investigation) checks
+  - Burning Sands:
+      Ground travelers must succeed on a DC 15 CON save or take 1d6
+      fire damage every half-day.
+  - Oppressive Quiet: Silence beyond 20ft; disadvantage on WIS checks involving sound
+  - Insect Swarms: 1d6 Piercing damage per half-day
+  - Air of Dread: Succeed on DC 15 WIS save or be frightened for half-day
+Rare:
+  - Spontaneous Hail: No effect; counts as magical water if consumed
+  - Glowing Auras: Faerie Fire spell effect
+  - Heavy Gravity: Disadvantge on STR, DEX checks and saves
+  - Random Whirlwinds:
+      At the start of each round, whirlwinds 10ft in diameter and and
+      100ft tall randomly form. Any creature within 10ft of a
+      whirlwind at the start of their turn must succeed on a DC 15 STR
+      (Athletics) save or be pulled 10ft towards it. A creature
+      occupying the same space as a whirlwind at the start of their
+      turn takes 1d8 bludgeoning damage.
+  - Tentacles: 
+      At the start of each round, Black Tentacles is cast on a random area. Creatures starting their turn there must succeed on a DC 15 DEX saving throw or take 1d6 bludgeoning damage and be restrained. A creature who starts their turn already restrained takes 1d6 bludgeoning damage.
+  - Broken Time: 
+      At the start of each round, the DM rolls a d20. Until the start
+      of the next round, anyone with initiative score greater than or
+      equal to the DM's roll is slowed and anyone lower is hasted.
+Weird:
+  - Whispered Insanity: >
+      "Clear skies" (but you are cursed; the DM rolls for each traveler)
+          d1 - None of this is really happening.
+          d2 - We're invincible!
+          d3 - They're all turning against you.
+          d4 - You're being followed.
+          d5 - An object in your inventory is the key to your survival.
+          d6 - Your soul has fled your body.
+          d7 - One of your companions is an imposter.
+          d8 - You should take off your clothes and experience true freedom.
+  - Inverted Bubble Rain: No effect
+  - Hot Metal Storm:
+      Heat Metal spell effect (gearforged take 1pt exhaustion per half-day)
+  - Morphing Dust: DC 15 WIS saving throw or become a frog each half-day
+  - Ethereal Wind: Travelers are transported to the Border Ethereal.
+  - Arcane Mirages: Mirage Arcane spell effect; disadvantage on skill checks to Forage and Survey 
+  - Magonic Field Resonance: All spell damage / effect rolls are maxed.
