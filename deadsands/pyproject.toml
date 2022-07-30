@@ -1,0 +1,36 @@
+[tool.poetry]
+name = 'dnd'
+version = '1.0'
+license = 'The Unlicense'
+authors = ['Greg Boyington <evilchili@gmail.com>']
+description = 'Source for a homebrew DND campaign toolset.'
+packages = [
+   { include = 'www' }
+]
+
+[tool.poetry.dependencies]
+python = "^3.7"
+
+# cli business
+typer = "latest"
+rich = "latest"
+pyyaml = "latest"
+invoke = "latest"
+
+# static website
+pelican = "^4.7.2"
+pelican-drafts = "^0.1.1"
+pelican-sitemap = "^1.0.2"
+pelican-yaml-metadata = { git = "https://github.com/pR0Ps/pelican-yaml-metadata.git", branch = "cdc1b9708916410e455e8e258e3d39a9d575c7b5" }
+
+# local wotsits
+dnd-rolltable = { git = "https://github.com/evilchili/dnd-rolltable", branch = 'main' }
+
+[tool.poetry.scripts]
+roll-table = "rolltable.cli:app"
+site = "www.tasks:pelican_run"
+
+
+[build-system]
+requires = ['poetry-core~=1.0']
+build-backend = 'poetry.core.masonry.api'
