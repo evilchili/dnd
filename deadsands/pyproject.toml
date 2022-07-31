@@ -5,7 +5,7 @@ license = 'The Unlicense'
 authors = ['Greg Boyington <evilchili@gmail.com>']
 description = 'Source for a homebrew DND campaign toolset.'
 packages = [
-   { include = 'www' }
+    { include = "site_tools" }
 ]
 
 [tool.poetry.dependencies]
@@ -28,7 +28,8 @@ dnd-rolltable = { git = "https://github.com/evilchili/dnd-rolltable", branch = '
 
 [tool.poetry.scripts]
 roll-table = "rolltable.cli:app"
-site = "www.tasks:pelican_run"
+pelican = "site_tools.tasks:pelican_main"
+
 
 
 [build-system]
