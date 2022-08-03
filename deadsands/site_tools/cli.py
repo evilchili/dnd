@@ -6,17 +6,19 @@ import sys
 import typer
 import webbrowser
 
+import site_tools as st
+
 from enum import Enum
 from livereload import Server
 from pelican import main as pelican_main
-from site_tools import SETTINGS, DEV_SETTINGS_FILE_BASE, PUB_SETTINGS_FILE_BASE
 from site_tools.content_manager import create
 
+
 CONFIG = {
-    'settings_base': DEV_SETTINGS_FILE_BASE,
-    'settings_publish': PUB_SETTINGS_FILE_BASE,
+    'settings_base': st.DEV_SETTINGS_FILE_BASE,
+    'settings_publish': st.PUB_SETTINGS_FILE_BASE,
     # Output path. Can be absolute or relative to tasks.py. Default: 'output'
-    'deploy_path': SETTINGS['OUTPUT_PATH'],
+    'deploy_path': st.SETTINGS['OUTPUT_PATH'],
     # Remote server configuration
     'ssh_user': 'greg',
     'ssh_host': 'froghat.club',
@@ -69,7 +71,7 @@ def serve() -> None:
     clean()
     cached_build()
     server = Server()
-    theme_path = SETTINGS['THEME']
+    theme_path = st.SETTINGS['THEME']
     watched_globs = [
         CONFIG['settings_base'],
         '{}/templates/**/*.html'.format(theme_path),
@@ -77,7 +79,7 @@ def serve() -> None:
 
     content_file_extensions = ['.md', '.rst']
     for extension in content_file_extensions:
-        content_glob = '{0}/**/*{1}'.format(SETTINGS['PATH'], extension)
+        content_glob = '{0}/**/*{1}'.format(st.SETTINGS['PATH'], extension)
         watched_globs.append(content_glob)
 
     static_file_extensions = ['.css', '.js']
@@ -88,7 +90,7 @@ def serve() -> None:
     for glob in watched_globs:
         server.watch(glob, cached_build)
 
-    if OPEN_BROWSER_ON_SERVE:
+    if st.OPEN_BROWSER_ON_SERVE:
         webbrowser.open(url)
 
     server.serve(host=CONFIG['host'], port=CONFIG['port'],
@@ -143,8 +145,8 @@ def new(
                 category = 'regions'
             case _:
                 category = content_type
-    click.edit(filename=create(content_type, title, template_dir, category,
-                               template or content_type))
+    click.edit(filename=create(content_type.value, title, template_dir,
+                               category, template or content_type.value))
 
 
 if __name__ == '__main__':

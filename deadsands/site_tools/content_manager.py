@@ -11,7 +11,7 @@ def create(content_type: str, title: str, template_dir: str,
     """
     Return the path to a new source file.
     """
-    base_path = Path(__file__).parent.absolute()
+    base_path = Path.cwd()
 
     def _slugify(s):
         return slugify(s, regex_subs=SETTINGS['SLUG_REGEX_SUBSTITUTIONS'])
