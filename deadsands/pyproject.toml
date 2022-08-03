@@ -25,6 +25,7 @@ pelican-yaml-metadata = { git = "https://github.com/pR0Ps/pelican-yaml-metadata.
 
 # local wotsits
 dnd-rolltable = { git = "https://github.com/evilchili/dnd-rolltable", branch = 'main' }
+dnd-npcs      = { git = "https://github.com/evilchili/dnd-npcs", branch = 'main' }
 
 [tool.poetry.scripts]
 site = "site_tools.cli:app"
