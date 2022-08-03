@@ -8,21 +8,13 @@ import webbrowser
 
 from enum import Enum
 from livereload import Server
+from pelican import main as pelican_main
+from site_tools import SETTINGS, DEV_SETTINGS_FILE_BASE, PUB_SETTINGS_FILE_BASE
 from site_tools.content_manager import create
 
-from pelican import main as pelican_main
-from pelican.settings import DEFAULT_CONFIG, get_settings_from_file
-
-OPEN_BROWSER_ON_SERVE = True
-SETTINGS_FILE_BASE = 'pelicanconf.py'
-SETTINGS = {}
-SETTINGS.update(DEFAULT_CONFIG)
-LOCAL_SETTINGS = get_settings_from_file(SETTINGS_FILE_BASE)
-SETTINGS.update(LOCAL_SETTINGS)
-
 CONFIG = {
-    'settings_base': SETTINGS_FILE_BASE,
-    'settings_publish': 'publishconf.py',
+    'settings_base': DEV_SETTINGS_FILE_BASE,
+    'settings_publish': PUB_SETTINGS_FILE_BASE,
     # Output path. Can be absolute or relative to tasks.py. Default: 'output'
     'deploy_path': SETTINGS['OUTPUT_PATH'],
     # Remote server configuration
@@ -104,7 +96,7 @@ def serve() -> None:
 
 
 @app.command()
-def publish():
+def publish() -> None:
     clean()
     pelican_run(publish=True)
     subprocess.call(

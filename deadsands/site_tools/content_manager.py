@@ -3,7 +3,7 @@ from jinja2 import Environment, FileSystemLoader
 from pathlib import Path
 from pelican.writers import Writer
 from pelican.utils import slugify, sanitised_join
-from site_tools.tasks import SETTINGS
+from site_tools import SETTINGS
 
 
 def create(content_type: str, title: str, template_dir: str,
