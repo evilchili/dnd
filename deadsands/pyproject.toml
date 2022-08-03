@@ -9,7 +9,7 @@ packages = [
 ]
 
 [tool.poetry.dependencies]
-python = "^3.7"
+python = "^3.10"
 
 # cli business
 typer = "latest"
@@ -27,6 +27,7 @@ pelican-yaml-metadata = { git = "https://github.com/pR0Ps/pelican-yaml-metadata.
 dnd-rolltable = { git = "https://github.com/evilchili/dnd-rolltable", branch = 'main' }
 
 [tool.poetry.scripts]
+site = "site_tools.cli:app"
 roll-table = "rolltable.cli:app"
 pelican = "site_tools.tasks:pelican_main"
 

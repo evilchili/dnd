@@ -1,10 +1,8 @@
 metadata:
   headers:
-      - Roll
-      - Frequency
+      - Rarity
       - Description
       - Effect
-  die: 20
   frequencies:
     default:
       Common: 0.5
@@ -36,6 +34,7 @@ Uncommon:
   - Insect Swarms: 1d6 Piercing damage per half-day
   - Air of Dread: Succeed on DC 15 WIS save or be frightened for half-day
 Rare:
+  - Magnetic Turmoil: North moves randomly
   - Spontaneous Hail: No effect; counts as magical water if consumed
   - Glowing Auras: Faerie Fire spell effect
   - Heavy Gravity: Disadvantge on STR, DEX checks and saves
@@ -47,7 +46,9 @@ Rare:
       occupying the same space as a whirlwind at the start of their
       turn takes 1d8 bludgeoning damage.
   - Tentacles: 
-      At the start of each round, Black Tentacles is cast on a random area. Creatures starting their turn there must succeed on a DC 15 DEX saving throw or take 1d6 bludgeoning damage and be restrained. A creature who starts their turn already restrained takes 1d6 bludgeoning damage.
+      At the start of each round, Black Tentacles is cast on a random area. Creatures starting their turn there must
+      succeed on a DC 15 DEX saving throw or take 1d6 bludgeoning damage and be restrained. A creature who starts their
+      turn already restrained takes 1d6 bludgeoning damage.
   - Broken Time: 
       At the start of each round, the DM rolls a d20. Until the start
       of the next round, anyone with initiative score greater than or
