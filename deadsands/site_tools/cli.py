@@ -2,6 +2,7 @@ import click
 import os
 import shutil
 import subprocess
+import shlex
 import sys
 import typer
 import webbrowser
@@ -101,14 +102,14 @@ def serve() -> None:
 def publish() -> None:
     clean()
     pelican_run(publish=True)
-    subprocess.call(
+    subprocess.run(shlex.split(
         'rsync --delete --exclude ".DS_Store" -pthrvz -c '
         '-e "ssh -p {ssh_port}" '
         '{} {ssh_user}@{ssh_host}:{ssh_path}'.format(
             CONFIG['deploy_path'].rstrip('/') + '/',
             **CONFIG
         )
-    )
+    ))
 
 
 @app.command()

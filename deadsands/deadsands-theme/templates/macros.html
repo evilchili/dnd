@@ -5,3 +5,12 @@
 </a>
 {% endif %}
 {% endmacro %}
+
+{% macro rolltable(t) %}
+<table>
+    <tr><th>Roll</th><th>Effect</th></tr>
+    {% for die in t %}
+    <tr><td>{{ die }}</td><td>{{ t[die] }}</td></tr>
+    {% endfor %}
+</table>
+{% endmacro %}

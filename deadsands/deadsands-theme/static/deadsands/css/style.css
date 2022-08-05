@@ -359,7 +359,7 @@ ol > li > ul li:last-of-type {
 }
 
 .column {
-    margin: 1em 0;
+    margin: 0px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -629,31 +629,6 @@ a.disabled:hover {
     color: #333;        
 }
 
-.statblock h4, .statblock h5, .statblock  h6 {
-    border: none;
-}
-
-.statblock table, 
-.statblock table tr { 
-    width: 100%;
-}
-.statblock table th {
-    border: none;
-    white-space: nowrap;
-    vertical-align: top;
-}
-
-.statblock table th, .statblock table td {
-    padding: 0.5em;
-    width: 1%;
-    text-align: left;
-}
-
-.statblock table ul {
-    padding-left: 1em;
-}
-
-
 .two-column {
     column-count: 2;
     display: block;
@@ -663,129 +638,83 @@ a.disabled:hover {
     break-inside: avoid-column;
 }
 
-.statblock table, 
-.statblock table tr {
-    break-inside: avoid-column;
-    width: 100%;
-}
-
-.statblock table th {
-    width: 1%;
-    font-weight: bold;
-}
-
-table.last-wide tr:last-child {
-    width: 100%;
-}
-
-table.auto, table.auto tr, table.auto th, table.auto td { 
-    width: auto;
-}
-
-
-.statblock, dl.spoiler {
-    margin: 20px auto;
+.read {
+    margin: 1em;
+    margin-top: 0em;
+    text-align: left;
     padding: 10px;
-    /*
-    background: rgb(255,255,255);
-    background: linear-gradient(135deg, rgba(255,255,255,1) 40%, #A2B672 100%);  
-    */
-    border: 1px solid #AAA;
-}
-
-.statblock .separator {
-    content: "";
-    display:block;
-    width: 100%;
-    margin: 10px 0px;
-    border-top: 3px solid #28371C;
+    background: rgba(255,255,255, 0.5);
 }
 
 /* Stat block typography */
 
 .statblock {
-    font-size: 0.75em;
+    padding: 1em;
+    margin: 3em;
+    background: #e8d4b3;
+    background: rgba(244,241,232, 0.5);
+    border: 1px solid #333;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 60%), 0 0 25px rgba(0, 0, 0, 20%) inset;
 }
 
-.statblock h2, h3, h4, h5, h6 {
-    padding-bottom: 5px;
-    border-bottom: 1px solid #28371C;
+.statblock h4, h5, h6 {
     text-transform: capitalize;
-}
-
-
-.statblock .name {
-    font-weight: 700;
-    font-size: 2em;
-    font-variant: small-caps;
+    text-align: left;
     margin: 0;
-    margin-top: -10px;
 }
 
-.statblock .name:hover {
-    color: #28371C;
+.statblock table {
+    margin: 0;
 }
 
-.statblock .size {
-    font-style: italic;
-    margin-top: -3px;
-    padding-left:2px;
+.statblock table tr, .statblock table tr td {
+    background: inherit;
 }
-
-.statblock .stat {
-    font-size:0.9em;
-    color: #28371C;
+.statblock table tr th, 
+.statblock table tr td {
+    vertical-align: top;
+    padding-right: 2em;
+}
+.statblock table tr td:first-of-type {
     font-weight: bold;
 }
-.statblock .stat .value {
-    color: #333;
-    font-weight:normal;
-    padding-left: 3px;
+.statblock table tr:last-child,
+.statblock table tr:last-child {
+    padding-right: 1em;
+}
+.statblock table tr:nth-child(even) {
+    background: rgba(244,241,232, 0.5);
+}
+.statblock table tr:nth-child(odd) {
+    background: rgba(255,255,255, 0.3);
 }
 
-.statblock .ability-scores ul {
-  font-size: 1.2rem;
-  width: 100%;
+
+
+.statblock dl {
   display: flex;
+  flex-flow: row;
   flex-wrap: wrap;
-  justify-content: space-between;
-  list-style: none;
-  margin: 0 auto;
-  padding: 0;
-  color: #28371C;
-  font-weight: bold;
+  width: 100%;
+  overflow: visible;
 }
-.statblock .ability-scores ul li {
-    width: calc(100% / 6);
-    font-size: 0.8em;
-    text-align: center;
+.statblock dl dt {
+  flex: 0 0 25%;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  margin-bottom: 2em;
 }
-
-.statblock .ability-scores ul.score li small {
-    font-weight: normal;
-    color: #333;
-}
-
-.statblock p {
-    font-family: Roboto,Helvetica,sans-serif !important;
-    text-align: justify;
+.statblock dl dd {
+  flex:0 0 75%;
+  margin-left: auto;
+  text-align: left;
+  text-overflow: ellipsis;
+  overflow: hidden;
 }
 
-.statblock p strong::after {
-    content: '.';
-    display: inline;
+.statblock .inner {
+    display: none;
 }
-
-.statblock p em {
-    padding-right: 5px;
-}
-
-.statblock p em::after {
-    content: ':';
-    display:inline;
-}
-
-
 
 
 @media screen and (min-width: 900px) {

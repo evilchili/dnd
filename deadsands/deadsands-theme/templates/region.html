@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% import "macros.html" as macros %}
 {% block title %}{{ article.title|capitalize }} - {{SITENAME}}{% endblock title %}
 {% block content %}
 {% set r = article.metadata.region %}
@@ -18,79 +19,40 @@
 
         {{ article.content }}
 
+        {% set target = article.title.replace(' ', '_') %}
         <div class='statblock'>
-            <div class='two-column'>
-            <h3>{{ article.title }}</h3>
-            <table class='auto'>
-                <tr>
-                    <td colspan='2'>{{ r.description }}</td>
-                </tr>
-                <tr>
-                    <th>Size</th>
-                    <td>{{ r.size }} sq. miles</td>
-                </tr>
-                <tr>
-                    <th>Terrain</th>
-                    <td>{{ r.terrain }}</td>
-                </tr>
-                <tr>
-                    <th>Encounters On</th>
-                    <td>{{ r.encounters }}</td>
-                </tr>
-                <tr>
-                    <th>Challenge Rating</th>
-                    <td>{{ r.cr }}</td>
-                </tr>
-
-                <tr>
-                    <th>Regional Effects</th>
-                    <td>
-                        <ul>{% for e in  r.regional_effects %}<li>{{ e }}</li>{% endfor %}</ul>
-                    </td>
-                </tr>
-            </table>
-
-                <div>
-                    <h4>Weather</h4>
-                    <table class='auto'>
-                        <tr><th>Roll</th><th>Effect</td></tr>
-                        <tr><td>d1</td><td>{{ r.weather.d1 }}</td></tr>
-                        <tr><td>d2</td><td>{{ r.weather.d2 }}</td></tr>
-                        <tr><td>d3</td><td>{{ r.weather.d3 }}</td></tr>
-                        <tr><td>d4</td><td>{{ r.weather.d4 }}</td></tr>
-                        <tr><td>d5</td><td>{{ r.weather.d5 }}</td></tr>
-                        <tr><td>d6</td><td>{{ r.weather.d6 }}</td></tr>
-                        <tr><td>d7</td><td>{{ r.weather.d7 }}</td></tr>
-                        <tr><td>d8</td><td>{{ r.weather.d8 }}</td></tr>
-                    </table>
+            <div style='cursor: pointer;'
+                onclick="document.getElementById('{{target}}').style.display=((document.getElementById('{{ target }}').style.display=='none')?'':'none');" ><h3>{{ article.title }}</h3></div>
+            <div id="{{ target }}" style='display:none;'>
+                <div class='read'>
+                    {{ r.description }}
                 </div>
+                <dl>
+                    <dt>Size</dt><dd>{{ r.size }} sq. miles </dd>
+                    <dt>Terrain</dt><dd>{{ r.terrain }} (walking: {{ r.size / 10 if r.terrain == 'difficult' else 20 |round }} days)</dd>
+                    <dt>Skill Challenges</dt><dd>
+                        <table>
+                        <tr>
+                            <th>Skill</td>
+                            <th style='text-align: right;'>DC</th>
+                            <th>Resources</th>
+                        </tr>
+                        {% for (k, v) in [ ('Travel', r.travel), ('Forage', r.forage), ('Track', r.track), ('Evade', r.evade), ('Survey', r.survey) ]  %}
+                        <tr>
+                            <td>{{ k }}</td>
+                            <td style='text-align: right;'>{{ v.dc or ""}}</td>
+                            <td>{{ v.resources or ""}}</td>
+                        </tr>
+                        {% endfor %}
+                        </table>
+                    </dd>
+                    <dt>Encounters (CR {{r.cr}})</dt><dd>{{ macros.rolltable(r.encounters) }}</dd>
+                    <dt>Regional Effects</dt><dd>{{ macros.rolltable(r.regional_effects) }}</dd>
+                    <dt>Weather Effects</dt><dd>{{ macros.rolltable(r.weather) }}</dd>
+                </dl>
             </div>
-            <br>
-            <h4>Activities</h4>
-            <table class='min'>
-                <thead>
-                    <tr>
-                        <th>&nbsp;</td>
-                        <th>DC</th>
-                        <th>Resources</th>
-                        <th>Notes</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for (k, v) in [ ('Travel', r.travel), ('Forage', r.forage), ('Track', r.track), ('Evade', r.evade), ('Survey', r.survey) ]  %}
-                    <tr>
-                        <th>{{ k }}</th>
-                        <td>{{ v.dc or ""}}</td>
-                        <td>{{ v.resources or ""}}</td>
-                        <td>
-                            {% if v.critical_success %}crit. success = {{ v.critical_success }}<br>{% endif %}
-                            {% if v.critical_failure %}crit. failure = {{ v.critical_failure }}<br>{% endif %}
-                    </tr>
-                    {% endfor %}
-                </tbody>
-            </table>
-
         </div>
+
         <hr>
         {% include "bottom-nav.html" %}
     </div>
