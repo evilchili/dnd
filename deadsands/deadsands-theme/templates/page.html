@@ -1,26 +1,29 @@
 {% extends "base.html" %}
-{% block title %}{{ page.title }} - {{SITENAME}}{%endblock%}
+{% import "macros.html" as macros %}
+{% block title %}{{ page.title }} - {{SITENAME}}{% endblock title %}
+{% block key_image %}{{ macros.key_image(page) }}{% endblock key_image %}
 {% block content %}
-<div class='box curled'>
-<h2>{{ page.title }}</h2>
-<hr>
-{% import 'translations.html' as translations with context %}
-{{ translations.translations_for(page) }}
-{{ page.content }}
-<hr>
-    {% if page.metadata['show_recent'] %}
-<div class='column'>
-    <div class='signs'>
-    <h3>Recent Sessions</h3>
-        {% with count=10, key='category', values=['sessions', 'test'] %}{% include "signs.html" %}{% endwith %}
+<section id="content">
+    <div class='box curled'>
+        <h2>{{ page.title }}</h2>
+        <hr>
+        {{ page.content }}
+        <hr>
     </div>
-</div>
-<div class='column'>
-    <h3>Recent Lore</h3>
-    <div class='signs'>
-        {% with count=10, key='category', values=['lore', 'dm'] %}{% include "signs.html" %}{% endwith %}
+
+    {% if page.show_recent %}
+    <div class='column'>
+        <div class='signs'>
+        <h3>Recent Sessions</h3>
+            {% with count=10, key='category', values=['sessions', 'test'] %}{% include "signs.html" %}{% endwith %}
+        </div>
     </div>
-</div>
+    <div class='column'>
+        <h3>Recent Lore</h3>
+        <div class='signs'>
+            {% with count=10, key='category', values=['lore', 'dm'] %}{% include "signs.html" %}{% endwith %}
+        </div>
+    </div>
     {% endif %}
-</div>
-{% endblock %}
+</section>
+{% endblock content %}

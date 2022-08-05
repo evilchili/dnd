@@ -1,0 +1,7 @@
+{% macro key_image(ref) %}
+{% if ref.key_image %}
+<a class='key_image' href="{{ ref.key_image.src }}">
+    <img src="{{ ref.key_image.src|replace('.','_thumb.') }}" alt="{{ ref.key_image.alt}}">
+</a>
+{% endif %}
+{% endmacro %}

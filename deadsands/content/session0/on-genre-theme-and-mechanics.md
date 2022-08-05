@@ -1,7 +1,10 @@
-Title: On Genre, Theme, and Mechanics
-Date: 2022-07-09 11:00
-Tags: homebrew
-Description: None of this is set in stone! Let's work out the setting together.<br> - evilchili
+---
+title: On Genre, Theme, and Mechanics
+date: 2022-07-09 11:00
+tags: homebrew
+description: None of this is set in stone! Let's work out the setting together.<br> - evilchili
+---
+
 
 The Dead Sands is a **post-apocalyptic gold rush weird western**. A millenia ago the Empire of Yanrin Didan, a great civilization in an era of high magic was destroyed, devastating the land and creating a vast desert. The desert was uninhabitable for centuries as fierce, unpredictable magical storms scoured the land. All trace of the peoples that once lived there was lost. Over time, nature slowly reasserted itself and desert plants, beasts, and things much stranger than beasts adapted to the harsh conditions, and the desert, while still deadly and weird, is no longer as empty as it once was.
 

@@ -65,7 +65,7 @@ def serve() -> None:
     url = 'http://{host}:{port}/'.format(**CONFIG)
 
     def cached_build():
-        pelican_run(['-e', 'CACHE_CONTENT=true', 'LOAD_CONTENT_CACHE=true',
+        pelican_run(['-ve', 'CACHE_CONTENT=true', 'LOAD_CONTENT_CACHE=true',
                      'SHOW_DRAFTS=true', f'SITEURL="{url}"'])
 
     clean()
@@ -143,8 +143,10 @@ def new(
                 category = 'beastiary'
             case 'region':
                 category = 'regions'
+            case 'page':
+                category = 'pages'
             case _:
-                category = content_type
+                category = content_type.value
     click.edit(filename=create(content_type.value, title, template_dir,
                                category, template or content_type.value))
 
