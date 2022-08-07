@@ -16,13 +16,13 @@ region:
   name: {{ title }}
   size: 10
   terrain: difficult
-  description: |
-    description
+  dm_notes: |
+    DM's notes go here.
   skills:
     Travel:
         DC: 10
         Notes:
-    Rorage:
+    Forage:
         DC: 10
         Notes:
     Track:
@@ -44,4 +44,4 @@ region:
 status: {{ status if status else 'draft' }}
 ---
 
-DM's region notes goes here.
+Description goes here.

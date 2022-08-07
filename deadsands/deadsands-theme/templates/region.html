@@ -1,6 +1,8 @@
 {% extends "base.html" %}
 {% import "macros.html" as macros %}
 {% block title %}{{ article.title|capitalize }} - {{SITENAME}}{% endblock title %}
+{% block summary %}{{ article.summary|striptags }}{% endblock %}
+{% block key_image %}{{ macros.key_image(article) }}{% endblock key_image %}
 {% block content %}
 {% set r = article.metadata.region %}
 
@@ -20,7 +22,7 @@
         {{ article.content }}
 
         {% set target = article.title.replace(' ', '_') %}
-        {% if self.is_dm() %}
+        {% if self.is_dm() or article.show_dm_content %}
         <div class='statblock'>
             <div style='cursor: pointer;'
                 onclick="document.getElementById('{{target}}').style.display=((document.getElementById('{{ target }}').style.display=='none')?'':'none');" ><h3>{{ article.title }}</h3></div>
