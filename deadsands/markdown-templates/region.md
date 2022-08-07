@@ -18,29 +18,28 @@ region:
   description: |
     description
   skills:
-    travel:
-        dc: 10
-        notes:
-    forage:
-        dc: 10
-        notes:
-    track:
-        dc: 10
-        notes:
-    evade:
-        dc: 10
-        notes:
-    survey:
-        dc: 10
-        notes:
+    Travel:
+        DC: 10
+        Notes:
+    Rorage:
+        DC: 10
+        Notes:
+    Track:
+        DC: 10
+        Notes:
+    Evade:
+        DC: 10
+        Notes:
+    Survey:
+        DC: 10
+        Notes:
   cr: 4
   encounters:
-{% rolltable ['encounters'], indent=4 %}
+{% rolltable ['encounters'], die=20, indent=4 %}
   weather:
 {% rolltable ['weather'], indent=4 %}
   regional_effects:
-    -
-    -
+{% rolltable ['regional_effects'], die=1, indent=4 %}
 status: {{ status if status else 'draft' }}
 ---
 

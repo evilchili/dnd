@@ -677,9 +677,11 @@ a.disabled:hover {
 }
 .statblock table tr td:first-of-type {
     font-weight: bold;
+    white-space: nowrap;
 }
-.statblock table tr td:first-child:nth-last-child(1) { 
+.statblock table tr td:first-of-type:last-of-type {
     font-weight: normal;
+    white-space: wrap;
 }
 
 .statblock table tr:last-child,
@@ -711,6 +713,7 @@ a.disabled:hover {
 .statblock dl dd {
   flex:0 0 75%;
   margin-left: auto;
+  margin-bottom: 3em;
   text-align: left;
   text-overflow: ellipsis;
   overflow: hidden;
