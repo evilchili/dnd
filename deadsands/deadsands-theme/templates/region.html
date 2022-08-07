@@ -30,29 +30,13 @@
                 <dl>
                     <dt>Size</dt><dd>{{ r.size }} sq. miles </dd>
                     <dt>Terrain</dt><dd>{{ r.terrain }} (walking: {{ r.size / 10 if r.terrain == 'difficult' else 20 |round }} days)</dd>
-                    <dt>Skill Challenges</dt><dd>
-                        <table>
-                        <tr>
-                            <th>Skill</td>
-                            <th style='text-align: right;'>DC</th>
-                            <th>Resources</th>
-                        </tr>
-                        {% for (k, v) in [ ('Travel', r.travel), ('Forage', r.forage), ('Track', r.track), ('Evade', r.evade), ('Survey', r.survey) ]  %}
-                        <tr>
-                            <td>{{ k }}</td>
-                            <td style='text-align: right;'>{{ v.dc or ""}}</td>
-                            <td>{{ v.resources or ""}}</td>
-                        </tr>
-                        {% endfor %}
-                        </table>
-                    </dd>
-                    <dt>Encounters (CR {{r.cr}})</dt><dd>{{ macros.rolltable(r.encounters) }}</dd>
-                    <dt>Regional Effects</dt><dd>{{ macros.rolltable(r.regional_effects) }}</dd>
-                    <dt>Weather Effects</dt><dd>{{ macros.rolltable(r.weather) }}</dd>
+                    <dt>Regional Effects</dt><dd>{{ macros.table(r.regional_effects) }}</dd>
+                    <dt>Skill Challenges</dt><dd>{{ macros.table(r.skills, ['Skills', 'DC', 'Notes']) }}</dd>
+                    <dt>Encounters (CR {{r.cr}})</dt><dd>{{ macros.table(r.encounters, ['Roll', 'Difficulty']) }}</dd>
+                    <dt>Weather Effects</dt><dd>{{ macros.table(r.weather, ['Roll', None, 'Description', 'Effect']) }}</dd>
                 </dl>
             </div>
         </div>
-
         <hr>
         {% include "bottom-nav.html" %}
     </div>

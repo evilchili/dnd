@@ -678,6 +678,10 @@ a.disabled:hover {
 .statblock table tr td:first-of-type {
     font-weight: bold;
 }
+.statblock table tr td:first-child:nth-last-child(1) { 
+    font-weight: normal;
+}
+
 .statblock table tr:last-child,
 .statblock table tr:last-child {
     padding-right: 1em;

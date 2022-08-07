@@ -21,10 +21,12 @@ def create(content_type: str, title: str, template_dir: str,
     if not (template_path / template_name).exists():
         template_name = 'default.md'
         print("Not found. Using default markdown template.")
-    template_source = Environment(
+    env = Environment(
         loader=FileSystemLoader(template_path),
         trim_blocks=True,
-    ).get_template(template_name)
+    )
+    env.add_extension('site_tools.extensions.RollTable')
+    template_source = env.get_template(template_name)
 
     target_filename = _slugify(title) + '.md'
 

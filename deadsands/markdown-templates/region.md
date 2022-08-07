@@ -3,53 +3,45 @@
 
 title: {{ title }}
 author: {{ author if author else 'evilchili' }}
-tags: {{ tags }}
+tags: {{ tags or 'region'}}
 {% if date %}
 date: {{ date }}
 {% endif %}
-category: regions
 template: region
 {% if summary %}
   summary: {{summary}}
 {% endif %}
 region:
-    name: {{ title }}
-    size: 10
-    terrain: difficult
-    shelter: none
-    water_source: none
+  name: {{ title }}
+  size: 10
+  terrain: difficult
+  description: |
+    description
+  skills:
     travel:
         dc: 10
-        critical_success: 
-        critical_fail: 
+        notes:
     forage:
         dc: 10
-        critical_success: 
-        critical_fail: 
+        notes:
     track:
         dc: 10
-        critical_success: 
-        critical_fail: 
+        notes:
     evade:
         dc: 10
-        critical_success: 
-        critical_fail: 
+        notes:
     survey:
         dc: 10
-        critical_success: 
-        critical_fail: 
-    encounter_chance: 5
-    special:
-    weather:
-        d1:
-        d2:
-        d3:
-        d4:
-        d5:
-        d6:
-        d7:
-        d8:
+        notes:
+  cr: 4
+  encounters:
+{% rolltable ['encounters'], indent=4 %}
+  weather:
+{% rolltable ['weather'], indent=4 %}
+  regional_effects:
+    -
+    -
 status: {{ status if status else 'draft' }}
 ---
 
-Region description goes here.
+DM's region notes goes here.

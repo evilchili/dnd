@@ -1,0 +1,39 @@
+metadata:
+  headers:
+    - Difficulty
+  frequencies:
+    default:
+      None: 0.7
+      Easy: 0.1
+      Difficult: 0.1
+      Dangerous: 0.05
+      Deadly: 0.05
+    easy:
+      None: 0.5
+      Easy: 0.3
+      Difficult: 0.1
+      Dangerous: 0.05
+      Deadly: 0.05
+    difficult:
+      None: 0.5
+      Easy: 0.1
+      Difficult: 0.3
+      Dangerous: 0.05
+      Deadly: 0.05
+    dangerous:
+      None: 0.5
+      Easy: 0.05
+      Difficult: 0.1
+      Dangerous: 0.3
+      Deadly: 0.05
+    deadly:
+      None: 0.5
+      Easy: 0.05
+      Difficult: 0.05
+      Dangerous: 0.1
+      Deadly: 0.3
+None:
+Easy:      
+Difficult:
+Dangerous:
+Deadly:

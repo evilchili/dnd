@@ -6,11 +6,21 @@
 {% endif %}
 {% endmacro %}
 
-{% macro rolltable(t) %}
+{% macro list_to_cols(l, headers) %}
+    {% if l is mapping %}
+        {% for key in l if key in headers%}
+            {{ list_to_cols(l[key], headers) }}
+        {% endfor %}
+    {% else %}
+        <td>{{ l if l else "" }}</td>
+    {% endif %}
+{% endmacro %}
+
+{% macro table(t, headers=[]) %}
 <table>
-    <tr><th>Roll</th><th>Effect</th></tr>
-    {% for die in t %}
-    <tr><td>{{ die }}</td><td>{{ t[die] }}</td></tr>
+    <tr>{% for h in headers %}{% if h %}<th>{{ h }}</th>{% endif %}{% endfor %}</tr>
+    {% for key in t %}
+        <tr><td>{{ key }}</td>{{ list_to_cols(t[key], headers) }}</tr>
     {% endfor %}
 </table>
 {% endmacro %}
