@@ -20,12 +20,13 @@
         {{ article.content }}
 
         {% set target = article.title.replace(' ', '_') %}
+        {% if self.is_dm() %}
         <div class='statblock'>
             <div style='cursor: pointer;'
                 onclick="document.getElementById('{{target}}').style.display=((document.getElementById('{{ target }}').style.display=='none')?'':'none');" ><h3>{{ article.title }}</h3></div>
             <div id="{{ target }}" style='display:none;'>
                 <div class='read'>
-                    {{ r.description }}
+                    {{ r.dm_notes }}
                 </div>
                 <dl>
                     <dt>Size</dt><dd>{{ r.size }} sq. miles </dd>
@@ -37,6 +38,7 @@
                 </dl>
             </div>
         </div>
+        {% endif %}
         <hr>
         {% include "bottom-nav.html" %}
     </div>

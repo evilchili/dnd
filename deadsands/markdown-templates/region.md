@@ -8,6 +8,7 @@ tags: {{ tags or 'region'}}
 date: {{ date }}
 {% endif %}
 template: region
+show_dm_content: False
 {% if summary %}
   summary: {{summary}}
 {% endif %}

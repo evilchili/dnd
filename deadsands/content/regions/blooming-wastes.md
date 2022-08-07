@@ -6,12 +6,13 @@ author: evilchili
 tags: region, homebrew
 date: 2022-07-20 17:54:47.286869
 template: region
+show_dm_content: True
 region:
     name: The Blooming Wastes
     size: 20
     terrain: difficult
-    description:  |
-        The Blooming Wastes stretch out before you: a mostly flat expanse of hard,  cracked earth blanketed by some kind of sandy brown scrub. Small mesas dot the horizon, suggesting the possibility of shelter. As you approach you see that the scrub is covered in thick black thorns sharp enough to pierce boot leather; you will need to tread carefully. 
+    dm_notes:  |
+        A mostly flat expanse of hard-packed earth blanked by redfoot, a hardy, sandy-brown moss covered in sharp thorns. At night glowing clusters of moon blossoms emerge from the earth and open their petals, bathing the entire wasteland in a pale, silvery light.
     skills:
         travel:
             DC: 10
@@ -59,4 +60,9 @@ region:
           Effect: Bubbles rain upwards, obscuring vision; disadvantage on perception checks
 ---
 
-A mostly flat expanse of hard-packed earth blanked by redfoot, a hardy, sandy-brown moss covered in sharp thorns. At night glowing clusters of moon blossoms emerge from the earth and open their petals, bathing the entire wasteland in a pale, silvery light.
+The Blooming Wastes stretch out before you: a mostly flat
+expanse of hard,  cracked earth blanketed by some kind of
+sandy brown scrub. Small mesas dot the horizon, suggesting the
+possibility of shelter. As you approach you see that the scrub
+is covered in thick black thorns sharp enough to pierce boot
+leather; you will need to tread carefully. 

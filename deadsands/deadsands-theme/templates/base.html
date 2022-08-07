@@ -11,6 +11,10 @@
         {% endif %}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         {% endblock head %}
+        {% block extrahead %}{% endblock %}
+        {% if is_dm %}
+        <style type="text/css">.dm { display: block !important; }</style>
+        {% endif %}
     </head>
 
     <body id="index" class="archive">
@@ -46,4 +50,5 @@
           </footer><!-- /#contentinfo -->
       </div>
     </body>
+    {% block is_dm %}{{ ' ' if 'localhost' in SITEURL else '' }}{% endblock %}
 </html>

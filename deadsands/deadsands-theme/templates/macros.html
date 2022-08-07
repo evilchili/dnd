@@ -1,26 +1,26 @@
 {% macro key_image(ref) %}
-{% if ref.key_image %}
-<a class='key_image' href="{{ ref.key_image.src }}">
-    <img src="{{ ref.key_image.src|replace('.','_thumb.') }}" alt="{{ ref.key_image.alt}}">
-</a>
-{% endif %}
-{% endmacro %}
-
-{% macro list_to_cols(l, headers) %}
-    {% if l is mapping %}
-        {% for key in l if key in headers%}
-            {{ list_to_cols(l[key], headers) }}
-        {% endfor %}
-    {% elif l %}
-        <td>{{ l }}</td>
+    {% if ref.key_image %}
+    <a class='key_image' href="{{ ref.key_image.src }}">
+        <img src="{{ ref.key_image.src|replace('.','_thumb.') }}" alt="{{ ref.key_image.alt}}">
+    </a>
     {% endif %}
 {% endmacro %}
 
 {% macro table(t, headers=[]) %}
-<table>
-    <tr>{% for h in headers %}{% if h %}<th>{{ h }}</th>{% endif %}{% endfor %}</tr>
-    {% for key in t %}
-        <tr><td>{{ key }}</td>{{ list_to_cols(t[key], headers) }}</tr>
-    {% endfor %}
-</table>
+    <table>
+        <tr>{% for h in headers %}{% if h %}<th>{{ h }}</th>{% endif %}{% endfor %}</tr>
+        {% for key in t %}
+            <tr><td>{{ key }}</td>{{ _list_to_cols(t[key], headers) }}</tr>
+        {% endfor %}
+    </table>
+{% endmacro %}
+
+{% macro _list_to_cols(l, headers) %}
+    {% if l is mapping %}
+        {% for key in l if key in headers%}
+            {{ _list_to_cols(l[key], headers) }}
+        {% endfor %}
+    {% elif l %}
+        <td>{{ l }}</td>
+    {% endif %}
 {% endmacro %}
