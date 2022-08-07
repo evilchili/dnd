@@ -67,4 +67,4 @@ region:
       Effect: Prone creatures are heavily obscured but blind beyond 5 feet.
 ---
 
-Dust River Canyon is a half-mile wide gash in the landscape, running forty miles from the northwest edge of the Blooming Wastes to the southeast. A sheer, crumbling switchback leads to its base where thick clouds of red dust some 2 feet thick swirl, resisting all attempts to settle or disperse. Stalking predators move unseen within the dust, emerging from caves in the canyon walls. 
+Dust River Canyon is a half-mile wide gash in the landscape, running forty miles southeast from the edge of the Blooming Wastes. A sheer, crumbling switchback leads to its base where thick clouds of red dust some 2 feet thick swirl, resisting all attempts to settle or disperse. Stalking predators move unseen within the dust, emerging from caves in the canyon walls. 
