@@ -1,6 +1,7 @@
 {% extends "base.html" %}
 {% import "macros.html" as macros %}
 {% block title %}{{ page.title }} - {{SITENAME}}{% endblock title %}
+{% block summary %}{{ page.summary|striptags }}{% endblock %}
 {% block key_image %}{{ macros.key_image(page) }}{% endblock key_image %}
 {% block content %}
 <section id="content">

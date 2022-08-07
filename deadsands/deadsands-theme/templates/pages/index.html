@@ -6,14 +6,11 @@
         <hr>
         {{ page.content }}
         <hr>
-    </div>
-    <div class='column box curled'>
-        <h3>Recent Sessions</h3>
-        {% with count=10, key='category', values=['sessions', 'test'] %}{% include "recent.html" %}{% endwith %}
-    </div>
-    <div class='column box curled'>
-        <h3>Recent Lore</h3>
-        {% with count=10, key='category', values=['lore', 'dm'] %}{% include "recent.html" %}{% endwith %}
+        {% if page.show_recent %}
+        <h3>Recent Posts</h3>
+        {% with count=10, key='category', values=['lore', 'mechanics', 'regions'] %}{% include "recent.html" %}{% endwith %}
+        <hr>
+        {% endif %}
     </div>
 </section>
 {% endblock %}

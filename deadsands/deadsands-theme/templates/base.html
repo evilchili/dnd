@@ -11,6 +11,7 @@
         {% endif %}
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
         {% endblock head %}
+        <meta name="description" content="{% block summary %}{% endblock %}" />
         {% block extrahead %}{% endblock %}
         {% if is_dm %}
         <style type="text/css">.dm { display: block !important; }</style>

@@ -173,6 +173,10 @@ article.recent a.title {
     font-style: normal;
 }
 
+article.recent h3, h4, h5, h6 {
+    display: none;
+}
+
 /* Custom page header */
 .header {
   position: relative;
