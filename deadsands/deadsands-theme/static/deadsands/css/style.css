@@ -163,6 +163,29 @@ img {
     z-index: -1;
 }
 
+.gallery_image {
+    max-width: 300px;
+    height: auto;
+    margin: 0px auto;
+}
+
+.gallery_image a {
+    position: relative;
+    display: block;
+    border: 5px solid black;
+}
+.gallery_image a:active, .gallery_image a:hover {
+    border-color:#cca138;
+}
+.gallery_iamge a img {
+    position: relative;
+}
+.gallery_image span {
+    display: block;
+    padding: 10px;
+    text-justify: left;
+}
+
 article.recent {
     font-style: italic;
     margin-bottom: 1em;

@@ -9,22 +9,8 @@
         <h2>{{ page.title }}</h2>
         <hr>
         {{ page.content }}
+        {% if page.gallery %}{{ macros.gallery(page) }}{% endif %}
         <hr>
     </div>
-
-    {% if page.show_recent %}
-    <div class='column'>
-        <div class='signs'>
-        <h3>Recent Sessions</h3>
-            {% with count=10, key='category', values=['sessions', 'test'] %}{% include "signs.html" %}{% endwith %}
-        </div>
-    </div>
-    <div class='column'>
-        <h3>Recent Lore</h3>
-        <div class='signs'>
-            {% with count=10, key='category', values=['lore', 'dm'] %}{% include "signs.html" %}{% endwith %}
-        </div>
-    </div>
-    {% endif %}
 </section>
 {% endblock content %}

@@ -6,6 +6,19 @@
     {% endif %}
 {% endmacro %}
 
+{% macro image(filename, alt) %}
+    <div class='gallery_image'>
+        <a href="/images/{{ filename }}"><img src="/images/{{ filename|replace('.','_thumb.') }}"></a>
+        <span>{{ alt }}</span>
+    </div>
+{% endmacro %}
+
+{% macro gallery(ref) %}
+    <div class='gallery'>
+        {% for img in ref.gallery %}{{ image(img, ref.gallery[img]) }}{% endfor %}
+    </div>
+{% endmacro %}
+
 {% macro table(t, headers=[]) %}
     <table>
         <tr>{% for h in headers %}{% if h %}<th>{{ h }}</th>{% endif %}{% endfor %}</tr>

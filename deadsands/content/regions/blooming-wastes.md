@@ -7,6 +7,7 @@ tags: region, homebrew
 date: 2022-07-20 17:54:47.286869
 template: region
 show_dm_content: True
+description: <a href='/images/overland_blooming_wastes.png'><img class='region_map' alt="Detail of an overland map of the Sahwat Desert" src='/images/overland_blooming_wastes.png'></a> Leads to <a href='/regions/calamity-ridge/'>Calamity Ridge</a>, <a href='/regions/dust-river-canyon/'>Dust River Canyon</a>, and Tano's Edge.
 region:
     name: The Blooming Wastes
     size: 20
@@ -60,9 +61,4 @@ region:
           Effect: Bubbles rain upwards, obscuring vision; disadvantage on perception checks
 ---
 
-The Blooming Wastes stretch out before you: a mostly flat
-expanse of hard,  cracked earth blanketed by some kind of
-sandy brown scrub. Small mesas dot the horizon, suggesting the
-possibility of shelter. As you approach you see that the scrub
-is covered in thick black thorns sharp enough to pierce boot
-leather; you will need to tread carefully. 
+The Blooming Wastes stretch out before you: a mostly flat expanse of hard,  cracked earth blanketed by some kind of sandy brown scrub. Small mesas dot the horizon, suggesting the possibility of shelter. As you approach you see that the scrub is covered in thick black thorns sharp enough to pierce boot leather; you will need to tread carefully. 
