@@ -2,6 +2,8 @@
 {% block title %}{{ category if category else tag if tag else "" |capitalize }} - {{SITENAME}}{% endblock title %}
 {% block navclass %}active{%endblock%}
 {% block content %}
+{% if not self.is_dm() and category == 'dm' %}
+{% else %}
 <section id="content" class="content">
     {% if category %}
         {% with key='category', values=[category], title=category %}{% include "category-index.html" %}{% endwith %}
@@ -9,5 +11,6 @@
         {% include "tag-index.html" %}
     {% endif %}
 </section>
+{% endif %}
 {% endblock content %}
 

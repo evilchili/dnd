@@ -3,6 +3,8 @@
 {% block title %}{{ article.title|capitalize }} - {{SITENAME}}{% endblock title %}
 {% block key_image %}{{ macros.key_image(article) }}{% endblock key_image %}
 {% block content %}
+{% if not self.is_dm() and article.category == 'dm' %}
+{% else %}
 <section id="content">
     <div class='box curled'>
         <h2 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
@@ -18,4 +20,5 @@
         {% include "bottom-nav.html" %}
     </div>
 </section>
+{% endif %}
 {% endblock content %}

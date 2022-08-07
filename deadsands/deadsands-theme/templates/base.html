@@ -23,8 +23,13 @@
           <div class='sun'></div>
           <div class='title'><h1><a href="/">{{ SITENAME }}</a></h1></div>
             <ul class="nav">
+               {% if self.is_dm() %}
+                    <li><a href="{{ SITEURL }}/dm">DM</a></li>
+               {% endif %}
                {% for category, articles in categories %}
+                 {% if category != 'dm' %}
                     <li><a href="{{ SITEURL }}/{{ category.name }}">{{ category }}</a></li>
+                 {% endif %}
                {% endfor %}
                {% for p in pages %}
                     <li{% if p == page %} class="active"{% endif %}><a href="{{ SITEURL }}/{{ p.url }}">{{ p.title }}</a></li>

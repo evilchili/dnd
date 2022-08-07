@@ -6,8 +6,6 @@ THEME = 'deadsands-theme'
 
 SLUGIFY_SOURCE = 'basename'
 
-DISPLAY_PAGES_ON_MENU = True
-
 PATH = 'content'
 
 TIMEZONE = 'America/Los_Angeles'
@@ -55,7 +53,6 @@ ARCHIVES_SAVE_AS = "archives/index.html"
 MENU_ITEMS = (
     ("Index", "archives/"),
 )
-
 
 SITEMAP = {
     'format': 'xml',
