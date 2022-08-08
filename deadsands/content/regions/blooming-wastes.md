@@ -41,8 +41,6 @@ region:
         d7-d20:
             Difficulty: No Encounter
     regional_effects:
-        - Add 1d6 to radiant damage 
-        - Nightvision not functional
         - When a spell attack misses, it hits a random creature within 5 feet instead
         - On a spell attack critical hit or miss, roll on the Wild Magic Table
         - 1d4 piercing damage for every 30ft of movement during the Dash action
