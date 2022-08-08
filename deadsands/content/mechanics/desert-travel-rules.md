@@ -9,9 +9,28 @@ date: 2022-07-19 16:47:21.792623
 
 ### Overland Travel
 
+<div class='pull'>
+<h4>The Overland Travel Loop</h4>
+
+At dawn, the party will:
+<ul>
+    <li>Roll on the region's weather table; DM describes prevailing conditions.</li>
+    <li> Consume water.</li>
+    <li> Add/subtract points of exhaustion.</li>
+    <li> Roll on the region's encounter table; DM resolves in secret.</li>
+</ul>
+For each half-day, the party will:
+
+<ul>
+<li> Choose activities to perform, one per PC</li>
+<li> Resolve skill check successes / complications</li>
+</ul>
+</div>
 The Sahwat is a vast desert region stretching some thousands of square miles, containing a variety of conditions: rocky mesas, scrub, cactus forests, empty bedrock, plateaus, valleys, caverns, salt flats, and endless dunes. At the heart of the desert lies an impenetrable whirlwind called the Heartstorm  through which no one has passed and which is the subject of wild speculation.
 
 Until recently traveling the Sahwat proper was an activity limited to the desparate and the outcast, and nearly none of it had been mapped. This is changing, though, with the discovery of buried wonders of the Yanrin Didan. Now every faction, bandit crew, hedge wizard and treasure hunter is descending on the desert and racing to uncover its secrets. When you undertake a journey into the desert, the party will need to contend with *Provisioning*, *Survival*, and *Regional Effects*; these are described below.
+
+
 
 ### Provisioning
 

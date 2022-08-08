@@ -196,7 +196,10 @@ article.recent a.title {
     font-style: normal;
 }
 
-article.recent h3, h4, h5, h6 {
+article.recent h3,
+article.recent h4,
+article.recent h5,
+article.recent h6 {
     display: none;
 }
 
@@ -748,6 +751,20 @@ a.disabled:hover {
 
 .statblock .inner {
     display: none;
+}
+
+.pull {
+    float: right;
+    max-width: 40%;
+    margin: 1em;
+    margin-top: 0px;
+    background: rgba(244,241,232, 0.5);
+    padding: 1em;
+    border: 1px solid #888;
+    text-justify: left !important;
+}
+.pull h4 {
+    font-size: 1.5em;
 }
 
 
