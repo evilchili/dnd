@@ -1,0 +1,137 @@
+# Sahwat Wild Magic Tables
+metadata:
+  headers:
+    - Type
+    - Effect
+    - Notes
+  frequencies:
+    default:
+      Boon: 0.20
+      Bane: 0.20
+      Weird: 0.55
+      Trouble: 0.05
+    boon:
+      Boon: 0.65
+      Bane: 0.15
+      Weird: 0.15
+      Trouble: 0.05
+    bane:
+      Boon: 0.15
+      Bane: 0.65
+      Weird: 0.15
+      Trouble: 0.05
+    weird:
+      Boon: 0.05
+      Bane: 0.05
+      Weird: 0.85
+      Trouble: 0.05
+    trouble:
+      Boon: 0.1
+      Bane: 0.2
+      Weird: 0.3
+      Trouble: 0.4
+Boon:
+  - A +1 martial weapon appears in an unoccupied space within 15ft of you: The weapon disappears if it is carried out of the Sahwat desert.
+  - Barkskin is cast on you: 1 minute duration.
+  - Stoneskin is cast on you: 1 minute duration.
+  - Invisibility is cast on you: 1 minute duration.
+  - You gain 1d4 temporary hit points:
+  - The Enlarge spell is cast on you: 1 minute duration.
+  - Echos of a celestial choir fills the air. Allies within 30ft of you gains 2d4+4 HP: Good-aligned creatures only.
+  - You are hasted.: 1 minute duration.
+  - You have truesight: 1 minute duration.
+  - A third eye opens in your forehead: Curse. Advantage on perception checks.
+  - Levitate is cast on you: 1 minute duration.
+  - Your next spell attack does max damage: 
+  - You have resistance to nonmagical damage: 1 minute duration.
+  - You have resistance to magical damage: 1 minute duration.
+  - You have advantage on ability checks and saves against spells and magical effects: 1 minute duration
+  - d100 gold pieces appear in an unoccupied space within 30ft of you:
+  - You regain one 1st level spell slot: No effect if you do not have 1st level slots.
+  - Mirror Image is cast on you: 1 minute duration.
+  - No effect: If the caster dies in the next minute, they are resurrected with 1 HP
+  - You smell like apple pie: Every creature within 15ft of you must succeed on a DC 13 CHA save or be charmed by you for 1d4 rounds.
+  - Whenever you hit with a spell attack, it does an additional 1d6 radiant damage: 1d4 rounds
+Bane:
+  - Magic Missile is cast at first level, targeting random creatures 60ft of you: One dart always hits the caster.
+  - Color spray is cast on a random creature within 30ft of you: 1 minute duration.
+  - The Reduce spell is cast on you: 1 minute duration.
+  - The call lightning spell appears centered on a random point 60ft away from you: Lasts for 1d4 rounds.
+  - A Fireball spell detonates centered on a random point 30ft away from you:
+  - 1d6 random creatures within 30ft of you must succeed on a Wisdom save or fall unconscious: Lasts until they take damage or someone spends an action to wake them up.
+  - A 50ft radius sphere of purple gas appears centered on a random point 25ft from you: The sphere lasts 1d4 rounds. Any creature which ends their turn in the sphere takes 1d10 poison damage.
+  - Infernal whispers fill the air. All creatures within 100ft of you must succeed on a DC14 Wisdom saving throw or take 1d6 psychic damage:
+  - You are slowed: 1 minute duration.
+  - Spectral shackles appear on the legs of each creature within 60ft of you: Speed reduced to 5ft. Lasts 1 round. Can be dispelled.
+  - You are vulnerable to nonmagical damage: 1 minute duration.
+  - You are vulnerable to magical damage: 1 minute duration.
+  - You have disadvantage on ability checks and saves against spells and magical effects: 1 minute duration
+  - You expend one additional 1st level spell slot: No effect if you do not have 1st level slots.
+  - Mirror Image is cast on hostile creature you can see: 1 minute duration.
+  - Your skin glows like a small sun. Every creature that can see you is blinded: Until the start of next turn.
+  - You use all your remaining movement to move in a random direction:
+Weird:
+  - Your skin turns bright blue: Curse.
+  - It begins snowing from a small cloud 10ft directly over you: Duration 1d4 days. Can be dispelled.
+  - If it is daytime, you believes it is night. If it is night, you believe it is daytime: Curse. Duration 1d4 days.
+  - A Zone of Truth spell aura extends from you to a range of 300ft: Duration one hour. Can be dispelled.
+  - You hear every sound magnified 10x. You are weak to thunder damage: Curse. Duration 1d4 hours.
+  - Whatever you are holding in your left hand turns into a sticky bun: Duration 1 minute. Can be dispelled.
+  - You are wearing a hat shaped like your favourite animal:
+  - If you were alive, you are now undead. If you were undead, you are now alive: Curse.
+  - A surprised 3rd level wizard appears in an unoccupied space within 15ft of you: random alignment; will disappear again in 1d4 rounds.
+  - A planar portal opens in the fabric of spacetime in an unoccupied space within 30ft of you. 1d4 modrons appear and begin repairing it.: Disappears after 3 rounds.
+  - Dispel magic is cast at 4th level on you and every creature within 60ft of you:
+  - A random trinket falls from the sky: Roll on the trinkets table
+  - Desert flowers appear in the hair of a random creature within 30ft of you: 
+  - You no longer cast a shadow: Curse. At dawn, shadow attacks as a wraith.
+  - You swap places with a random creature within 60ft:
+  - A random creature within 30ft of you is polymorphed into a bowl of petunias: Duration 1 round. 1 HP, AC 10. 
+  - You smell like ham: Curse. Duration 1d4 days.
+  - A pillar of stone 15ft in diameter and 30ft tall erupts from the ground centered on you:
+  - A pig appears in the nearest unoccupied space: Immune to all damage. Disappears after 1d4 rounds.
+  - 1d4 stone statues appear depicting you at key moments in your life:
+  - A CR 15+ creature apperas 120ft away from you: Major Illusion.
+  - All plant life within 300ft of you dies:
+  - All plant life within 300ft of you doubles in size:
+  - A humanoid man appears and attacks you with 20lb fish: +6 to hit, 1d10 bludgeoning damage. Disappears afer attack.
+  - 1d8 ghostly figures appear, observing: Duration 1d4 rounds.
+  - Your body is covered in fur: Curse.
+  - You are teleported to an unoccupied space 15ft away:
+  - You age increases by 5d10 years: Can be reversed by Greater Restoration.
+  - 50lbs of cabbages appear stacked in a pyramid in an unoccupied space: You hear a faint voice yelling, "My cabbages!"
+  - You are immune to the effects of alcohol: Curse.
+  - A floating eyeball 1ft in diameter follows you: Disappears after 1d6 days.
+  - You can only shout when speaking: 1 minute duration.
+  - Your arms are polymorphed into tentacles: Cannot cast somatic spells. 1 minute duration.
+  - You are frightened of your favourite color: 1 hour duration.
+  - You are surrounded by magical silence: 10 minute duration.
+  - You are encased in a 10ft diameter sphere of glass: AC 10, 15 HP. Vulnerable to bludgeoning.
+  - A plant within 30ft of you sprouts limbs and runs away: walking speed 80ft.
+  - Invisibility is cast on every creature you can see: 1 minute duration.
+  - Any item held by a creature flies from its grip and lands in an unoccupied space 10ft away:
+  - Illusory butterflies flutter in 5ft radius about you:  1 minute duration.
+  - You generate a Draining Aura in a 10ft radius: Any creature ending its turn in the aura takes 1d4 necrotic damage. You heal this amount. Duration 1 minute.
+  - Levitate is cast on 1d4 random creatures within 120ft of you: 1 minute duration.
+  - No effect: Next phrase spoken by caster becomes true.
+  - Disguise Self is cast on you: You look like whoever you're most afraid of in life.
+  - Each creature that can see you must succeed on a DC 13 WIS save or laugh uncontrollably: Until the end of their next turn.
+Trouble:
+  - A random creature within 60ft of you (including you) is banished: Duration 1 minute.
+  - The Resilient Sphere spell is cast on a random creature (including you) within 30ft of you:
+  - 1d6 zombies merge from the ground in random unoccupied spaces within 100ft of you:
+  - A swarm of beetles appears in your space:
+  - A pit 20ft deep and 5 feet wide appears directly beneath you: 2d6 fall damage.
+  - You swap current HP with a random creature within 30ft of you:
+  - 2d8 imps are summoned from the Nine Hells: Will attack closest creature. Disappear after 1d4 rounds.
+  - Nothing happens: Next time you speak, you breathe fire in a straight line 30ft long and 5ft wide. DEX 13 save or take 2d6 fire damage.
+  - Gravity reverses in a 30ft radius: Until start of next turn. Can be dispelled.
+  - Your left eye is a ruby worth 300 GP: You can see alignment. Eye restored with Greater Restoration.
+  - A random metal weapon bursts in a 60ft cloud of metallic shards: DC 13 DEX or 3d6 piercing damage.
+  - You sweat blood from every pore: CON 14 or your max HP is reduced by 1d4 per round.
+  - A random creature within 30ft becomes a pillar of sand: Effect ends if a drop of water touches the pillar.
+  - A random PC suffers from a random lingering injury: DMG pp272
+  - 1d6 random spaces within 100ft of you becomes lava 5ft deep: 10d10 Fire damage. Roll 2d10 for X/Y coords.
+  - Every creature and object within 120ft of you moves 10ft in a straight line towards you: Any object or creature that collides with something else takes 1d4 bludgeoning damage.
+  - You hear ethereal music: Lasts until dawn. You cannot long rest during this time.
+  - 10ft tall crystal spikes erupt from the ground in 1d10 spaces within 100ft of you: Any creature in a space must succeed on a DC 15 DEX save or take 3d6 piercing damage and be restrained.
