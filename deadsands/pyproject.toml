@@ -28,7 +28,7 @@ pelican-yaml-metadata = { git = "https://github.com/pR0Ps/pelican-yaml-metadata.
 dnd-npcs      = { git = "https://github.com/evilchili/dnd-npcs", branch = 'main' }
 elethis-cipher= { git = "https://github.com/evilchili/elethis-cipher", branch = 'main' }
 #dnd-rolltable = { git = "https://github.com/evilchili/dnd-rolltable", branch = 'main' }
-dnd-rolltable = { file = "../../dnd-rolltable/dist/dnd_rolltable-1.1.3-py3-none-any.whl" }
+dnd-rolltable = { file = "../../dnd-rolltable/dist/dnd_rolltable-1.1.5-py3-none-any.whl" }
 
 [tool.poetry.scripts]
 site = "site_tools.cli:app"

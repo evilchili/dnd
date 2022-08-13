@@ -41,6 +41,8 @@ region:
 {% rolltable ['weather'], indent=4 %}
   regional_effects:
 {% rolltable ['regional_effects'], die=1, indent=4 %}
+  forage table:
+{% rolltable ['flora'], die=4, indent=4 %}
 status: {{ status if status else 'draft' }}
 ---
 

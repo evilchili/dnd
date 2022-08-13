@@ -69,6 +69,21 @@ region:
   regional_effects:
       - Nightvision not functional
       - Rolling Cacti attracted to movement 
+  forage_table:
+    d1-d3:
+      Name: Gulch Thistle
+      Description: A thistle with pink globular flowers. Commonly found in dried riverbeds.
+      Rarity: Common
+      Value: 1 GP
+    d4:
+      Rarity: Common
+      Name: Badberry Plant
+      Description: A flowering shrub with bright red, poisonous berries. 1pt poison damage if ingested.
+      Value: 1 GP
+    d5-d8:
+       Name:  Rolling Cactus
+       Description: A globular cactus that rolls and bounces freely in the wind. 1 gallon of water can be harvested from 10 cacti.
+       Value: 5 GP
 ---
 
 Gopher Gulch emerges from the southern edge of Dust River Canyon and turns east towards the rocky foothills at the base of the eastern range of Hoard's Vault. Heavy irregular stone cover the shallow riverbed which traverses a barren plain of cracked, broken ground. Shrub and small plants dot the area, but the most prominent flora is the Rolling Catci -- an odd species of globular cactus that rolls and bounces freely, pushed about by the desert winds.

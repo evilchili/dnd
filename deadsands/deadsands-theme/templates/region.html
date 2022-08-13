@@ -37,6 +37,7 @@
                     <dt>Skill Challenges</dt><dd>{{ macros.table(r.skills, ['Skills', 'DC', 'Notes']) }}</dd>
                     <dt>Encounters (CR {{r.cr}})</dt><dd>{{ macros.table(r.encounters, ['Roll', 'Difficulty']) }}</dd>
                     <dt>Weather Effects</dt><dd>{{ macros.table(r.weather, ['Roll', None, 'Description', 'Effect']) }}</dd>
+                    <dt>Forage Table</dt><dd>{{ macros.table(r.forage_table, ['Roll', 'Name', 'Description', 'Rarity', 'Value']) }}</dd>
                 </dl>
             </div>
         </div>

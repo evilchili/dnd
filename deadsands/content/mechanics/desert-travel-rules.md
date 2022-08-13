@@ -98,6 +98,14 @@ The Sahwat is considered difficult terrain unless specificed otherwise by the DM
 
 The desert is home to any number of strange flora which can be used in alchemy, medicine, spell components, or traded for materials or gold. *Foraging* allows players to look for whatever they wish, though they will learn that not every region contains every resource in abundance. The more they know about a region, the better their chances of finding exactly what they're looking for (or not wasting a half day on a fool's errand). See *Surveying*, below.
 
+To harvest found resources, the DM determines how much you find by rolling a die (decided by the result of the skill check) and multiplying that number by the value of the resource; this is the amount added to your inventory.
+
+Example:
+
+- Gormak the Mighty forages for redfoot using a Nature check and rolls a 16.
+- DM declares Gormak has found redfoot (value 2 GP) and rolls 11 on a  d20.
+- Gormak adds "22 GP of Redfoot" to her inventory.
+
 #### Track
 
 **Preferred Skills**: Animal Handling, Investigation, Insight

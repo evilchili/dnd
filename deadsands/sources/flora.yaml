@@ -1,0 +1,149 @@
+# flora
+metadata:
+  headers:
+    - Rarity
+    - Name
+    - Description
+    - Value
+  frequencies:
+    default:
+      Common: 0.4
+      Uncommon: 0.3
+      Rare: 0.20
+      Weird: 0.10
+Common:
+  - Shadowfern:
+    - A squat green shrub found in pockets of shade. Grows only in shade.
+    - 1 GP
+  - Sugarwort:
+    - A low-lying herb with 8-petaled yellow flowers.
+    - 1 GP
+  - Dragon's Breath:
+    - Moss that grows in wide straight paths with red-orange flowers.
+    - 1 GP 
+  - Desert Pepper:
+    - Tiny white lily with black speckles.
+    - 2 GP
+  - Bitterweed:
+    - green/brown grass up to 8" in height. Grows in small clumps.
+    - 1 GP
+  - Sweet Berry:
+    - A thick brown moss. Tiny black berries grow within, sweet to taste.
+    - 1 GP
+  - Cragbreaker: 
+    - A wiry vine that grows in cracks of stone. Blooms tiny blue flowers.
+    - 1 GP
+  - Badberry Plant:
+    - flowering shrub with bright red, poisonous berries. 1pt poison damage if ingested.
+    - 1 GP
+  - Sunburn Moss:
+    - deep red moss that grows in full sunlight.
+    - 1 GP
+  - witchbolt:
+    - Cactus moss that grows in long jagged lines. Blooms yellow flowers. 
+    - 1 GP
+  - Hedron's lament:
+    - A small plant with pale yellow leaves. Smells like turmeric.
+    - 1 GP
+  - corpse cactus:
+    - Large cactus that grows like a hedge, in shapes resembling dead bodies.
+    - 1 GP
+  - sand weave:
+    - Clinging ivy that grows in thick blankets over sandy soil. White flowers.
+    - 1 GP
+  - sand poppy:
+    - Small red flowers growing in sandy soil.
+    - 1 GP
+  - blackfruit palm:
+    - short palm tree with fruit similar to mangos that turn black when ripe.
+    - 2 GP
+  - elf ear mushroom: 
+    - Small conical fungus that grows to a point similar to an elf's ear.
+    - 2 GP
+  - godskin fungus: 
+    - Mushroom that grows thin, flat caps up to 3ft in diameter vaguely reminiscent of skin.
+    - 2 GP
+  - glowwort:
+    - subterranean, bioluminescent mushroom that faintly glows blue. Commonly found growing with starts of the night. 
+    - 2 GP
+  - stars of the night:
+    - Bioluminescent moss that glows blue/green. Most often found on the ceilings and walls of caves.
+    - 2 GP
+  - needle fern:
+    - A large fern up to 2ft in diameter with sharp, needle-like leaves.
+    - 1 GP
+  - gulch thistle:
+    - A thistle with pink globular flowers. Commonly found in dried riverbeds.
+    - 1 GP
+  - lizard tongue cactus:
+    - A cactus growing up to 3ft in height reminiscent of a forked lizard's tongue.
+    - 1 GP
+  - rock thistle:
+    - Small bush that grows a single, large berry. The berry is pale yellow but matures to a dark brown, falls off, and hardens.
+    - 2 GP
+  - red cap cactus:
+    - tubular cactus that ends in a hemispherical cap that blooms small red flowers.
+    - 1 GP
+Uncommon:
+  - dancing fern:
+    - Grows up to 2ft in diameter, sways constantly as if in a strong breeze.
+    - 2 GP
+  - sand orchid:
+    - A flowering cactus up to 36" tall, its long fingers curling like an orchid's stalks. The flower is white and bell-shaped.
+    - 2 GP
+  - stonegrass:
+    - short, hard, green/yellow grass that grows from cracks in stone and rock.
+    - 1 GP
+  - bell fruit:
+    - A small flowering palm whose fruits resemble coconuts shaped like bells.
+    - 2 GP
+  - stench root:
+    - Red-brown shrub with long, tangled roots that smell like a rotting corpse when unearthed.
+    - 2 GP
+  - wand cactus:
+    - Tiny spiraling cactus resembling a magical wand. Glows faintly blue at night.
+    - 2 GP
+  - scorpion flower:
+    - Green-black flower with an elongated black style ended in a sharp thorn. Stabs anything that gets close. 1d4 piercing damage.
+    - 2 GP
+Rare:
+  - blade poppy:
+    - A pale red flower with black pistils. Razor-sharp leaves grow vertically around the blossom (1pt slashing).
+    - 3 GP
+  - needle trap:
+    - A low-lying carnivorous trap cactus. Eats scorpions. Nectar does 1d4 acid damage on touch.
+    - 5 GP
+  - blood berry:
+    - A thick brown moss easily mistaken for sweet berry. Tiny black berries grow within, sweet to taste. Causes vomiting of blood if ingested (1d6 poison dmg).
+    - 2 GP
+  - choke dust:
+    - Moss that crumples into dust when touched. 1d4 poison damage. Must be dug out by the root.
+    - 3 GP
+  - wizard's bane:
+    - a paddle-shaped cactus up to 3" in height. Said to have anti-magic properties.
+    - 3 GP
+  - blood palm:
+    - A tall palm tree shot through with dark red veins. Its heart is blood red.
+    - 5 GP
+  - singing palm:
+    - Palm tree with a spiraling grain up to 12ft in height. Faint singing can be heard from inside the tree. Shrieks when cut down.
+    - 3 GP
+  - king's feet:
+    - Huge mushroom that can grow up to 4ft in height. Has mild psychoactive properties.
+    - 3 GP
+Weird:
+  - wandering eye:
+    - A star-shaped tuber, its plant is a single stalk up to 1ft in height with a white puff of tiny flowers at the end resembling an eyeball. Burrowing speed 5ft.
+    - 5 GP
+  - black sand mushroom: 
+    - A jet black conical mushroom. The soil around it turns jet black. Said to grant visions when ingested.
+    - 5 GP
+  - rolling cactus: 
+    - A globular cactus that rolls and bounces freely in the wind. 1 gallon of water can be harvested from 10 cacti.
+    - 5 GP
+  - orc''s fart:
+    - A large succulent up to 4ft in height, which continually produces a pungent gas, swelling the bulb. When the bulb is forced open, a toxic cloud 20ft in diameter is expelled. DC 13 CON save or 1d4 poison dmg.
+    - 5 GP
+  - brain cactus:
+    - small globular cactus with violet flowers reminiscent of a brain. Pollen causes hallucinations.
+    - 5 GP
