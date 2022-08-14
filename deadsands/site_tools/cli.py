@@ -57,6 +57,7 @@ def clean() -> None:
 
 @app.command()
 def build() -> None:
+    subprocess.run(shlex.split('git submodule update --remote --merge'))
     pelican_run()
 
 
