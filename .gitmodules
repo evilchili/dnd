@@ -1,0 +1,3 @@
+[submodule "deadsands-notes"]
+	path = deadsands-notes
+	url = git@github.com:evilchili/deadsands-notes.git
