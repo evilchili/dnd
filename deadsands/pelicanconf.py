@@ -1,6 +1,6 @@
 AUTHOR = 'evilchili'
 SITENAME = 'The Dead Sands'
-SITEURL = 'https://deadsands.froghat.club/'
+# SITEURL = 'https://deadsands.froghat.club'
 RELATIVE_URLS = False
 THEME = 'deadsands-theme'
 

@@ -11,6 +11,6 @@ date: {{ date }}
 {% if summary %}
   summary: {{summary}}
 {% endif %}
-status: {{ status if status else 'publish }}
+status: {{ status if status else 'publish' }}
 ---
 

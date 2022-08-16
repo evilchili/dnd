@@ -10,5 +10,6 @@ key_image:
     alt: "Hand-drawn map of the Dewa Q'Asos"
 gallery:
     overland_map.png: "Overland map of the Sahwat Desert (so far)"
+    tanos_edge.png: "Old Town district of Tano's Edge"
 ---
 
