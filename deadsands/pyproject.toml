@@ -17,6 +17,7 @@ rich = "latest"
 pyyaml = "latest"
 livereload = "latest"
 jinja2-simple-tags = "latest"
+pyinotify = "latest"
 
 # static website
 pelican = "^4.7.2"

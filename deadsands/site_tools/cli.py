@@ -11,7 +11,11 @@ import site_tools as st
 
 from enum import Enum
 from livereload import Server
+from livereload.watcher import INotifyWatcher
+from pathlib import Path
 from pelican import main as pelican_main
+from time import sleep
+
 from site_tools.content_manager import create
 
 
@@ -30,6 +34,10 @@ CONFIG = {
     'port': 8000,
     # content manager config
     'templates_path': 'markdown-templates',
+    # directory to watch for new assets
+    'import_path': 'imports',
+    # where new asseets will be made available
+    'production_host': 'deadsands.froghat.club',
 }
 
 app = typer.Typer()
@@ -59,6 +67,42 @@ def clean() -> None:
 def build() -> None:
     subprocess.run(shlex.split('git submodule update --remote --merge'))
     pelican_run()
+
+
+@app.command()
+def watch() -> None:
+
+    import_path = Path(CONFIG['import_path'])
+    content_path = Path(st.SETTINGS['PATH'])
+
+    def do_import():
+        assets = []
+        for src in import_path.rglob('*'):
+            relpath = src.relative_to(import_path)
+            target = content_path / relpath
+            if src.is_dir():
+                target.mkdir(parents=True, exist_ok=True)
+                continue
+            if target.exists():
+                print(f"{target}: exists; skipping.")
+                continue
+            print(f"{target}: importing...")
+            src.link_to(target)
+            uri = target.relative_to('content')
+            assets.append(f"https://{CONFIG['production_host']}/{uri}")
+            src.unlink()
+        if assets:
+            publish()
+            print('\n\t'.join(["\nImported Asset URLS:"] + assets))
+            print("\n")
+
+    watcher = INotifyWatcher()
+    watcher.watch(import_path, do_import)
+    watcher.start(do_import)
+    print(f"Watching {import_path}. CTRL+C to exit.")
+    while True:
+        watcher.examine()
+        sleep(1)
 
 
 @app.command()
