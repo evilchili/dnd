@@ -88,6 +88,7 @@ def watch() -> None:
                 continue
             print(f"{target}: importing...")
             src.link_to(target)
+            subprocess.run(shlex.split(f'git add {target}'))
             uri = target.relative_to('content')
             assets.append(f"https://{CONFIG['production_host']}/{uri}")
             src.unlink()
