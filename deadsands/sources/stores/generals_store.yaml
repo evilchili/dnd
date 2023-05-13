@@ -1,0 +1,121 @@
+metadata:
+  store:
+    title: General's Store
+    location: Tano's Edge
+    faction: Liberty Sisters
+    description: Inventory subject to availability, prices subject to change, haggle at your own risk. -- The General
+    summary: |
+      The General's Store is a popular one-stop shop for Tano's Edge hoppers gearing up for that big desert score and
+      locals stocking their larder. The proprietor is an ancient, affable half-orc called The General, assisted by his
+      nephew Otis.
+
+      The general supply is well-stocked with basic adventuring gear and a healthy clientele keeps turnover of common
+      items high. The General has a reputation for being able to move just about anything, from random metal scraps to
+      gardening supplies to artifacts of historical interest.
+  headers:
+    - Rarity
+    - Item
+    - Description
+    - Value
+    - Weight
+  frequencies:
+    default:
+      Supplies: 0.9
+      Common: 0.1
+Supplies:
+  - Rations:
+    - Enough food for one person per day, desert travel
+    - 1 GP
+    - 0.5 Lb
+  - Water:
+    - 1 Gallon of water, enough for 1 medium creature per day
+    - 1 GP
+    - 4 Lbs
+  - Pistol Ammunition:
+    - 5 count (nonaligned pricing)
+    - 3 GP 
+    - 0.1 lb
+  - Arrows:
+    - 20 count (imported)
+    - 5 GP
+    - 1 Lb
+  - Crossbow Bolts:
+    - 20 count (imported)
+    - 5 GP
+    - 1 Lb
+  - Rope:
+    - Hemp, 50ft
+    - 2 GP
+    - 10 Lb
+  - Torch:
+    - 
+    - 1 SP
+    - 0.5 Lb
+  - 10ft Pole:
+    - 
+    - 1 GP
+    - 7 Lb
+  - Explorer's Pack:
+    - PHB, page 151
+    - 20 GP
+    - 59 Lb
+  - Dungeoneer's Pack:
+    - PHB, page 151
+    - 24 GP
+    - 61 Lb
+  - Oil (flask):
+    - 0.5 Lb 
+    - 2 SP
+Common:
+  - Alchemist's Supplies:
+    - 
+    - 100 GP
+    - 8 Lb
+  - Brewer's Supplies:
+    - 
+    - 40 GP
+    - 9 Lb
+  - Calligrapher's Supplies:
+    - 
+    - 20 GP
+    - 5 Lb
+  - Carpenter's Tools:
+    - 
+    - 16 GP
+    - 6 Lb
+  - Cartographer's Tools:
+    - 
+    - 30 GP
+    - 6 Lb
+  - Glassblower's Tools:
+    - 
+    - 60 GP
+    - 5 Lb
+  - Jeweler's Tools:
+    - 
+    - 50 GP
+    - 2 Lb
+  - Smith's Tools:
+    - 
+    - 40 GP
+    - 8 Lb
+  - Tinker's Tools:
+    - 
+    - 100 GP
+    - 10 Lb
+  - Ball Bearings:
+    - (bag of 1000)
+    - 2 GP
+    - 2 Lb
+  - Healer's Kit:
+    - 
+    - 10 GP
+    - 3 Lb
+  - Lantern, Bullseye:
+    - 
+    - 20 GP
+    - 2 Lb
+  - Lantern, Hooded:
+    - 
+    - 10 GP
+    - 2 Lb

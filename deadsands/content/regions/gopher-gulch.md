@@ -2,7 +2,7 @@
 # regions/gopher-gulch.md
 
 title: Gopher Gulch
-status: draft
+status: published
 author: evilchili
 tags: region
 date: 2022-08-07 13:38:52.296672
@@ -76,14 +76,15 @@ region:
       Rarity: Common
       Value: 1 GP
     d4:
-      Rarity: Common
       Name: Badberry Plant
       Description: A flowering shrub with bright red, poisonous berries. 1pt poison damage if ingested.
+      Rarity: Common
       Value: 1 GP
     d5-d8:
-       Name:  Rolling Cactus
-       Description: A globular cactus that rolls and bounces freely in the wind. 1 gallon of water can be harvested from 10 cacti.
-       Value: 5 GP
+      Name:  Rolling Cactus
+      Description: A globular cactus that rolls and bounces freely in the wind. 1 gallon of water can be harvested from 10 cacti.
+      Rarity: Common
+      Value: 5 GP
 ---
 
 Gopher Gulch emerges from the southern edge of Dust River Canyon and turns east towards the rocky foothills at the base of the eastern range of Hoard's Vault. Heavy irregular stone cover the shallow riverbed which traverses a barren plain of cracked, broken ground. Shrub and small plants dot the area, but the most prominent flora is the Rolling Catci -- an odd species of globular cactus that rolls and bounces freely, pushed about by the desert winds.

@@ -2,11 +2,12 @@
 # regions/dust-river-canyon.md
 
 title: Dust River Canyon
+status: published
 author: evilchili
 tags: region
 date: 2022-08-07 13:21:31.543012
 template: region
-show_dm_content: False
+show_dm_content: True
 region:
   name: Dust River Canyon
   size: 40
