@@ -17,6 +17,7 @@ from pelican import main as pelican_main
 from time import sleep
 
 from site_tools.content_manager import create
+from rolltable.tables import RollTable
 
 
 CONFIG = {
@@ -103,7 +104,7 @@ def watch() -> None:
     print(f"Watching {import_path}. CTRL+C to exit.")
     while True:
         watcher.examine()
-        sleep(1)
+        sleep(5)
 
 
 @app.command()
@@ -154,6 +155,44 @@ def publish() -> None:
         '{} {ssh_user}@{ssh_host}:{ssh_path}'.format(
             CONFIG['deploy_path'].rstrip('/') + '/',
             **CONFIG
+        )
+    ))
+
+
+@app.command()
+def restock(source: str = typer.Argument(
+        ...,
+        help='The source file for the store.'
+    ),
+    frequency: str = typer.Option(
+        'default',
+        help='use the specified frequency from the source file'),
+    die: int = typer.Option(
+        20,
+        help='The size of the die for which to create a table'),
+    template_dir: str = typer.Argument(
+        CONFIG['templates_path'],
+        help="Override the default location for markdown templates.",
+    )
+) -> None:
+
+    rt = RollTable(
+        [Path(source).read_text()],
+        frequency=frequency,
+        die=die,
+        hide_rolls=True
+    )
+    store = rt.datasources[0].metadata['store']
+
+    click.edit(filename=create(
+        content_type='post',
+        title=store['title'],
+        template_dir=template_dir,
+        category='stores',
+        template='store',
+        extra_context=dict(
+            inventory=rt.as_markdown,
+            **store
         )
     ))
 

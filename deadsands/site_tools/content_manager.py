@@ -7,7 +7,8 @@ from site_tools import SETTINGS
 
 
 def create(content_type: str, title: str, template_dir: str,
-           category: str = None, template: str = None) -> str:
+           category: str = None, source: str = None, template: str = None,
+           extra_context: dict = {}) -> str:
     """
     Return the path to a new source file.
     """
@@ -41,6 +42,7 @@ def create(content_type: str, title: str, template_dir: str,
         'title': title,
         'tags': content_type,
         'date': datetime.datetime.now(),
-        'filename': str(relpath / target_filename)
+        'filename': str(relpath / target_filename),
+        **extra_context
     })
     return dest
