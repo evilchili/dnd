@@ -5,12 +5,6 @@
     <div class='box curled'>
         <hr>
         {{ page.content }}
-        <hr>
-        {% if page.show_recent %}
-        <h3>Recent Posts</h3>
-        {% with count=10, key='category', values=['lore', 'mechanics', 'regions'] %}{% include "recent.html" %}{% endwith %}
-        <hr>
-        {% endif %}
     </div>
 </section>
 {% endblock %}

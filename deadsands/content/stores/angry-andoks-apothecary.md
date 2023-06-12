@@ -4,20 +4,21 @@
 title: Angry Andok's Apothecary
 author: evilchili
 show_dm_content: False
-tags: post
+location: Tano's Edge
+tags: store
 date: 2023-05-13 13:18:26.226450
 description: Was that a short joke?! I'll gut you! See if I don't!<br>--Andok
 status: published
 ---
 
-Andok's is a cantankerous dwarf who specializes in nonmagical salves, potions, and reagants. He makes a killing
-supplying hoppers who wisely avoid magical healing when in the desert, but is notorious for his quick, violent
-temper and contempt for, well, pretty much everything and everyone. He remains stubbornly unaligned, but his wares
-are so useful the Liberty Sisters don't dare chase him out of town.
+Andok's is a cantankerous dwarf who specializes in nonmagical salves, potions,
+and reagents. He makes a killing supplying hoppers who wisely avoid magical
+healing when in the desert, but is notorious for his quick, violent temper and
+contempt for, well, pretty much everything and everyone. He remains stubbornly
+unaligned, but his wares are so useful the Liberty Sisters don't dare chase him
+out of town.
 
 "Andok's Elixirs" are reliable, if vile, substitutes for potions of healing, if you can afford them.
-
-
 
 Location: **Tano's Edge**
 

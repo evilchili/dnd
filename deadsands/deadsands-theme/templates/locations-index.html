@@ -1,0 +1,36 @@
+{% set locations = articles | selectattr('category', 'in', ['locations']) | list | sort(attribute=date) %}
+<img src='/images/dewa_qasos.png' class='key_image' alt="Hand-drawn map of the Dewa Q'Asos">
+<div class='box curled'>
+    <h2>A Hopper's Guide To<br>The Dewa Q'Asos</h2>
+    <h3>Cites, Towns, and Settlements</h3>
+    {% for location in locations if 'region' not in location.tags %}
+    <div class='location' onclick="window.location.href='{{ SITEURL }}/{{ location.url }}'">
+        <h4><a class='title' href="{{ SITEURL }}/{{ location.url }}" rel="bookmark" title="{{location.title|striptags}}">{{ location.title }}</a></h4>
+        <div class='thumbnail'><a href='{{location.thumbnail}}'><img src='{{ location.thumbnail }}' alt='{{location.title}}'></a></div>
+        <span class="summary"> {{ location.summary }} </span>
+    </div>
+    {% endfor %}
+    <h3>The Sahwat Desert</h3>
+    <div class='thumbnail'><a href='/images/overland_map.png'><img src='/images/overland_map.png' alt="The known regions of the Sawhat Desert" /></a></div>
+    <span class='summary'>
+        The Sahwat Desert is a vast expanse covering thousands of miles of the Dewa Q'Asos region in southwestern Vosh, from
+        Tano's Edge to the Sea of Storms. It is comprised of a multitude of regions each with its own geography, weather,
+        and secrets, ranging from inhospitable to deadly. At the heart of the desert lies an impenetrable whirlwind called
+        the Heartstorm, through which no one has passed and which is the subject of wild speculation.
+        <p> 
+        <br>
+        Travel in the Sahwat is governed by <a href='/mechanics/desert-travel-rules'>the rules for overland travel.</a> Mind how you step, Hopper.
+        </p>
+    </span>
+
+    {% for location in locations if 'region' in location.tags %}
+    <div class='location' onclick="window.location.href='{{ SITEURL }}/{{ location.url }}'">
+        <h4><a class='title' href="{{ SITEURL }}/{{ location.url }}" rel="bookmark" title="{{location.title|striptags}}">{{ location.title }}</a></h4>
+        <div class='thumbnail'><img src='{{ location.thumbnail }}' alt='{{location.title}}'></a></div>
+        <span class="summary"> {{ location.summary }} </span>
+    </div>
+    {% endfor %}
+
+    </div>
+    <hr>
+</div>

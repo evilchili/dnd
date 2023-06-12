@@ -49,6 +49,7 @@ class ContentType(str, Enum):
     lore = 'lore'
     monster = 'monster'
     region = 'region'
+    location = 'location'
     page = 'page'
 
 
@@ -226,9 +227,11 @@ def new(
                 print("You must specify a category for 'post' content.")
                 sys.exit()
             case 'monster':
-                category = 'beastiary'
+                category = 'bestiary'
             case 'region':
-                category = 'regions'
+                category = 'locations'
+            case 'location':
+                category = 'locations'
             case 'page':
                 category = 'pages'
             case _:

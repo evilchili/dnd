@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% import "macros.html" as macros %}
+{% block title %}{{ article.title|capitalize }} - {{SITENAME}}{% endblock title %}
+{% block summary %}{{ article.summary|striptags }}{% endblock %}
+{% block key_image %}{{ macros.key_image(article) }}{% endblock key_image %}
+{% block content %}
+{% if not self.is_dm() and article.category == 'dm' %}
+{% else %}
+<section id="content">
+    <div class='box curled'>
+        <h2 class="entry-title"><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
+        <hr>
+        <div class='byline'>
+        <span class='date'>{{ article.locale_date }}</span>&nbsp;{% if article.tags %}{% for tag in article.tags %}<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a> {% endfor %}{% endif %}
+        </div>
+        {% if article.description or article.thumbnail %}
+        <div class='scrap'>
+            <div class='note'>
+                <a href='{{article.image or article.thumbnail}}'><img src='{{article.thumbnail}}'></a>
+                {{ article.description or '' }}
+            </div>
+        </div>
+        {% endif %}
+        {{ article.content }}
+        {% if article.location.type == 'settlement' %}
+            {% with article=article %}{% include "settlement.html" %}{% endwith %}
+        {% endif %}
+        <hr>
+        {% include "bottom-nav.html" %}
+    </div>
+</section>
+{% endif %}
+{% endblock content %}

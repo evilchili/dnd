@@ -1,0 +1,24 @@
+<table>
+    <tr>
+        <th>Population</th>
+        <th>Notable Races</th>
+        <th>Economy</th>
+    </tr>
+    <tr>
+        <td>{{ article.location.population }}</td>
+        <td>{{ article.location.notable_races }}</td>
+        <td>{{ article.location.economy }}</td>
+    </tr>
+</table>
+
+<h3>Stores</h3>
+{% set stores = articles |selectattr('tags', 'eq', ['store']) | selectattr('location', 'eq', article.title) | list %}
+{% if stores %}
+    {% for store in stores %}
+    <div class='location' onclick="window.location.href='{{ SITEURL }}/{{ store.url }}'">
+        <h4><a class='title' href="{{ SITEURL }}/{{ store.url }}" rel="bookmark" title="{{store.title|striptags}}">{{ store.title }}</a></h4>
+        <span class="summary"> {{ store.summary }} </span>
+    </div>
+    {% endfor %}
+{% endif %}
+

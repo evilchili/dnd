@@ -30,6 +30,9 @@ LINKS = (('Pelican', 'https://getpelican.com/'),
 SOCIAL = (('You can add links in your config file', '#'),
           ('Another social link', '#'),)
 
+DISPLAY_PAGES_ON_MENU = False
+DISPLAY_CATEGORIES_ON_MENU = False
+
 ARTICLE_URL = '{category}/{slug}/'
 CATEGORY_URL = "{slug}/index.html"
 TAG_URL = "tags/{slug}/"
@@ -52,12 +55,16 @@ ARCHIVE_SAVE_AS = "archives/{slug}.html"
 ARCHIVES_SAVE_AS = "archives/index.html"
 
 MENU_ITEMS = (
+    ("A Hopper's Guide", "locations/"),
+    ("Lore", "lore/"),
+    ("Bestiary", "bestiary/"),
+    ("Mechanics", "mechanics/"),
     ("Index", "archives/"),
 )
 
 SITEMAP = {
     'format': 'xml',
-    "exclude": ["tag/"],
+    "exclude": ["tag/", "session0"],
 }
 
 PLUGINS = [

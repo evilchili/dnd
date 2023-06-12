@@ -1,13 +1,14 @@
 ---
-# /Users/evilchili/dnd/deadsands/www/content/region/blooming-wastes.md
+# /Users/evilchili/dnd/deadsands/www/content/locations/blooming-wastes.md
 
 title: The Blooming Wastes
 author: evilchili
-tags: region, homebrew
+tags: region
 date: 2022-07-20 17:54:47.286869
 template: region
 show_dm_content: True
-description: <a href='/images/overland_blooming_wastes.png'><img class='region_map' alt="Detail of an overland map of the Sahwat Desert" src='/images/overland_blooming_wastes.png'></a> Leads to <a href='/regions/calamity-ridge/'>Calamity Ridge</a>, <a href='/regions/dust-river-canyon/'>Dust River Canyon</a>, and Tano's Edge.
+thumbnail: /images/overland_blooming_wastes.png
+description: 
 region:
     name: The Blooming Wastes
     size: 20
@@ -69,5 +70,8 @@ region:
         Rarity: Weird
         Value: 5 GP
 ---
-
 The Blooming Wastes stretch out before you: a mostly flat expanse of hard,  cracked earth blanketed by some kind of sandy brown scrub. Small mesas dot the horizon, suggesting the possibility of shelter. As you approach you see that the scrub is covered in thick black thorns sharp enough to pierce boot leather; you will need to tread carefully. 
+
+
+**Leads to <a href='/locations/calamity-ridge/'>Calamity Ridge</a>, <a href='/locations/dust-river-canyon/'>Dust River Canyon</a>, and Tano's Edge.**
+

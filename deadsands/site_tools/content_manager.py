@@ -18,10 +18,10 @@ def create(content_type: str, title: str, template_dir: str,
         return slugify(s, regex_subs=SETTINGS['SLUG_REGEX_SUBSTITUTIONS'])
 
     template_path = Path(template_dir)
-    template_name = template + ".md"
+    template_name = f"{template or content_type}.md"
     if not (template_path / template_name).exists():
+        print(f"Expected template {template_name} not found. Using default markdown template.")
         template_name = 'default.md'
-        print("Not found. Using default markdown template.")
     env = Environment(
         loader=FileSystemLoader(template_path),
         trim_blocks=True,

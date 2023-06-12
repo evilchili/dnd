@@ -6,7 +6,11 @@
 {% else %}
 <section id="content" class="content">
     {% if category %}
-        {% with key='category', values=[category], title=category %}{% include "category-index.html" %}{% endwith %}
+        {% if category.name in ('locations', ) %}
+            {% include category.name + "-index.html" %}
+        {% else %}
+            {% with key='category', values=[category], title=category %}{% include "category-index.html" %}{% endwith %}
+        {% endif %}
     {% elif tag %}
         {% include "tag-index.html" %}
     {% endif %}

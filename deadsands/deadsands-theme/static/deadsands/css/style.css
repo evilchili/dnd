@@ -136,13 +136,14 @@ h6 { font-size: 1.25em; }
     color: #692F28;
 }
 
-.container .box article.recent p:first-of-type::first-letter {
-    font-family: inherit;
-    font-size: inherit;
-    float: inherit;
-    margin: inherit;
-    padding: inherit;
-    color: inherit;
+.container .box article.recent p:first-of-type::first-letter,
+.summary p:first-of-type::first-letter {
+    font-family: inherit !important;
+    font-size: inherit !important;
+    float: inherit !important;
+    margin: inherit !important;
+    padding: inherit !important;
+    color: inherit !important;
 }
 
 img {
@@ -186,6 +187,19 @@ img {
     text-justify: left;
 }
 
+.thumbnail {
+    float: right;
+    max-width: 150px;
+    margin-left: 1em;
+}
+.thumbnail img {
+    border: 1px solid black;
+    box-shadow: inset 0px 0px 4px 0px rgba(0,0,0,1); 
+    max-width: 150px;
+    max-height: 150px;
+    height: auto;
+}
+
 article.recent {
     font-style: italic;
     margin-bottom: 1em;
@@ -196,6 +210,7 @@ article.recent a.title {
     font-style: normal;
 }
 
+article.recent .pull, 
 article.recent h3,
 article.recent h4,
 article.recent h5,
@@ -753,6 +768,46 @@ a.disabled:hover {
     display: none;
 }
 
+.statblock > .stat {
+    font-weight: bold;
+}
+
+.statblock > .stat > .value {
+    font-weight: normal;
+    margin-left: 0.5em;
+}
+
+.monster {
+    font-family: Roboto,Helvetica,sans-serif !important;
+    text-align: justify;
+    font-size: 0.9em;
+    column-count: 2;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid-column;
+}
+
+.monster h3, h4 {
+    margin-bottom: 0;
+}
+
+.monster h4 {
+    margin-top: 1em;
+    border-bottom: 1px solid #000;
+}
+
+.monster hr {
+    content: "";
+    display: block;
+    width: 100%;
+    margin: 10px 0px;
+}
+
+.monster-type {
+    text-align: center;
+}
+
+
 .pull {
     float: right;
     max-width: 40%;
@@ -808,6 +863,19 @@ a.disabled:hover {
   }
   .pager .next {
       text-align: left;
+  }
+
+  div.location {
+      display: block;
+      clear: both;
+  }
+  div.location:hover, div.location:active {
+      background: rgba(244,241,232, 0.5);
+      cursor: pointer;
+  }
+
+  div.location:hover h4 a, div.location:active h4 a {
+    color:#cca138;
   }
 
   .container .box p:first-of-type::first-letter {

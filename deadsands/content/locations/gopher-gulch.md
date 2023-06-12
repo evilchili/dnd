@@ -1,5 +1,5 @@
 ---
-# regions/gopher-gulch.md
+# locations/gopher-gulch.md
 
 title: Gopher Gulch
 status: published
@@ -7,7 +7,9 @@ author: evilchili
 tags: region
 date: 2022-08-07 13:38:52.296672
 template: region
-show_dm_content: False
+show_dm_content: True
+thumbnail: /images/overland_gopher_gulch.png
+description:
 region:
   name: Gopher Gulch
   size: 30
@@ -20,10 +22,10 @@ region:
         Notes:
     Forage:
         DC: 18
-        Notes: no shelter; water harvestable from rolling cacti
-    Track:
-        DC: 15
         Notes:
+    Track:
+        DC: 19
+        Notes: no shelter
     Evade:
         DC: 19
         Notes:
@@ -34,11 +36,11 @@ region:
   encounters:
     d1-d2:
       Difficulty: Dangerous
-    d3-d4:
+    d3-d10:
       Difficulty: Deadly
-    d5-d7:
+    d11-d15:
       Difficulty: Easy
-    d8-d20:
+    d15-d20:
       Difficulty: None
   weather:
     d1-d2:
@@ -59,8 +61,7 @@ region:
       Rarity: Uncommon
     d6-d7:
       Description: Sand Storm
-      Effect: Heavily obscured; visibility 5ft, disadvantage on WIS (Perception) checks
-        and INT (Investigation) checks
+      Effect: Heavily obscured; visibility 5ft, disadvantage on WIS (Perception) checks and INT (Investigation) checks
       Rarity: Uncommon
     d8:
       Description: Inverted Bubble Rain
@@ -81,10 +82,13 @@ region:
       Rarity: Common
       Value: 1 GP
     d5-d8:
-      Name:  Rolling Cactus
-      Description: A globular cactus that rolls and bounces freely in the wind. 1 gallon of water can be harvested from 10 cacti.
+      Name:  Globe Cactus
+      Description: A globular cactus. 1 gallon of water can be harvested from 10 cacti.
       Rarity: Common
       Value: 5 GP
 ---
 
 Gopher Gulch emerges from the southern edge of Dust River Canyon and turns east towards the rocky foothills at the base of the eastern range of Hoard's Vault. Heavy irregular stone cover the shallow riverbed which traverses a barren plain of cracked, broken ground. Shrub and small plants dot the area, but the most prominent flora is the Rolling Catci -- an odd species of globular cactus that rolls and bounces freely, pushed about by the desert winds.
+
+
+**Leads to <a href='/locations/dust-river-canyon/'>Dust River Canyon</a>.**

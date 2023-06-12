@@ -7,6 +7,8 @@ tags: region
 date: 2022-08-07 13:59:35.261130
 template: region
 show_dm_content: False
+thumbnail: /images/overland_calamity_ridge.png
+description:
 region:
   name: Calamity Ridge
   size: 25
@@ -68,3 +70,5 @@ region:
 ---
 
 Southwest of the Blooming Wastes lies an empty stretch of hard-packed stone, from which rises Calamity Ridge -- a sprawling mesa 15 miles long and 200 feet high. Sheltering at the base of the ridge is advised, as the otherwise empty land provides no cover from stalking predators. Legend has it that a tribe of lizardfolk once claimed the mesa but were wiped out by faction miners who descended on the region following rumours of veins of precious metals. Whether the rumours proved false or the veins were exhausted isn't clear, but the region is uninhabited today.
+
+**Leads to <a href='/locations/tanos-edge'>Tano's Edge</a>.**

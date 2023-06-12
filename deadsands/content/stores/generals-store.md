@@ -4,7 +4,9 @@
 title: General's Store
 author: evilchili
 show_dm_content: False
-tags: post
+location: Tano's Edge
+faction: Liberty Sisters
+tags: store
 date: 2023-04-12 17:52:34.363950
 description: Inventory subject to availability, prices subject to change, haggle at your own risk. -- The General
 status: published
@@ -17,8 +19,6 @@ nephew Otis.
 The general supply is well-stocked with basic adventuring gear and a healthy clientele keeps turnover of common
 items high. The General has a reputation for being able to move just about anything, from random metal scraps to
 gardening supplies to artifacts of historical interest.
-
-
 
 Location: **Tano's Edge**
 

@@ -15,8 +15,13 @@
         <div class='byline'>
         <span class='date'>{{ article.locale_date }}</span>&nbsp;{% if article.tags %}{% for tag in article.tags %}<a href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a> {% endfor %}{% endif %}
         </div>
-        {% if article.description %}
-        <div class='scrap'><div class='note'>{{ article.description }}</div></div>
+        {% if article.description or article.thumbnail %}
+        <div class='scrap'>
+            <div class='note'>
+                <a href='{{article.thumbnail}}'><img src='{{article.thumbnail}}'></a>
+                {{ article.description or '' }}
+            </div>
+        </div>
         {% endif %}
 
         {{ article.content }}
@@ -32,7 +37,7 @@
                 </div>
                 <dl>
                     <dt>Size</dt><dd>{{ r.size }} sq. miles </dd>
-                    <dt>Terrain</dt><dd>{{ r.terrain }} (walking: {{ r.size / 10 if r.terrain == 'difficult' else 20 |round }} days)</dd>
+                    <dt>Terrain</dt><dd>{{ r.terrain }} (walking: {{ r.size / (10 if r.terrain == 'difficult' else 20) |round }} days)</dd>
                     <dt>Regional Effects</dt><dd>{{ macros.table(r.regional_effects) }}</dd>
                     <dt>Skill Challenges</dt><dd>{{ macros.table(r.skills, ['Skills', 'DC', 'Notes']) }}</dd>
                     <dt>Encounters (CR {{r.cr}})</dt><dd>{{ macros.table(r.encounters, ['Roll', 'Difficulty']) }}</dd>
