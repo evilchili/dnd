@@ -1,3 +1,4 @@
+import asyncio
 import click
 import os
 import shutil
@@ -15,8 +16,11 @@ from livereload.watcher import INotifyWatcher
 from pathlib import Path
 from pelican import main as pelican_main
 from time import sleep
+from typing_extensions import Annotated
+from collections import defaultdict
 
 from site_tools.content_manager import create
+from site_tools.shell.interactive_shell import InteractiveShell
 from rolltable.tables import RollTable
 
 
@@ -39,6 +43,8 @@ CONFIG = {
     'import_path': 'imports',
     # where new asseets will be made available
     'production_host': 'deadsands.froghat.club',
+    # where to find roll table sources
+    'table_sources_path': 'sources',
 }
 
 app = typer.Typer()
@@ -51,6 +57,15 @@ class ContentType(str, Enum):
     region = 'region'
     location = 'location'
     page = 'page'
+
+
+class Die(str, Enum):
+    d100 = '100'
+    d20 = '20'
+    d12 = '12'
+    d10 = '10'
+    d6 = '6'
+    d4 = '4'
 
 
 def pelican_run(cmd: list = [], publish=False) -> None:
@@ -165,16 +180,24 @@ def restock(source: str = typer.Argument(
         ...,
         help='The source file for the store.'
     ),
-    frequency: str = typer.Option(
-        'default',
-        help='use the specified frequency from the source file'),
-    die: int = typer.Option(
+    frequency: str = Annotated[
+        str,
+        typer.Option(
+            'default',
+            help='use the specified frequency from the source file'
+        )
+    ],
+    die: Die = typer.Option(
         20,
-        help='The size of the die for which to create a table'),
-    template_dir: str = typer.Argument(
-        CONFIG['templates_path'],
-        help="Override the default location for markdown templates.",
-    )
+        help='The size of the die for which to create a table'
+    ),
+    template_dir: str = Annotated[
+        str,
+        typer.Argument(
+            CONFIG['templates_path'],
+            help="Override the default location for markdown templates.",
+        )
+    ],
 ) -> None:
 
     rt = RollTable(
@@ -238,6 +261,26 @@ def new(
                 category = content_type.value
     click.edit(filename=create(content_type.value, title, template_dir,
                                category, template or content_type.value))
+
+
+@app.command()
+def dmsh():
+    import termios, sys
+
+    session = defaultdict(dict)
+    prompt = InteractiveShell(
+        [
+            "[title]DM's Shell.[/title]",
+            'dmsh'
+        ], config=CONFIG, session=session
+    )
+
+    # ensure the terminal is restored on exit.
+    old_attrs = termios.tcgetattr(sys.stdin)
+    try:
+        asyncio.run(prompt.start())
+    finally:
+        termios.tcsetattr(sys.stdin, termios.TCSANOW, old_attrs)
 
 
 if __name__ == '__main__':

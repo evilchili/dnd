@@ -30,6 +30,7 @@ dnd-npcs      = { git = "https://github.com/evilchili/dnd-npcs", branch = 'main'
 elethis-cipher= { git = "https://github.com/evilchili/elethis-cipher", branch = 'main' }
 #dnd-rolltable = { git = "https://github.com/evilchili/dnd-rolltable", branch = 'main' }
 dnd-rolltable = { file = "../../dnd-rolltable/dist/dnd_rolltable-1.1.9-py3-none-any.whl" }
+prompt-toolkit = "^3.0.38"
 
 [tool.poetry.scripts]
 site = "site_tools.cli:app"
