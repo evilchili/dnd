@@ -7,71 +7,40 @@ from prompt_toolkit.key_binding import KeyBindings
 from prompt_toolkit.application import get_app
 
 
-bindings = KeyBindings()
+BINDINGS = KeyBindings()
 
 
-class InteractiveShell(BasePrompt):
+class DMShell(BasePrompt):
 
-    def __init__(self, prompt=[], config={}, session={}):
-        super().__init__()
-        self._prompt = prompt
-        self._config = config
-        self._wmt = ""
-        self._subshells = {}
+    def __init__(self, cache={}):
+        super().__init__(cache)
+        self._name = "DM Shell"
+        self._prompt = ['dm']
+        self._toolbar = [('class:bold', ' DMSH ')]
+        self._key_bindings = BINDINGS
         self._register_subshells()
         self._register_keybindings()
-        self._session = session
 
     def _register_keybindings(self):
 
-        @bindings.add('c-q')
-        @bindings.add('c-d')
+        self._toolbar.extend([
+            ('', " [H]elp "),
+            ('', " [W]ild Magic Table "),
+            ('', " [Q]uit "),
+        ])
+
+        @self.key_bindings.add('c-q')
+        @self.key_bindings.add('c-d')
         def quit(event):
             self.quit()
 
-        @bindings.add('c-h')
+        @self.key_bindings.add('c-h')
         def help(event):
             self.help()
 
-        @bindings.add('c-w')
+        @self.key_bindings.add('c-w')
         def wmt(event):
             self.wmt()
-
-    def _register_subshells(self):
-        for subclass in BasePrompt.__subclasses__():
-            if subclass.__name__ == self.__class__.__name__:
-                continue
-            self._subshells[subclass.__name__] = subclass(parent=self)
-
-    @property
-    def key_bindings(self):
-        return bindings
-
-    @property
-    def toolbar(self):
-        return [
-            ('class:bold', ' DMSH '),
-            ('', " [H]elp "),
-            ('', " [W]mt "),
-            ('', " [Q]uit "),
-        ]
-
-    @property
-    def session(self):
-        return self._session
-
-    @property
-    def autocomplete_values(self):
-        return list(self.commands.keys())
-
-    def default_completer(self, document, complete_event):  # pragma: no cover
-        word = document.current_line_before_cursor
-        raise Exception(word)
-
-    def process(self, cmd, *parts):
-        if cmd in self.commands:
-            return self.commands[cmd].handler(self, parts)
-        return "Unknown Command; try help."
 
     @command(usage="""
     [title]QUIT[/title]
@@ -86,8 +55,10 @@ class InteractiveShell(BasePrompt):
         """
         Quit dmsh.
         """
-        get_app().exit()
-        raise SystemExit("Okay BYEEEE")
+        try:
+            get_app().exit()
+        finally:
+            raise SystemExit("")
 
     @command(usage="""
     [title]HELP FOR THE HELP LORD[/title]
@@ -99,7 +70,7 @@ class InteractiveShell(BasePrompt):
 
         [link]> help [COMMAND][/link]
     """)
-    def help(self, *parts):
+    def help(self, parts=[]):
         """
         Display the help message.
         """
@@ -115,7 +86,7 @@ class InteractiveShell(BasePrompt):
 
         [link]id[/link]
     """)
-    def id(self, *parts):
+    def id(self, parts=[]):
         """
         Increment the date by one day.
         """
@@ -136,13 +107,13 @@ class InteractiveShell(BasePrompt):
                 "Gopher Gulch",
                 "Calamity Ridge"
              ]))
-    def loc(self, *parts):
+    def loc(self, parts=[]):
         """
         Move the party to a new region of the Sahwat Desert.
         """
         if parts:
-            self.session['location'] = (' '.join(parts))
-        self.console.print(f"The party is in {self.session['location']}.")
+            self.cache['location'] = (' '.join(parts))
+        self.console.print(f"The party is in {self.cache['location']}.")
 
     @command(usage="""
     [title]OVERLAND TRAVEL[/title]
@@ -153,7 +124,7 @@ class InteractiveShell(BasePrompt):
 
         [link]ot in[/link]
     """)
-    def ot(self, *parts):
+    def ot(self, parts=[]):
         """
         Increment the date by one day and record
         """
@@ -162,7 +133,7 @@ class InteractiveShell(BasePrompt):
     @command(usage="""
     [title]WILD MAGIC TABLE[/title]
 
-    [b]wmt[/b] Generates a d20 wild magic surge roll table. The table will be cached for the session.
+    [b]wmt[/b] Generates a d20 wild magic surge roll table. The table will be cached for the cache.
 
     [title]USAGE[/title]
 
@@ -178,14 +149,14 @@ class InteractiveShell(BasePrompt):
         """
         Generate a Wild Magic Table for resolving spell effects.
         """
-        if not self._wmt:
+        if 'wmt' not in self.cache:
             rt = RollTable(
-                [Path(f"{self._config['table_sources_path']}/{source}").read_text()],
+                [Path(f"{self.cache['table_sources_path']}/{source}").read_text()],
                 frequency='default',
                 die=20,
             )
             table = Table(*rt.expanded_rows[0])
             for row in rt.expanded_rows[1:]:
                 table.add_row(*row)
-            self._wmt = table
-        self.console.print(self._wmt)
+            self.cache['wmt'] = table
+        self.console.print(self.cache['wmt'])

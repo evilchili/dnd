@@ -36,6 +36,7 @@ prompt-toolkit = "^3.0.38"
 site = "site_tools.cli:app"
 roll-table = "rolltable.cli:app"
 pelican = "site_tools.tasks:pelican_main"
+dmsh = "site_tools.cli:dmsh"
 
 
 

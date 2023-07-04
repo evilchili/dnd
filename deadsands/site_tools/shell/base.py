@@ -3,7 +3,6 @@ from collections import namedtuple, defaultdict
 
 from prompt_toolkit.completion import NestedCompleter
 
-
 from site_tools.console import Console
 from textwrap import dedent
 
@@ -37,13 +36,22 @@ def command(usage, completer=None, binding=None):
 
 class BasePrompt(NestedCompleter):
 
-    def __init__(self, console=None):
+    def __init__(self, cache={}):
         super(BasePrompt, self).__init__(self._nested_completer_map())
-
         self._prompt = ''
-        self._autocomplete_values = []
         self._console = None
         self._theme = None
+        self._toolbar = None
+        self._key_bindings = None
+        self._subshells = {}
+        self._cache = cache
+        self._name = 'Interactive Shell'
+
+    def _register_subshells(self):
+        for subclass in BasePrompt.__subclasses__():
+            if subclass.__name__ == self.__class__.__name__:
+                continue
+            self._subshells[subclass.__name__] = subclass(parent=self)
 
     def _nested_completer_map(self):
         return dict(
@@ -56,13 +64,22 @@ class BasePrompt(NestedCompleter):
         except KeyError:
             return self.usage
 
-    def default_completer(self, document, complete_event):
-        raise NotImplementedError(f"Implement the 'default_completer' method of {self.__class__.__name__}")
+    @property
+    def name(self):
+        return self._name
+
+    @property
+    def cache(self):
+        return self._cache
+
+    @property
+    def key_bindings(self):
+        return self._key_bindings
 
     @property
     def usage(self):
-        text = dedent("""
-        [title]dmsh[/title]
+        text = dedent(f"""
+        [title]{self.name}[/title]
 
         Available commands are listed below. Try 'help COMMAND' for detailed help.
 
@@ -89,15 +106,15 @@ class BasePrompt(NestedCompleter):
 
     @property
     def autocomplete_values(self):
-        return self._autocomplete_values
+        return list(self.commands.keys())
 
     @property
     def toolbar(self):
-        return None
+        return self._toolbar
 
     @property
     def key_bindings(self):
-        return None
+        return self._key_bindings
 
     def help(self, parts):
         attr = None
@@ -109,7 +126,7 @@ class BasePrompt(NestedCompleter):
     def process(self, cmd, *parts):
         if cmd in self.commands:
             return self.commands[cmd].handler(self, parts)
-        self.console.error(f"Command {cmd} not understood.")
+        self.console.error(f"Command {cmd} not understood; try 'help' for help.")
 
     def start(self, cmd=None):
         while True:

@@ -7,6 +7,7 @@ import shlex
 import sys
 import typer
 import webbrowser
+import termios
 
 import site_tools as st
 
@@ -20,11 +21,12 @@ from typing_extensions import Annotated
 from collections import defaultdict
 
 from site_tools.content_manager import create
-from site_tools.shell.interactive_shell import InteractiveShell
+from site_tools.shell.interactive_shell import DMShell
 from rolltable.tables import RollTable
 
 
-CONFIG = {
+CONFIG = defaultdict(dict)
+CONFIG.update({
     'settings_base': st.DEV_SETTINGS_FILE_BASE,
     'settings_publish': st.PUB_SETTINGS_FILE_BASE,
     # Output path. Can be absolute or relative to tasks.py. Default: 'output'
@@ -45,7 +47,7 @@ CONFIG = {
     'production_host': 'deadsands.froghat.club',
     # where to find roll table sources
     'table_sources_path': 'sources',
-}
+})
 
 app = typer.Typer()
 
@@ -263,22 +265,10 @@ def new(
                                category, template or content_type.value))
 
 
-@app.command()
 def dmsh():
-    import termios, sys
-
-    session = defaultdict(dict)
-    prompt = InteractiveShell(
-        [
-            "[title]DM's Shell.[/title]",
-            'dmsh'
-        ], config=CONFIG, session=session
-    )
-
-    # ensure the terminal is restored on exit.
     old_attrs = termios.tcgetattr(sys.stdin)
     try:
-        asyncio.run(prompt.start())
+        asyncio.run(DMShell(CONFIG).start())
     finally:
         termios.tcsetattr(sys.stdin, termios.TCSANOW, old_attrs)
 

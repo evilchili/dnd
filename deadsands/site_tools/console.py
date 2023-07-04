@@ -29,6 +29,7 @@ BASE_STYLE = {
     'toolbar.fg': '#888888',
     'toolbar.bg': '#111111',
     'toolbar.bold': '#FFFFFF',
+    'error': 'red',
 }
 
 
