@@ -19,25 +19,30 @@ class DMShell(BasePrompt):
         self._key_bindings = BINDINGS
         self._register_subshells()
         self._register_keybindings()
+
     def _register_keybindings(self):
         self._toolbar.extend(
             [
-                ("", " [H]elp "),
-                ("", " [W]ild Magic Table "),
-                ("", " [Q]uit "),
+                ("", " [?] Help "),
+                ("", " [F2] Wild Magic Table "),
+                ("", " [^Q] Quit "),
             ]
         )
 
         @self.key_bindings.add("c-q")
         @self.key_bindings.add("c-d")
+        @self.key_bindings.add("<sigint>")
         def quit(event):
             self.quit()
-        @self.key_bindings.add("c-h")
+
+        @self.key_bindings.add("?")
         def help(event):
             self.help()
-        @self.key_bindings.add("c-w")
+
+        @self.key_bindings.add("f2")
         def wmt(event):
             self.wmt()
+
     @command(usage="""
     [title]QUIT[/title]
 
