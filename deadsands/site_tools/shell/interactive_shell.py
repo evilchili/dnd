@@ -8,6 +8,8 @@ from rolltable.tables import RollTable
 
 from site_tools.shell.base import BasePrompt, command
 
+from npc.generator.base import generate_npc
+
 BINDINGS = KeyBindings()
 
 
@@ -26,6 +28,7 @@ class DMShell(BasePrompt):
             [
                 ("", " [?] Help "),
                 ("", " [F2] Wild Magic Table "),
+                ("", " [F3] NPC"),
                 ("", " [^Q] Quit "),
             ]
         )
@@ -43,6 +46,50 @@ class DMShell(BasePrompt):
         @self.key_bindings.add("f2")
         def wmt(event):
             self.wmt()
+
+        @self.key_bindings.add("f3")
+        def npc(event):
+            self.npc()
+
+    @command(usage="""
+    [title]NPC[/title]
+
+    Generate a randomized NPC commoner.
+
+    [title]USAGE[/title]
+
+        [link]> npc \\[ANCESTRY\\][/link]
+
+    [title]CLI[/title]
+
+        [link]npc --ancestry ANCESTRY[/link]
+    """, completer=WordCompleter(
+        [
+            'human',
+            'dragon',
+            'drow',
+            'dwarf',
+            'elf',
+            'highelf',
+            'halfling',
+            'halforc',
+            'tiefling',
+            'hightiefling',
+        ]
+    ))
+    def npc(self, parts=[]):
+        """
+        Generate an NPC commoner
+        """
+        c = generate_npc(ancestry=parts[0] if parts else None)
+        self.console.print("\n".join([
+            "",
+            f"{c.description}",
+            f"Personality: {c.personality}",
+            f"Flaw:        {c.flaw}",
+            f"Goal:        {c.goal}",
+            "",
+        ]))
 
     @command(usage="""
     [title]QUIT[/title]
@@ -104,7 +151,14 @@ class DMShell(BasePrompt):
 
         [link]loc LOCATION[/link]
     """,
-        completer=WordCompleter(["The Blooming Wastes", "Dust River Canyon", "Gopher Gulch", "Calamity Ridge"]),
+        completer=WordCompleter(
+            [
+                "The Blooming Wastes",
+                "Dust River Canyon",
+                "Gopher Gulch",
+                "Calamity Ridge"
+            ]
+        ),
     )
     def loc(self, parts=[]):
         """
@@ -144,7 +198,7 @@ class DMShell(BasePrompt):
                 sources/sahwat_magic_table.yaml \\
                 --frequency default --die 20[/link]
     """)
-    def wmt(self, *parts, source="sahwat_magic_table.yaml"):
+    def wmt(self, parts=[], source="sahwat_magic_table.yaml"):
         """
         Generate a Wild Magic Table for resolving spell effects.
         """

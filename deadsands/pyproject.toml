@@ -26,7 +26,9 @@ pelican-sitemap = "^1.0.2"
 pelican-yaml-metadata = { git = "https://github.com/pR0Ps/pelican-yaml-metadata.git", branch = "cdc1b9708916410e455e8e258e3d39a9d575c7b5" }
 
 # local wotsits
-dnd-npcs      = { git = "https://github.com/evilchili/dnd-npcs", branch = 'main' }
+#dnd-npcs      = { git = "https://github.com/evilchili/dnd-npcs", branch = 'main' }
+#dnd-npcs = { path = "../../dnd-npcs" }
+dnd-npcs = { file = "../../dnd-npcs/dist/dnd_npcs-0.2.0-py3-none-any.whl" }
 elethis-cipher= { git = "https://github.com/evilchili/elethis-cipher", branch = 'main' }
 #dnd-rolltable = { git = "https://github.com/evilchili/dnd-rolltable", branch = 'main' }
 dnd-rolltable = { file = "../../dnd-rolltable/dist/dnd_rolltable-1.1.9-py3-none-any.whl" }
