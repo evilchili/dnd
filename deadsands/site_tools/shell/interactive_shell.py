@@ -10,6 +10,7 @@ from site_tools.shell.base import BasePrompt, command
 
 BINDINGS = KeyBindings()
 
+
 class DMShell(BasePrompt):
     def __init__(self, cache={}):
         super().__init__(cache)
@@ -60,6 +61,7 @@ class DMShell(BasePrompt):
             get_app().exit()
         finally:
             raise SystemExit("")
+
     @command(usage="""
     [title]HELP FOR THE HELP LORD[/title]
 
@@ -76,6 +78,7 @@ class DMShell(BasePrompt):
         """
         super().help(parts)
         return True
+
     @command(usage="""
     [title]INCREMENT DATE[/title]
 
@@ -90,6 +93,7 @@ class DMShell(BasePrompt):
         Increment the date by one day.
         """
         raise NotImplementedError()
+
     @command(
         usage="""
     [title]LOCATION[/title]
@@ -109,6 +113,7 @@ class DMShell(BasePrompt):
         if parts:
             self.cache["location"] = " ".join(parts)
         self.console.print(f"The party is in {self.cache['location']}.")
+
     @command(usage="""
     [title]OVERLAND TRAVEL[/title]
 
@@ -123,6 +128,7 @@ class DMShell(BasePrompt):
         Increment the date by one day and record
         """
         raise NotImplementedError()
+
     @command(usage="""
     [title]WILD MAGIC TABLE[/title]
 
