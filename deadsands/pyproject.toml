@@ -32,10 +32,13 @@ dnd-npcs = { file = "../../dnd-npcs/dist/dnd_npcs-0.2.0-py3-none-any.whl" }
 elethis-cipher= { git = "https://github.com/evilchili/elethis-cipher", branch = 'main' }
 #dnd-rolltable = { git = "https://github.com/evilchili/dnd-rolltable", branch = 'main' }
 dnd-rolltable = { file = "../../dnd-rolltable/dist/dnd_rolltable-1.1.9-py3-none-any.whl" }
+
+dnd-calendar = { path = "../../dnd-calendar" }
+
 prompt-toolkit = "^3.0.38"
 
 [tool.poetry.scripts]
-site = "site_tools.cli:app"
+site = "site_tools.cli:site_app"
 roll-table = "rolltable.cli:app"
 pelican = "site_tools.tasks:pelican_main"
 dmsh = "site_tools.cli:dmsh"

@@ -7,8 +7,10 @@ from rich.table import Table
 from rolltable.tables import RollTable
 
 from site_tools.shell.base import BasePrompt, command
+from site_tools import campaign
 
 from npc.generator.base import generate_npc
+from reckoning.calendar import TelisaranCalendar
 
 BINDINGS = KeyBindings()
 
@@ -23,12 +25,22 @@ class DMShell(BasePrompt):
         self._register_subshells()
         self._register_keybindings()
 
+        self.cache['campaign'] = campaign.load(
+            path=self.cache['campaign_save_path'],
+            name=self.cache['campaign_name'],
+            start_date=self.cache['campaign_start_date'],
+            console=self.console
+        )
+        self._campaign = self.cache['campaign']
+
     def _register_keybindings(self):
         self._toolbar.extend(
             [
                 ("", " [?] Help "),
                 ("", " [F2] Wild Magic Table "),
                 ("", " [F3] NPC"),
+                ("", " [F4] Calendar"),
+                ("", " [F8] Save"),
                 ("", " [^Q] Quit "),
             ]
         )
@@ -50,6 +62,61 @@ class DMShell(BasePrompt):
         @self.key_bindings.add("f3")
         def npc(event):
             self.npc()
+
+        @self.key_bindings.add("f4")
+        def calendar(event):
+            self.calendar()
+
+        @self.key_bindings.add("f8")
+        def save(event):
+            self.save()
+
+    @command(usage="""
+    [title]Calendar[/title]
+
+    Print the Telisaran calendar, including the current date.
+
+    [title]calendar[/title]
+
+        [link]> calendar [season][/link]
+    """, completer=WordCompleter(
+        [
+            'season',
+        ]
+    ))
+    def calendar(self, parts=[]):
+
+        if not self.cache['calendar']:
+            self.cache['calendar'] = TelisaranCalendar(today=self._campaign['start_date'])
+
+        if not parts:
+            self.console.print(self.cache['calendar'].__doc__)
+            self.console.print(f"Today is {self._campaign['date'].short}")
+            return
+
+        if parts[0] == 'season':
+            self.console.print(self.cache['calendar'].season)
+            return
+
+    @command(usage="""
+    [title]Save[/title]
+
+    Save the campaign state.
+
+    [title]USAGE[/title]
+
+        [link]> save[/link]
+    """)
+    def save(self, parts=[]):
+        """
+        Save the campaign state.
+        """
+        path, count = campaign.save(
+            self.cache['campaign'],
+            path=self.cache['campaign_save_path'],
+            name=self.cache['campaign_name']
+        )
+        self.console.print(f"Saved {path}; {count} backups exist.")
 
     @command(usage="""
     [title]NPC[/title]
@@ -104,6 +171,7 @@ class DMShell(BasePrompt):
         """
         Quit dmsh.
         """
+        self.save()
         try:
             get_app().exit()
         finally:
