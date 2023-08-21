@@ -114,8 +114,6 @@ class DMShell(BasePrompt):
         except IndexError:
             val = None
 
-        print(cmd)
-
         handler = getattr(self, f"_handler_date_{cmd}", None)
         if not handler:
             self.console.error(f"Unsupported command: {cmd}. Try 'help date'.")
