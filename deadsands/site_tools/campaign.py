@@ -4,14 +4,14 @@ from pathlib import Path
 import shutil
 import yaml
 
-from telisar.reckoning import telisaran
+from reckoning import telisaran
 
 
-def _string_to_date(date):
+def string_to_date(date):
     return telisaran.datetime.from_expression(f"on {date}", timeline={})
 
 
-def _date_to_string(date):
+def date_to_string(date):
     return date.numeric
 
 
@@ -47,8 +47,8 @@ def save(campaign, path='.', name='dnd_campaign'):
         target = Path(f"{savepath}.000")
         shutil.move(savepath, target)
 
-    campaign['date'] = _date_to_string(campaign['date'])
-    campaign['start_date'] = _date_to_string(campaign['start_date'])
+    campaign['date'] = date_to_string(campaign['date'])
+    campaign['start_date'] = date_to_string(campaign['start_date'])
     savepath.write_text(yaml.safe_dump(dict(campaign)))
     return savepath, (backup_count or 0) + 2
 
@@ -56,7 +56,7 @@ def save(campaign, path='.', name='dnd_campaign'):
 def load(path=".", name='dnd_campaign', start_date='', backup=None, console=None):
     ext = "" if backup is None else f".{backup:03d}"
 
-    default_date = _string_to_date(start_date)
+    default_date = string_to_date(start_date)
     campaign = defaultdict(str)
     campaign['start_date'] = default_date
     campaign['date'] = default_date
@@ -67,8 +67,8 @@ def load(path=".", name='dnd_campaign', start_date='', backup=None, console=None
         target = Path(path).expanduser() / f"{name}.yaml{ext}"
         with open(target, 'rb') as f:
             loaded = yaml.safe_load(f)
-            loaded['start_date'] = _string_to_date(loaded['start_date'])
-            loaded['date'] = _string_to_date(loaded['date'])
+            loaded['start_date'] = string_to_date(loaded['start_date'])
+            loaded['date'] = string_to_date(loaded['date'])
             campaign.update(loaded)
             if console:
                 console.print(f"Successfully loaded Campaign {name} from {target}!")

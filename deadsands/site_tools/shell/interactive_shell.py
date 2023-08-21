@@ -11,6 +11,8 @@ from site_tools import campaign
 
 from npc.generator.base import generate_npc
 from reckoning.calendar import TelisaranCalendar
+from reckoning.telisaran import Day
+from reckoning.telisaran import ReckoningError
 
 BINDINGS = KeyBindings()
 
@@ -64,39 +66,87 @@ class DMShell(BasePrompt):
             self.npc()
 
         @self.key_bindings.add("f4")
-        def calendar(event):
-            self.calendar()
+        def date(event):
+            self.date()
 
         @self.key_bindings.add("f8")
         def save(event):
             self.save()
 
     @command(usage="""
-    [title]Calendar[/title]
+    [title]Date[/title]
 
-    Print the Telisaran calendar, including the current date.
+    Work with the Telisaran calendar, including the current campaign date.
 
-    [title]calendar[/title]
+    [title]USAGE[/title]
 
-        [link]> calendar [season][/link]
+        [link]> date [COMMAND[, ARGS]][/link]
+
+        COMMAND     Description
+
+        season      Print the spans of the current season, highlighting today
+        year        Print the full year's calendar, highlighting today.
+        inc N       Increment the current date by N days; defaults to 1.
+        dec N       Decrement the current date by N days; defaults to 1.
+        set DATE    Set the current date to DATE, in numeric format, such as
+                    [link]2.1125.1.45[/link].
     """, completer=WordCompleter(
         [
             'season',
+            'year',
+            'inc',
+            'dec',
+            'set',
         ]
     ))
-    def calendar(self, parts=[]):
+    def date(self, parts=[]):
 
         if not self.cache['calendar']:
-            self.cache['calendar'] = TelisaranCalendar(today=self._campaign['start_date'])
+            self.cache['calendar'] = TelisaranCalendar(today=self._campaign['date'])
 
         if not parts:
-            self.console.print(self.cache['calendar'].__doc__)
-            self.console.print(f"Today is {self._campaign['date'].short}")
+            self.console.print(f"Today is {self._campaign['date'].short} ({self._campaign['date'].numeric})")
             return
 
-        if parts[0] == 'season':
-            self.console.print(self.cache['calendar'].season)
+        cmd = parts[0]
+        try:
+            val = parts[1]
+        except IndexError:
+            val = None
+
+        print(cmd)
+
+        handler = getattr(self, f"_handler_date_{cmd}", None)
+        if not handler:
+            self.console.error(f"Unsupported command: {cmd}. Try 'help date'.")
             return
+
+        return handler(val)
+
+    def _handler_date_season(self, *args):
+        self.console.print(self.cache['calendar'].season)
+
+    def _handler_date_year(self, *args):
+        self.console.print(self.cache['calendar'].calendar)
+
+    def _handler_date_inc(self, days):
+        offset = int(days or 1) * Day.length_in_seconds
+        self._campaign['date'] = self._campaign['date'] + offset
+        return self.date()
+
+    def _handler_date_dec(self, days):
+        offset = int(days or 1) * Day.length_in_seconds
+        self._campaign['date'] = self._campaign['date'] - offset
+        return self.date()
+
+    def _handler_date_set(self, new_date):
+        try:
+            self._campaign['date'] = campaign.string_to_date(new_date)
+        except ReckoningError as e:
+            self.console.error(str(e))
+            self.console.error("Invalid date. Use numeric formats; see 'help date' for more.")
+        self.cache['calendar'] = TelisaranCalendar(today=self._campaign['date'])
+        return self.date()
 
     @command(usage="""
     [title]Save[/title]
@@ -193,21 +243,6 @@ class DMShell(BasePrompt):
         """
         super().help(parts)
         return True
-
-    @command(usage="""
-    [title]INCREMENT DATE[/title]
-
-    [b]id[/b] Increments the calendar date by one day.
-
-    [title]USAGE[/title]
-
-        [link]id[/link]
-    """)
-    def id(self, parts=[]):
-        """
-        Increment the date by one day.
-        """
-        raise NotImplementedError()
 
     @command(
         usage="""
