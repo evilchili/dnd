@@ -8,6 +8,7 @@ from rolltable.tables import RollTable
 
 from site_tools.shell.base import BasePrompt, command
 from site_tools import campaign
+from site_tools import jobs
 
 from npc.generator.base import generate_npc
 from reckoning.calendar import TelisaranCalendar
@@ -43,6 +44,7 @@ class DMShell(BasePrompt):
                 ("", " [F3] Trinkets"),
                 ("", " [F4] NPC"),
                 ("", " [F5] Date"),
+                ("", " [F6] Job"),
                 ("", " [F8] Save"),
                 ("", " [^Q] Quit "),
             ]
@@ -73,6 +75,10 @@ class DMShell(BasePrompt):
         @self.key_bindings.add("f5")
         def date(event):
             self.date()
+
+        @self.key_bindings.add("f6")
+        def job(event):
+            self.job()
 
         @self.key_bindings.add("f8")
         def save(event):
@@ -358,3 +364,17 @@ class DMShell(BasePrompt):
                 self.console.error(f"Invalid level: {newlevel}. Levels must be between 1 and 20.")
             self._campaign['level'] = newlevel
         self.console.print(f"Party is currently at level {self._campaign['level']}.")
+
+    @command(usage="""
+    [title]JOB[/title]
+
+    Generate a random job.
+
+    [title]USAGE[/title]
+
+        [link]> job[/link]
+
+    """)
+    def job(self, parts=[]):
+        self.console.print(jobs.generate_job())
+
