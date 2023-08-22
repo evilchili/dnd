@@ -40,8 +40,9 @@ class DMShell(BasePrompt):
             [
                 ("", " [?] Help "),
                 ("", " [F2] Wild Magic Table "),
-                ("", " [F3] NPC"),
-                ("", " [F4] Calendar"),
+                ("", " [F3] Trinkets"),
+                ("", " [F4] NPC"),
+                ("", " [F5] Date"),
                 ("", " [F8] Save"),
                 ("", " [^Q] Quit "),
             ]
@@ -62,10 +63,14 @@ class DMShell(BasePrompt):
             self.wmt()
 
         @self.key_bindings.add("f3")
+        def trinkets(event):
+            self.trinkets()
+
+        @self.key_bindings.add("f4")
         def npc(event):
             self.npc()
 
-        @self.key_bindings.add("f4")
+        @self.key_bindings.add("f5")
         def date(event):
             self.date()
 
@@ -73,8 +78,44 @@ class DMShell(BasePrompt):
         def save(event):
             self.save()
 
+    def _handler_date_season(self, *args):
+        self.console.print(self.cache['calendar'].season)
+
+    def _handler_date_year(self, *args):
+        self.console.print(self.cache['calendar'].calendar)
+
+    def _handler_date_inc(self, days):
+        offset = int(days or 1) * Day.length_in_seconds
+        self._campaign['date'] = self._campaign['date'] + offset
+        return self.date()
+
+    def _handler_date_dec(self, days):
+        offset = int(days or 1) * Day.length_in_seconds
+        self._campaign['date'] = self._campaign['date'] - offset
+        return self.date()
+
+    def _handler_date_set(self, new_date):
+        try:
+            self._campaign['date'] = campaign.string_to_date(new_date)
+        except ReckoningError as e:
+            self.console.error(str(e))
+            self.console.error("Invalid date. Use numeric formats; see 'help date' for more.")
+        self.cache['calendar'] = TelisaranCalendar(today=self._campaign['date'])
+        return self.date()
+
+    def _rolltable(self, source, frequency='default', die=20):
+        rt = RollTable(
+            [Path(f"{self.cache['table_sources_path']}/{source}").read_text()],
+            frequency=frequency,
+            die=die
+        )
+        table = Table(*rt.rows[0])
+        for row in rt.rows[1:]:
+            table.add_row(*row)
+        return table
+
     @command(usage="""
-    [title]Date[/title]
+    [title]DATE[/title]
 
     Work with the Telisaran calendar, including the current campaign date.
 
@@ -120,31 +161,6 @@ class DMShell(BasePrompt):
             return
 
         return handler(val)
-
-    def _handler_date_season(self, *args):
-        self.console.print(self.cache['calendar'].season)
-
-    def _handler_date_year(self, *args):
-        self.console.print(self.cache['calendar'].calendar)
-
-    def _handler_date_inc(self, days):
-        offset = int(days or 1) * Day.length_in_seconds
-        self._campaign['date'] = self._campaign['date'] + offset
-        return self.date()
-
-    def _handler_date_dec(self, days):
-        offset = int(days or 1) * Day.length_in_seconds
-        self._campaign['date'] = self._campaign['date'] - offset
-        return self.date()
-
-    def _handler_date_set(self, new_date):
-        try:
-            self._campaign['date'] = campaign.string_to_date(new_date)
-        except ReckoningError as e:
-            self.console.error(str(e))
-            self.console.error("Invalid date. Use numeric formats; see 'help date' for more.")
-        self.cache['calendar'] = TelisaranCalendar(today=self._campaign['date'])
-        return self.date()
 
     @command(usage="""
     [title]Save[/title]
@@ -304,13 +320,41 @@ class DMShell(BasePrompt):
         Generate a Wild Magic Table for resolving spell effects.
         """
         if "wmt" not in self.cache:
-            rt = RollTable(
-                [Path(f"{self.cache['table_sources_path']}/{source}").read_text()],
-                frequency="default",
-                die=20,
-            )
-            table = Table(*rt.expanded_rows[0])
-            for row in rt.expanded_rows[1:]:
-                table.add_row(*row)
-            self.cache["wmt"] = table
-        self.console.print(self.cache["wmt"])
+            self.cache['wmt'] = self._rolltable(source)
+        self.console.print(self.cache['wmt'])
+
+    @command(usage="""
+    [title]TRINKET TABLE[/title]
+
+    [b]trinkets[/b] Generates a d20 random trinket table.
+
+    [title]USAGE[/title]
+
+        [link]> trinkets[/link]
+
+    [title]CLI[/title]
+
+        [link]roll-table \\
+                sources/trinkets.yaml \\
+                --frequency default --die 20[/link]
+    """)
+    def trinkets(self, parts=[], source="trinkets.yaml"):
+        self.console.print(self._rolltable(source))
+
+    @command(usage="""
+    [title]LEVEL[/title]
+
+    Get or set the current campaign's level. Used for generating loot tables.
+
+    [title]USAGE[/title]
+
+        [link]> level [LEVEL][/link]
+
+    """)
+    def level(self, parts=[]):
+        if parts:
+            newlevel = int(parts[0])
+            if newlevel > 20 or newlevel < 1:
+                self.console.error(f"Invalid level: {newlevel}. Levels must be between 1 and 20.")
+            self._campaign['level'] = newlevel
+        self.console.print(f"Party is currently at level {self._campaign['level']}.")

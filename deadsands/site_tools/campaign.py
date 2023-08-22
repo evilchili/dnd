@@ -60,6 +60,7 @@ def load(path=".", name='dnd_campaign', start_date='', backup=None, console=None
     campaign = defaultdict(str)
     campaign['start_date'] = default_date
     campaign['date'] = default_date
+    campaign['level'] = 1
 
     if console:
         console.print(f"Loading campaign {name} from {path}...")
