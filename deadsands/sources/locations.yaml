@@ -1,0 +1,27 @@
+# locations
+metadata:
+  headers:
+    - Name
+  frequencies:
+    default:
+      Settlements: 0.5
+      Sahwat: 0.5
+    settlements:
+      Settlements: 1.0
+      Sahwat: 0.0
+    sahwat:
+      Settlements: 0.0
+      Sahwat: 1.0
+Settlements:
+  - Tano's Edge
+  - The Heap
+  - Gazakh Noch
+  - Poshni Koth
+Sahwat:
+  - Blooming Wastes
+  - Dust River Canyon
+  - Gopher Gulch
+  - Calamity Ridge
+  - The Haunted Hills
+  - Bone City
+  - The Undersands
