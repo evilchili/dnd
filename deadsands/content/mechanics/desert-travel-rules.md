@@ -76,7 +76,7 @@ An activity is performed with a skill check, the DC for which will depend on the
 
 The preferred skill checks required for each activity are listed below; adventurers may attempt to complete an activity using a different skill, but the DC will be set by the DM.
 
-Each activity consumes a half-day and the attention of at least one adventurer. A second adventurer may choose to assist with one activity, conveying advantage on the skill check. Activities cannot be repeated by other players on the same half-day unless noted below.
+Each activity consumes a half-day and the attention of at least one adventurer. A second adventurer may choose to assist with one activity, conveying advantage on the skill check. Activities besides Forage cannot be repeated by other players on the same half-day.
 
 
 #### Travel
