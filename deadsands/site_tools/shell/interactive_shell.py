@@ -147,6 +147,9 @@ class DMShell(BasePrompt):
         ]
     ))
     def date(self, parts=[]):
+        """
+        Date and calendaring tools.
+        """
 
         if not self.cache['calendar']:
             self.cache['calendar'] = TelisaranCalendar(today=self._campaign['date'])
@@ -345,6 +348,9 @@ class DMShell(BasePrompt):
                 --frequency default --die 20[/link]
     """)
     def trinkets(self, parts=[], source="trinkets.yaml"):
+        """
+        Generate a trinkets roll table.
+        """
         self.console.print(self._rolltable(source))
 
     @command(usage="""
@@ -358,6 +364,9 @@ class DMShell(BasePrompt):
 
     """)
     def level(self, parts=[]):
+        """
+        Get or set the current level of the party.
+        """
         if parts:
             newlevel = int(parts[0])
             if newlevel > 20 or newlevel < 1:
@@ -376,5 +385,17 @@ class DMShell(BasePrompt):
 
     """)
     def job(self, parts=[]):
+        """
+        Generate a random jobs table.
+        """
         self.console.print(jobs.generate_job())
 
+    @command(usage="""
+    [title]PLACE[/title]
+    """)
+    def place(self, parts=[]):
+        """
+        Select random place names.
+        """
+        freq = parts[0] if parts else 'nodesert'
+        self.console.print(self._rolltable("locations.yaml", frequency=freq, die=4))

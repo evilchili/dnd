@@ -32,14 +32,14 @@ Until recently traveling the Sahwat proper was an activity limited to the despar
 
 ### Provisioning
 
-Every creature that requires food and water to live must consume a certain amount of each daily according to their size. We will assume that an adventurer with their pack always has enough rations to survive (nobody is counting jerky strips in this game), but water must be tracked and accounted for. A gallon of water is approximately 4 pounds and is sufficient for 1 medium creature to survive the desert per day. For other size creatures, see the table: 
+Every creature that requires food and water to live must consume a certain amount of each daily according to their size. We will assume that an adventurer with their pack always has enough rations to survive (nobody is counting jerky strips in this game), but water must be tracked and accounted for. A gallon of water is approximately 4 pounds and is sufficient for 1 medium creature to survive the desert per day. The table below refers the "Water Ration" inventory item on D&D Beyond and its retail cost in Tano's Edge.
 
-| Size       | Water (lbs)
-|------------|------------
-| Tiny       | 1
-| Small      | 2
-| Medium     | 4
-| Large      | 6
+| Size       | 0.5 Gallon Water Rations/Day | Weight (Lbs) | Cost
+|------------|-------------------|--------------|------------------
+| Tiny       | 0.5               | 1            | 2 Silver, 5 Copper
+| Small      | 1                 | 2            | 5 Silver
+| Medium     | 2                 | 4            | 1 Gold
+| Large      | 3                 | 6            | 1 Gold, 5 Silver
 
 A creature that fails to consume enough water in a given day will take one point of exhaustion, and that point will remain until they consume a full day's water ration.
 
@@ -57,12 +57,12 @@ Water conjured by magical means outside the Sahwat and carried in is generally i
 
 Since we will be using encumberance rules and managing the party's water supply, you may wish to make use of mounts or pack animals to add your desert adventures. Two animals are used most commonly: Camels, which can carry a heavy weight and need less water but are useless in a fight, and Axe Beaks, which move faster and can be helpful in a scrap but carry less and drink more. The differences are summarized here:
 
-| Mount    | Carry | Tow  | Daily Water | mi/day | Combat? |
+| Mount    | Carry | Tow  | Daily Water Rations | mi/day | Combat? |
 |----------|-------|------|-------------|--------|---------|
-| Camel    | 300   | 3000 | 4*          | 10     | N       |
-| Axe Beak | 150   | 1500 | 6           | 15     | Y       |
+| Camel    | 300   | 3000 | 8*          | 10     | N       |
+| Axe Beak | 150   | 1500 | 12          | 15     | Y       |
 
-\* *A camel can survive 5 days without water before encuring points of exhaustion, but must consume a full day's ration for each day before losing accumulated exhaustion.*
+\* *A camel can survive 5 days without water before encuring points of exhaustion, but must consume a full day's rations for each day before losing accumulated exhaustion.*
 
 Mounts towing carts or sleds move at half speed.
 
@@ -72,9 +72,12 @@ Mounts towing carts or sleds move at half speed.
 
 Even with basic provisioning and water, exploring the Sahwat will require adventurers to be both hardy and resourceful. The party can choose to spend a portion of their time in the desert on activities beyond Traveling: Foraging, Tracking, Evading, and Surveying. 
 
-Each activity consumes a half-day and the attention of at least one adventurer. Activities may be repeated, and additional adventurers may choose to spend the same half-day on the same or different activities including traveling on ahead.
+An activity is performed with a skill check, the DC for which will depend on the region, the weather, and any special conditions set by the DM. Activities may succeed, succeed with a complication, or fail outright.
 
-An activity is performed with a skill check, the DC for which will depend on the region, the weather, and any special conditions set by the DM. An activity will always succeed, but players who fail the skill check will experience a  complication. The available activities are described below. For each, recommended skills (those with the lowest DC) are provided, but a player may use any skill they wish, provided they can describe how they do so.
+The preferred skill checks required for each activity are listed below; adventurers may attempt to complete an activity using a different skill, but the DC will be set by the DM.
+
+Each activity consumes a half-day and the attention of at least one adventurer. A second adventurer may choose to assist with one activity, conveying advantage on the skill check. Activities cannot be repeated by other players on the same half-day unless noted below.
+
 
 #### Travel
 
@@ -90,25 +93,29 @@ The Sahwat is considered difficult terrain unless specificed otherwise by the DM
 
 \* *See also Mounts, below.*
 
+Note that a successful Travel activity is required for Surveying; *Survey* below.
+
 #### Forage
 
 **Preferred Skills**: Alchemist's Tools, Nature, Medicine
 
-The desert is home to any number of strange flora which can be used in alchemy, medicine, spell components, or traded for materials or gold. *Foraging* allows players to look for whatever they wish, though they will learn that not every region contains every resource in abundance. The more they know about a region, the better their chances of finding exactly what they're looking for (or not wasting a half day on a fool's errand). See *Surveying*, below.
+The desert is home to any number of strange flora which can be used in alchemy, medicine, spell components, or traded for materials or gold. *Foraging* allows players to look for whatever they wish, though they will learn that not every region contains every resource in abundance. The more they know about a region, the better their chances of finding exactly what they're looking for (or not wasting a half day on a fool's errand); see *Survey*, below.
 
-To harvest found resources, the DM determines how much you find by rolling a die (decided by the result of the skill check) and multiplying that number by the value of the resource; this is the amount added to your inventory.
+On a successful check, the DM will determine what you are able to find, and how much. Once you have completed a region's Survey, you may choose one resource to harvest from those available in the region.
 
 Example:
 
 - Gormak the Mighty forages for redfoot using a Nature check and rolls a 16.
-- DM declares Gormak has found redfoot (value 2 GP) and rolls 11 on a  d20.
+- DM declares Gormak has found 11 bundles of redfoot (value 2 GP).
 - Gormak adds "22 GP of Redfoot" to her inventory.
 
 #### Track
 
 **Preferred Skills**: Animal Handling, Investigation, Insight
 
-The best way to find water and shelter is to study the movement of those who survive in the desert, whether beast or man. By tracking the movement of others, the party can find water sources to replenish their supply, a *Shelter* for safer rest, or getting the drop on competing factions.
+The best way to find water, shelter, settlements, and other interesting locations in the region is to study the movement of those who survive in the desert, whether beast or man. By tracking the movement of others, the party can find water sources to replenish their supply, a *Shelter* for safer rest, or getting the drop on competing factions.
+
+Once you have fully surveyed a region, on a successful skill check the party may choose which known location to return to.
 
 #### Evade
 
@@ -120,17 +127,9 @@ The party is not the only group of skilled trackers in the Sahwat. Use this acti
 
 **Preferred Skills**: Cartographer's Tools, Perception
 
-Making a detailed map of a region takes time -- a half-day for every 20 miles surveyed -- but a regional map provides significant bonuses to skill checks when returning to the region:
+Making a detailed map of a region takes time, but completely surveying the region unlocks details about its size, terrain, weather, and flora. A completed  survey also grants a permanent +5 bonus to all Travel, Tracking, Evading, and Foraging checks in the region. Players must still succeed on these skill checks to gain their benefits, even with a completed survey.
 
-| Map Quality | Coverage | Travel    | Forage | Track | Evade | 
-|-------------|----------|-----------|--------|-------|-------|
-| rough       |  20mi    |  +2       | +2     | +2    | +2    |
-| partial     |  40mi+   |  +3       | +3     | +3    | +3    |
-| complete    |  total   |  +5       | +5     | +5    | +5    |
-
-Besides skill check bonuses, possesssing a complete map conveys the following effects:
-- Immunity to getting lost while in the region
-- Can return to known water sources and shelter without a Tracking activity
+A player can only Survey when the party successfully completes a Travel check; you cannot create an accurate map if you're lost! A second player can assist on a single Survey skill check, but you cannot survey multiple times on a single successful Travel check.
 
 Regional maps are highly prized and an original can be sold for a significant sum -- it will also draw the attention of thieves and bandits.
 

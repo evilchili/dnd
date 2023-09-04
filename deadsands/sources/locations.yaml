@@ -1,18 +1,30 @@
 # locations
 metadata:
   headers:
+    - Type
     - Name
   frequencies:
     default:
-      Settlements: 0.5
-      Sahwat: 0.5
-    settlements:
-      Settlements: 1.0
+      Towns: 0.4
+      Sahwat: 0.3
+      Settlements: 0.3
+    towns:
+      Towns: 1.0
       Sahwat: 0.0
-    sahwat:
       Settlements: 0.0
+    sahwat:
+      Towns: 0.0
       Sahwat: 1.0
-Settlements:
+      Settlements: 0.0
+    settlements:
+      Towns: 0.0
+      Sahwat: 0.0
+      Settlements: 1.0
+    nodesert:
+      Towns: 0.5
+      Sahwat: 0.0
+      Settlements: 0.5
+Towns:
   - Tano's Edge
   - The Heap
   - Gazakh Noch
@@ -25,3 +37,22 @@ Sahwat:
   - The Haunted Hills
   - Bone City
   - The Undersands
+Settlements:
+  - Hot Water
+  - Buford's Ranch
+  - Goblin Gulch
+  - Whistling Creek
+  - Red Rock
+  - Grimthorn
+  - Hop's Lunch
+  - Gunslinger Outpost 6
+  - Gunslinger Outpost 5
+  - Gunslinger Outpost 3
+  - Luck's Grave
+  - Mary Nightsong's Hitchin Post
+  - Dragonhead
+  - Ricochet Ranch
+  - Dysentery Trail
+  - Bandit's Moustache
+  - Dead Man's Cave
+  - Hidden Oasis
