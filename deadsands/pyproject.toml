@@ -11,31 +11,24 @@ packages = [
 [tool.poetry.dependencies]
 python = "^3.10"
 
-# cli business
-typer = "latest"
-rich = "latest"
-pyyaml = "latest"
-livereload = "latest"
-jinja2-simple-tags = "latest"
-pyinotify = "latest"
-
-# static website
 pelican = "^4.7.2"
 pelican-drafts = "^0.1.1"
 pelican-sitemap = "^1.0.2"
-pelican-yaml-metadata = { git = "https://github.com/pR0Ps/pelican-yaml-metadata.git", branch = "cdc1b9708916410e455e8e258e3d39a9d575c7b5" }
 
 # local wotsits
-#dnd-npcs      = { git = "https://github.com/evilchili/dnd-npcs", branch = 'main' }
-#dnd-npcs = { path = "../../dnd-npcs" }
-dnd-npcs = { file = "../../dnd-npcs/dist/dnd_npcs-0.2.0-py3-none-any.whl" }
+dnd-npcs= { git = "https://github.com/evilchili/dnd-npcs", branch = 'main' }
+dnd-rolltable = { git = "https://github.com/evilchili/dnd-rolltable", branch = 'main' }
+dnd-calendar = { git = "https://github.com/evilchili/dnd-calendar", branch = 'main' }
 elethis-cipher= { git = "https://github.com/evilchili/elethis-cipher", branch = 'main' }
-#dnd-rolltable = { git = "https://github.com/evilchili/dnd-rolltable", branch = 'main' }
-dnd-rolltable = { file = "../../dnd-rolltable/dist/dnd_rolltable-1.1.9-py3-none-any.whl" }
-
-dnd-calendar = { path = "../../dnd-calendar" }
 
 prompt-toolkit = "^3.0.38"
+typer = "^0.9.0"
+rich = "^13.7.0"
+pyyaml = "^6.0.1"
+livereload = "^2.6.3"
+jinja2-simple-tags = "^0.5.0"
+pynotify = "^0.1.1"
+pelican-yaml-metadata = "^2.1.2"
 
 [tool.poetry.scripts]
 site = "site_tools.cli:site_app"
