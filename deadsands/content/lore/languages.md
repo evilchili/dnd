@@ -39,6 +39,26 @@ The ancient Dragonborn spoke "Old Draconic," a poetic language only superficiall
 #### Lizardfolk
 Strangest of all are the Lizardfolk, whose language is not verbal but olfactory: highly specialized scent glands on the neck emit a startling array of pheremones that carry a telepathic bond. For this reason, Lizardfolk are rarely encountered in major settlements and any who are typically learn to speak a smattering of either Draconic or Street Dwarvish.
 
+| Scent         | Meaning    |
+|---------------|------------|
+| Ham           | Happy      |
+| Lemons        | Sad        |
+| Onions        | Angry      |
+| Rotten Eggs   | Scared     |
+| Bacon         | Impressed  |
+| Cabbage       | Irritated  |
+| Jasmine       | Serious    |
+| Dirt          | Bored      |
+| Burnt Toast   | Alarmed    |
+| Cookies       | Proud      |
+| Old Socks     | Ashamed    |
+| Grass         | Curious    |
+| Garlic        | Cheery     |
+| Cloves        | Contented  |
+| Mint          | Disgusted  |
+
+Subtle variations in odour provides nuances and specific meaning; intensity conveys depth of intensity of emotion. "A robust fragrance of roast ham, glazed in honey and studded with cloves" describes a feeling of joyous content.
+
 #### The New Blood Tongues
 
 Many of the New Blood have developed their own languages based on their unique physiologies which may be heard in ethnically-concentrated areas, including Loxodan and Harengon.
