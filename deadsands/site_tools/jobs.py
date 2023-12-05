@@ -3,8 +3,7 @@ import collections
 from pathlib import Path
 
 from rolltable.tables import RollTable
-from npc.generator.base import generate_npc
-
+from npc import random_npc
 
 Crime = collections.namedtuple('Crime', ['name', 'min_bounty', 'max_bounty'])
 
@@ -39,7 +38,7 @@ class BaseJob:
         self._name = name
         self._details = details
         self._reward = reward
-        self._contact = contact or generate_npc()
+        self._contact = contact or random_npc()
         self._location = location
 
     @property
@@ -129,7 +128,7 @@ class Bounty(BaseJob):
     @property
     def target(self):
         if not self._target:
-            self._target = generate_npc()
+            self._target = random_npc()
         return self._target
 
 
@@ -144,7 +143,7 @@ class Determinant(BaseJob):
 class Escort(BaseJob):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
-        self._contact = generate_npc()
+        self._contact = random_npc()
         self._location = generate_location('settlements')
         self._destination = generate_location('default')
         self._reward = f"{nearest(random.randint(5, 20), step=5)} GP/day"

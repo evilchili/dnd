@@ -10,12 +10,15 @@ from site_tools.shell.base import BasePrompt, command
 from site_tools import campaign
 from site_tools import jobs
 
-from npc.generator.base import generate_npc
 from reckoning.calendar import TelisaranCalendar
 from reckoning.telisaran import Day
 from reckoning.telisaran import ReckoningError
 
+import npc
+
 BINDINGS = KeyBindings()
+
+ANCESTRY_PACK, ANCESTRIES = npc.load_ancestry_pack()
 
 
 class DMShell(BasePrompt):
@@ -203,31 +206,19 @@ class DMShell(BasePrompt):
     [title]CLI[/title]
 
         [link]npc --ancestry ANCESTRY[/link]
-    """, completer=WordCompleter(
-        [
-            'human',
-            'dragon',
-            'drow',
-            'dwarf',
-            'elf',
-            'highelf',
-            'halfling',
-            'halforc',
-            'tiefling',
-            'hightiefling',
-        ]
-    ))
+    """, completer=WordCompleter(list(ANCESTRIES.keys())))
     def npc(self, parts=[]):
         """
         Generate an NPC commoner
         """
-        c = generate_npc(ancestry=parts[0] if parts else None)
+        char = npc.random_npc([parts[0]] if parts else [])
+        self.console.print(char.ancestry.capitalize())
         self.console.print("\n".join([
             "",
-            f"{c.description}",
-            f"Personality: {c.personality}",
-            f"Flaw:        {c.flaw}",
-            f"Goal:        {c.goal}",
+            f"{char.description}",
+            f"Personality: {char.personality}",
+            f"Flaw:        {char.flaw}",
+            f"Goal:        {char.goal}",
             "",
         ]))
 
