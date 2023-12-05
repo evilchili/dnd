@@ -1,0 +1,39 @@
+metadata:
+  headers:
+    - Effect
+    - Description
+    - Mechanics
+  frequencies:
+    default:
+      Effect: 1
+Effect:
+  - Elation:
+    - You are consumed with love for all things
+    - Charmed by all creatures, +2 to AC
+  - Paranoia:
+    - Everyone is out to get you. Everyone. What are they hiding?
+    - Automatically succeed all insight checks vs deception; no one is your ally
+  - Baked:
+    - Everything is hilarious, and you are always hungry for snacks.
+    - Disadvantage on all attack rolls, Advantage on saves against psychic effects.
+  - Wasted:
+    - Your speech is slurred, you have difficulty thinking clearly, and have mild vertigo
+    - You cannot use reactions; disadvantage on all checks and saves using DEX. +2 to AC.
+  - Sleepy:
+    - Why do we have to keep doing things? Doing things is hard.
+    - Your movement speed is reduced by 10ft and you cannot use reactions. Advantage on saves against psychic effects.
+  - Horror:
+    - You have stared into the abyss of your soul and only blackness awaits you.
+    - Frightened by all creatures. Disadvantage on all saves against psychic effects.
+  - Mania:
+    - You are possessed by feverish mania; ideas and words tumble out of as quickly as possible. You cannot stop them.
+    - Automatic critical success on all perception checks; advantage on DEX saves; disadvantage on all attack rolls.
+  - Rage:
+    - You are seething with anger at the injustice of your situation. Everything is a personal attack, a challengge.
+    - You are raged.
+  - Cosmic Awareness:
+    - Your mind expands to contain the cosmos, which fills you with a wonder you cannot convey. Whenever you speak it is in metaphor.
+    - Once per day, you can decide something about the world is true and it will become so.
+  - Ego-Death:
+    - Your sense of self, your identity, is revealed as an empty construct. You are all things and all things are you.
+    - Whenever an ally takes damage, you take 1 point of psychic damage. Whenever an ally heals, you regain 1 HP.
