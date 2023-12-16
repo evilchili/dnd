@@ -9,6 +9,7 @@ from rolltable.tables import RollTable
 from site_tools.shell.base import BasePrompt, command
 from site_tools import campaign
 from site_tools import jobs
+from site_tools import striders
 
 from reckoning.calendar import TelisaranCalendar
 from reckoning.telisaran import Day
@@ -19,6 +20,7 @@ import npc
 BINDINGS = KeyBindings()
 
 ANCESTRY_PACK, ANCESTRIES = npc.load_ancestry_pack()
+ANCESTRIES['strider'] = striders
 
 
 class DMShell(BasePrompt):
@@ -211,16 +213,14 @@ class DMShell(BasePrompt):
         """
         Generate an NPC commoner
         """
-        char = npc.random_npc([parts[0]] if parts else [])
-        self.console.print(char.ancestry.capitalize())
-        self.console.print("\n".join([
-            "",
-            f"{char.description}",
-            f"Personality: {char.personality}",
-            f"Flaw:        {char.flaw}",
-            f"Goal:        {char.goal}",
-            "",
-        ]))
+        char = npc.random_npc([ANCESTRIES[parts[0]]] if parts else [])
+        self.console.print(char.description + "\n")
+        if char.personality:
+            self.console.print(f"Personality: {char.personality}\n")
+        if char.flaw:
+            self.console.print(f"Flaw:        {char.flaw}\n")
+        if char.goal:
+            self.console.print(f"Goal:        {char.goal}\n")
 
     @command(usage="""
     [title]QUIT[/title]
