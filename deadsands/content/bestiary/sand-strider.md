@@ -10,7 +10,7 @@ show_dm_content: True
 status: published
 monster:
   name: "Sand Strider"
-  size: medium
+  size: large
   type: beast
   alignment: unaligned
   AC: 14
