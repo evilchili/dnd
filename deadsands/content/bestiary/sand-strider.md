@@ -43,7 +43,7 @@ monster:
         "Spit": "Recharge 5-6. The Sand Strider spits a jet of magical fluid in a straight line 5ft wide and 30ft long. Each creature in the line must make a DC13 Dexterity saving throw. A creature that fails the save takes 2d6 damage, or half that if it succeeds. The damage type depends on the Sand Strider's sub-species variant."
 ---
 
-Sand Striders are 6-legged giant lizards evolved to survive in the harsh magical climates of the Sahwat Desert. Despite their large size, standing nearly 5 feet at the shoulder and up to 10ft long from snout to tail, striders are quick, silent predators that move with ease on difficult terrain. While experienced hoppers quickly learn to stay well clear of the beasts, Lizardfolk tribes have been known to ride Sand Striders. Just how they are able to tame the great lizards is unknown.
+Sand Striders are 6-legged giant lizards evolved to survive in the harsh magical climates of the Sahwat Desert. Despite their large size, standing nearly 5 feet at the shoulder and up to 10ft long from snout to tail, striders are quick, silent predators that move with ease on difficult terrain and resist the Desert's magical effects. While experienced hoppers quickly learn to stay well clear of the beasts, Lizardfolk tribes have been known to ride Sand Striders. Just how they are able to tame the great lizards is unknown.
 
 There are numerous sub-species, each with its own distinct coloration and elemental affinity, which determines the type of damage done by their spit:
 
