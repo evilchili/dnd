@@ -9,6 +9,10 @@ from pprint import pprint as print
 from site_tools import SETTINGS
 
 
+def _slugify(s):
+    return slugify(s, regex_subs=SETTINGS["SLUG_REGEX_SUBSTITUTIONS"])
+
+
 def create(
     content_type: str,
     title: str,
@@ -23,8 +27,6 @@ def create(
     """
     base_path = Path.cwd()
 
-    def _slugify(s):
-        return slugify(s, regex_subs=SETTINGS["SLUG_REGEX_SUBSTITUTIONS"])
     template_path = Path(template_dir)
     template_name = f"{template or content_type}.md"
     if not (template_path / template_name).exists():
@@ -34,6 +36,8 @@ def create(
         loader=FileSystemLoader(template_path),
         trim_blocks=True,
     )
+
+    env.filters['slugify'] = _slugify
     env.add_extension("site_tools.extensions.RollTable")
     template_source = env.get_template(template_name)
 
@@ -44,7 +48,6 @@ def create(
     target_path = base_path / SETTINGS["PATH"] / relpath
     dest = sanitised_join(str(target_path / target_filename))
 
-    #SETTINGS["WRITE_SELECTED"].append(dest)
     writer = Writer(target_path, settings=SETTINGS)
     writer.write_file(
         name=target_filename,

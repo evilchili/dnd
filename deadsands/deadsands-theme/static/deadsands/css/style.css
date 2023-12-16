@@ -713,35 +713,21 @@ a.disabled:hover {
     margin: 2em 0;
 }
 
-.statblock table.stats {
-    border: 1px solid #000;
+.statblock table td {
+    text-align: left;
 }
 
-.statblock table tr, .statblock table tr td {
-    text-align: center;
-    background: inherit;
-}
-.statblock table tr th, 
-.statblock table tr td {
-    vertical-align: top;
-    padding-right: 2em;
-}
-
-.statblock table.properties td {
-    text-align: left
-}
-
-.statblock table.properties tr td:first-of-type {
+.statblock table tr td:first-of-type {
     font-weight: bold;
     width: 10%;
     white-space: nowrap;
 }
-.statblock table.properties tr td:first-of-type:last-of-type {
+.statblock table tr td:first-of-type:last-of-type {
     font-weight: normal;
+    white-space: wrap;
 }
-
-.statblock table.properties tr:last-child,
-.statblock table.properties tr:last-child {
+.statblock table tr:last-child,
+.statblock table tr:last-child {
     padding-right: 1em;
 }
 .statblock table tr:nth-child(even) {
@@ -750,21 +736,36 @@ a.disabled:hover {
 .statblock table tr:nth-child(odd) {
     background: rgba(255,255,255, 0.3);
 }
+.statblock table.stats {
+    border: 1px solid #000;
+}
 
-.statblock dl {
+.statblock table.stats tr, .statblock table.stats tr td {
+    background: inherit;
+}
+.statblock table.stats tr th, 
+.statblock table.stats tr td {
+    text-align: center !important;
+    vertical-align: top;
+    padding-right: 2em;
+}
+
+
+
+.location dl {
   display: flex;
   flex-flow: row;
   flex-wrap: wrap;
   width: 100%;
   overflow: visible;
 }
-.statblock dl dt {
+.location dl dt {
   flex: 0 0 25%;
   text-overflow: ellipsis;
   overflow: hidden;
   margin-bottom: 2em;
 }
-.statblock dl dd {
+.location dl dd {
   flex:0 0 75%;
   margin-left: auto;
   margin-bottom: 3em;

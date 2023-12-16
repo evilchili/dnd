@@ -28,7 +28,7 @@
 
         {% set target = article.title.replace(' ', '_') %}
         {% if self.is_dm() or article.show_dm_content %}
-        <div class='statblock'>
+        <div class='location'>
             <div style='cursor: pointer;'
                 onclick="document.getElementById('{{target}}').style.display=((document.getElementById('{{ target }}').style.display=='none')?'':'none');" ><h3>{{ article.title }}</h3></div>
             <div id="{{ target }}" style='display:none;'>
