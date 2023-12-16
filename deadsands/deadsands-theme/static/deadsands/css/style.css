@@ -706,13 +706,19 @@ a.disabled:hover {
     text-transform: capitalize;
     text-align: left;
     margin: 0;
+    margin-bottom: 1em;
 }
 
 .statblock table {
-    margin: 0;
+    margin: 2em 0;
+}
+
+.statblock table.stats {
+    border: 1px solid #000;
 }
 
 .statblock table tr, .statblock table tr td {
+    text-align: center;
     background: inherit;
 }
 .statblock table tr th, 
@@ -720,17 +726,22 @@ a.disabled:hover {
     vertical-align: top;
     padding-right: 2em;
 }
-.statblock table tr td:first-of-type {
-    font-weight: bold;
-    white-space: nowrap;
-}
-.statblock table tr td:first-of-type:last-of-type {
-    font-weight: normal;
-    white-space: wrap;
+
+.statblock table.properties td {
+    text-align: left
 }
 
-.statblock table tr:last-child,
-.statblock table tr:last-child {
+.statblock table.properties tr td:first-of-type {
+    font-weight: bold;
+    width: 10%;
+    white-space: nowrap;
+}
+.statblock table.properties tr td:first-of-type:last-of-type {
+    font-weight: normal;
+}
+
+.statblock table.properties tr:last-child,
+.statblock table.properties tr:last-child {
     padding-right: 1em;
 }
 .statblock table tr:nth-child(even) {
@@ -739,8 +750,6 @@ a.disabled:hover {
 .statblock table tr:nth-child(odd) {
     background: rgba(255,255,255, 0.3);
 }
-
-
 
 .statblock dl {
   display: flex;

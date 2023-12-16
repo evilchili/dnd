@@ -4,6 +4,7 @@ from pathlib import Path
 from jinja2 import Environment, FileSystemLoader
 from pelican.utils import sanitised_join, slugify
 from pelican.writers import Writer
+from pprint import pprint as print
 
 from site_tools import SETTINGS
 
@@ -43,7 +44,7 @@ def create(
     target_path = base_path / SETTINGS["PATH"] / relpath
     dest = sanitised_join(str(target_path / target_filename))
 
-    SETTINGS["WRITE_SELECTED"].append(dest)
+    #SETTINGS["WRITE_SELECTED"].append(dest)
     writer = Writer(target_path, settings=SETTINGS)
     writer.write_file(
         name=target_filename,

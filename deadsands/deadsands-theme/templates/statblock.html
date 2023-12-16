@@ -1,0 +1,63 @@
+{% set stats = ['STR', 'DEX', 'CON', 'INT', 'WIS', 'CHA'] %}
+<h3>{{ article.title }}</h3>
+<div class='monster-type'>
+    <em>
+    {{m.size}} {{m.type}}{% if m.alignment %}, {{m.alignment}}{%endif%}
+    </em>
+</div>
+<hr>
+
+<table class='stats'>
+    <tr>
+        {% for stat in stats %}
+            <th>{{ stat }} </th>
+        {% endfor %}
+    </tr>
+    <tr>
+        {% for stat in ['STR', 'DEX', 'CON', 'INT', 'WIS', 'CHA'] %}
+            {% set score, bonus = m[stat].split(',') %}
+            <td><b>{{score}}</b><br>{{bonus}}</td>
+        {% endfor %}
+    </tr>
+</table>
+
+<table class='properties'>
+    <tr><td>Armor Class</td><td>{{ m.AC }}</td></tr>
+    <tr><td>Hit Points</td><td>{{ m.HP }}</td></tr>
+    <tr><td>Speed</td><td>{{ m.speed }}</td></tr>
+    {% if m.skills %}<tr><td>Skills</td><td>{{ m.skills }}</td></tr>{% endif %}
+    {% if m.saving_throws %}<tr><td>Saving Throws</td><td>{{ m.saving_throws }}</td></tr>{% endif %}
+    {% if m.resistances %}<tr><td>Resistances</td><td>{{ m.resistances }}</td></tr>{% endif %}
+    {% if m.vulnerabilities %}<tr><td>Vulnerabilities</td><td>{{ m.vulnerabilities }}</td></tr>{% endif %}
+    {% if m.damage_immunities %}<tr><td>Damage Immunities</td><td>{{ m.damage_immunities }}</td></tr>{% endif %}
+    {% if m.condition_immunities %}<tr><td>Condition Immunities</td><td>{{ m.condition_immunities }}</td></tr>{% endif %}
+    {% if m.senses %}<tr><td>Senses</td><td>{{ m.senses }}</td></tr>{% endif %}
+    {% if m.languages %}<tr><td>Languages</td><td>{{ m.languages }}</td></tr>{% endif %}
+    {% if m.cr %}<tr><td>Challenge Rating</td><td>{{ m.cr }}</td></tr>{% endif %}
+</table>
+
+<hr>
+
+{% for (attr_name, attr_desc) in m.attributes.items() %}
+    <div class='stat'>{{ attr_name }}. <span class='value'>{{attr_desc}}</span></div>
+{% endfor %}
+
+ {% for section in ('Actions', 'Reactions', 'Legendary Actions', 'Legendary Reactions', 'Lair and Actions') %}
+    {% if section in m.traits %}
+        {% set trait = m.traits[section] %}
+        {% if 'attributes' in trait or 'options' in trait %}
+            <h4>{{ section }}</h4>
+            {% if trait.attributes %}
+                {% for (attr_name, attr_desc) in trait.attributes.items() %}
+                <div class='stat'>{{ attr_name }}. <span class='value'>{{attr_desc}}</span></div>
+                {% endfor %}
+            {% endif %}
+            {% if trait.options %}
+                {% for (attr_name, attr_desc) in trait.options.items() %}
+                <div class='stat'>{{ attr_name }}. <span class='value'>{{attr_desc}}</span></div>
+                {% endfor %}
+            {% endif %}
+        {% endif %}
+    {% endif %}
+{% endfor %}
+

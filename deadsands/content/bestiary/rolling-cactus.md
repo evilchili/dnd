@@ -7,7 +7,7 @@ tags: monster
 date: 2023-05-27 14:43:16.001825
 template: monster
 show_dm_content: True
-status: published
+status: draft
 monster:
   name: "Rolling Cactus"
   size: medium

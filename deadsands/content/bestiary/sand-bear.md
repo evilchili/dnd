@@ -45,22 +45,6 @@ monster:
       attributes:
       options:
         "Opportunity Attack": The Sand Bear makes one attack with its claws.
-    Legendary Actions:
-      attributes:
-        "count": 3
-      options:
-        "name1": description
-        "name2": description
-    Legendary Reactions:
-      options:
-        "name1": description
-        "name2": description
-    Lair and Actions:
-      attributes:
-        "name1": description
-      options:
-        "name1": description
-        "name2": description
 ---
 
 Flavour text goes here.
