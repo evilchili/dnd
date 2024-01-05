@@ -75,6 +75,8 @@ automatically. Water rations must be consumed at the normal rate daily.
 Remember that Sand Striders ignore difficult terrain, so may cross the region
 in half as many days. 
 
+The party cannot forage, track, or evade while fast traveling.
+
 ### Survival
 
 Even with basic provisioning and water, exploring the Sahwat will require adventurers to be both hardy and resourceful. The party can choose to spend a portion of their time in the desert on activities beyond Traveling: Foraging, Tracking, Evading, and Surveying. 
