@@ -19,16 +19,15 @@ At dawn, the party will:
     <li> Add/subtract points of exhaustion.</li>
     <li> Roll on the region's encounter table; DM resolves in secret.</li>
 </ul>
-For each half-day, the party will:
+For each half-day traveling on foot, the party will:
 
 <ul>
 <li> Choose activities to perform, one per PC</li>
 <li> Resolve skill check successes / complications</li>
 </ul>
+
 </div>
 Until recently traveling the Sahwat proper was an activity limited to the desparate and the outcast, and nearly none of it had been mapped. This is changing, though, with the discovery of buried wonders of the Yanrin Didan. Now every faction, bandit crew, hedge wizard and treasure hunter is descending on the desert and racing to uncover its secrets. When you undertake a journey into the desert, the party will need to contend with *Provisioning*, *Survival*, and *Regional Effects*; these are described below.
-
-
 
 ### Provisioning
 
@@ -43,7 +42,7 @@ Every creature that requires food and water to live must consume a certain amoun
 
 A creature that fails to consume enough water in a given day will take one point of exhaustion, and that point will remain until they consume a full day's water ration.
 
-Creatures can survive a day on half rations without encurring a point of exhaustion by avoiding strenuous activity and traveling at half-speed.
+Creatures can survive a day on half rations without incurring a point of exhaustion by avoiding strenuous activity and traveling at half-speed.
 
 Creatures may also survive on a half ration of water per day by sleeping during the day and traveling at night, provided they have shelter; see *Shelter* below.
 
@@ -51,22 +50,30 @@ Creatures may also survive on a half ration of water per day by sleeping during 
 
 The unnatural and unstable arcane effects of the Sahwat desert make consuming food and water conjured into existence while in the desert dangerous. Water created in the desert by magical means will be potable and suitable to avoid taking points of exhaustion when consumed in quantity, but may have  side effects ranging from poison to disease to too many tentacles.
 
-Water conjured by magical means outside the Sahwat and carried in is generally immune to these effects, as is water from naturally-occuring sources within the desert:  ponds, streams, wells, mirages, underwater lakes, and so on.
+Water conjured by magical means outside the Sahwat and carried in is generally immune to these effects, as is water from naturally-occurring sources within the desert:  ponds, streams, wells, mirages, underwater lakes, and so on.
 
 #### Mounts and Pack Animals
 
 Since we will be using encumberance rules and managing the party's water supply, you may wish to make use of mounts or pack animals to add your desert adventures. Two animals are used most commonly: Camels, which can carry a heavy weight and need less water but are useless in a fight, and Axe Beaks, which move faster and can be helpful in a scrap but carry less and drink more. The differences are summarized here:
 
-| Mount    | Carry | Tow  | Daily Water Rations | mi/day | Combat? |
-|----------|-------|------|-------------|--------|---------|
-| Camel    | 300   | 3000 | 8*          | 10     | N       |
-| Axe Beak | 150   | 1500 | 12          | 15     | Y       |
+| Mount        | Carry | Tow  | Daily Water Rations | mi/day | Combat? |
+|--------------|-------|------|---------------------|--------|---------|
+| Sand Strider | 500   | 5000 | 0 (up to 2 weeks)   | 15     | Y       |
+| Camel        | 300   | 3000 | 8*                  | 10     | N       |
+| Axe Beak     | 150   | 1500 | 12                  | 15     | Y       |
 
-\* *A camel can survive 5 days without water before encuring points of exhaustion, but must consume a full day's rations for each day before losing accumulated exhaustion.*
+\* *A camel can survive 5 days without water before incurring points of exhaustion, but must consume a full day's rations for each day before losing accumulated exhaustion.*
 
 Mounts towing carts or sleds move at half speed.
 
+### Fast Travel
 
+A party riding Sand Striders can fast travel through any region of the Sahwat
+where they have previously completed a full survey. When fast traveling, the
+party skips Survival skill challenges and completes each half-day of travel
+automatically. Water rations must be consumed at the normal rate daily.
+Remember that Sand Striders ignore difficult terrain, so may cross the region
+in half as many days. 
 
 ### Survival
 
@@ -83,7 +90,7 @@ Each activity consumes a half-day and the attention of at least one adventurer. 
 
 **Preferred Skills**: Survival, Athletics
 
-The Sahwat is considered difficult terrain unless specificed otherwise by the DM; a party moving at a normal pace on foot will cover around 10 miles per day. The party may also choose to move at half-speed or quick-march:
+The Sahwat is considered difficult terrain unless specified otherwise by the DM; a party moving at a normal pace on foot will cover around 10 miles per day. The party may also choose to move at half-speed or quick-march:
 
 | Speed  | mi/Day        | Water  | Effects              |
 |--------|---------------|--------|----------------------|
