@@ -3,8 +3,7 @@ from pathlib import Path
 from prompt_toolkit.application import get_app
 from prompt_toolkit.completion import WordCompleter
 from prompt_toolkit.key_binding import KeyBindings
-from rich.table import Table
-from rolltable.tables import RollTable
+from rolltable.types import RollTable
 
 from site_tools.shell.base import BasePrompt, command
 from site_tools import campaign
@@ -115,15 +114,11 @@ class DMShell(BasePrompt):
         return self.date()
 
     def _rolltable(self, source, frequency='default', die=20):
-        rt = RollTable(
+        return RollTable(
             [Path(f"{self.cache['table_sources_path']}/{source}").read_text()],
             frequency=frequency,
             die=die
-        )
-        table = Table(*rt.rows[0])
-        for row in rt.rows[1:]:
-            table.add_row(*row)
-        return table
+        ).as_table()
 
     @command(usage="""
     [title]DATE[/title]

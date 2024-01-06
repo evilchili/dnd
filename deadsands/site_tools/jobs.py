@@ -2,7 +2,7 @@ import random
 import collections
 from pathlib import Path
 
-from rolltable.tables import RollTable
+from rolltable.types import RollTable
 from npc import random_npc
 
 Crime = collections.namedtuple('Crime', ['name', 'min_bounty', 'max_bounty'])

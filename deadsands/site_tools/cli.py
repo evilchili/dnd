@@ -6,7 +6,7 @@ from pathlib import Path
 
 import click
 import typer
-from rolltable.tables import RollTable
+from rolltable.types import RollTable
 from typing_extensions import Annotated
 
 from site_tools.content_manager import create
