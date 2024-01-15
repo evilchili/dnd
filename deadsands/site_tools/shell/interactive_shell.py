@@ -9,6 +9,7 @@ from site_tools.shell.base import BasePrompt, command
 from site_tools import campaign
 from site_tools import jobs
 from site_tools import striders
+from site_tools import hoppers
 
 from reckoning.calendar import TelisaranCalendar
 from reckoning.telisaran import Day
@@ -20,6 +21,7 @@ BINDINGS = KeyBindings()
 
 ANCESTRY_PACK, ANCESTRIES = npc.load_ancestry_pack()
 ANCESTRIES['strider'] = striders
+ANCESTRIES['hopper'] = hoppers
 
 
 class DMShell(BasePrompt):
