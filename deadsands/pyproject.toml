@@ -16,7 +16,8 @@ pelican-drafts = "^0.1.1"
 pelican-sitemap = "^1.0.2"
 
 # local wotsits
-dnd-npcs= { git = "https://github.com/evilchili/dnd-npcs", branch = 'main' }
+dmsh = { git = "https://github.com/evilchili/dmsh", branch = 'main' }
+dnd-npcs = { git = "https://github.com/evilchili/dnd-npcs", branch = 'main' }
 dnd-rolltable = { git = "https://github.com/evilchili/dnd-rolltable", branch = 'main' }
 dnd-calendar = { git = "https://github.com/evilchili/dnd-calendar", branch = 'main' }
 elethis-cipher= { git = "https://github.com/evilchili/elethis-cipher", branch = 'main' }
@@ -34,7 +35,7 @@ pelican-yaml-metadata = "^2.1.2"
 site = "site_tools.cli:site_app"
 roll-table = "rolltable.cli:app"
 pelican = "site_tools.tasks:pelican_main"
-dmsh = "site_tools.cli:dmsh"
+dmsh = "dmsh.cli:dmsh"
 
 
 

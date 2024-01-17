@@ -1,6 +1,4 @@
-import asyncio
 import sys
-import termios
 from enum import Enum
 from pathlib import Path
 
@@ -10,7 +8,6 @@ from rolltable.types import RollTable
 from typing_extensions import Annotated
 
 from site_tools.content_manager import create
-from site_tools.shell.interactive_shell import DMShell
 from site_tools import build_system
 
 
@@ -132,16 +129,6 @@ def new(
             case _:
                 category = content_type.value
     click.edit(filename=create(content_type.value, title, template_dir, category, template or content_type.value))
-
-
-# STANDALONE ENTRY POINTS
-
-def dmsh():
-    old_attrs = termios.tcgetattr(sys.stdin)
-    try:
-        asyncio.run(DMShell(build_system.CONFIG).start())
-    finally:
-        termios.tcsetattr(sys.stdin, termios.TCSANOW, old_attrs)
 
 
 if __name__ == "__main__":

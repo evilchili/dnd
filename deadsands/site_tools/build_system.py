@@ -35,13 +35,9 @@ CONFIG.update(
         "import_path": "imports",
         # where new asseets will be made available
         "production_host": "deadsands.froghat.club",
-        # where to find roll table sources
-        "table_sources_path": "sources",
-        # where to store campaign state
-        "campaign_save_path": '~/.dnd',
+
+        "data_path": '~/.dnd',
         "campaign_name": "deadsands",
-        # campaign start date
-        "campaign_start_date": "2.1125.5.25",
     }
 )
 
