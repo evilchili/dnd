@@ -5,7 +5,6 @@ from pathlib import Path
 import click
 import typer
 from rolltable.types import RollTable
-from typing_extensions import Annotated
 
 from site_tools.content_manager import create
 from site_tools import build_system
@@ -27,6 +26,11 @@ class Die(str, Enum):
     d10 = "10"
     d6 = "6"
     d4 = "4"
+
+
+source_path = Path(build_system.CONFIG['data_path']).expanduser() / build_system.CONFIG['campaign_name'] / 'sources'
+locations = dict((loc.name, loc) for loc in (source_path / 'stores').iterdir() if loc.is_dir())
+Location = Enum("Location", ((name, name) for name in locations.keys()))
 
 
 # 'site' ENTRY POINT
@@ -64,30 +68,27 @@ def publish() -> None:
 
 @site_app.command()
 def restock(
-    source: str = typer.Argument(..., help="The source file for the store."),
-    frequency: str = Annotated[str, typer.Option("default", help="use the specified frequency from the source file")],
-    die: Die = typer.Option(20, help="The size of the die for which to create a table"),
-    template_dir: str = Annotated[
-        str,
-        typer.Argument(
-            build_system.CONFIG["templates_path"],
-            help="Override the default location for markdown templates.",
-        ),
-    ],
+    location: Location = typer.Argument(..., help="Where to restock."),
+    frequency: str = typer.Option("default", help="use the specified frequency from the source file"),
+    die: Die = typer.Option('20', help="The size of the die for which to create a table"),
+    template_dir: str = typer.Argument(
+        build_system.CONFIG["templates_path"],
+        help="Override the default location for markdown templates.",
+    ),
 ) -> None:
-    rt = RollTable([Path(source).read_text()], frequency=frequency, die=die, hide_rolls=True)
-    store = rt.datasources[0].metadata["store"]
-
-    click.edit(
-        filename=create(
-            content_type="post",
-            title=store["title"],
-            template_dir=template_dir,
-            category="stores",
-            template="store",
-            extra_context=dict(inventory=rt.as_markdown, **store),
+    for store in locations[location.name].iterdir():
+        rt = RollTable([store.read_text()], frequency=frequency, die=int(die), hide_rolls=True)
+        store_attributes = rt.datasources[0].metadata["store"]
+        click.edit(
+            filename=create(
+                content_type="post",
+                title=store_attributes["title"],
+                template_dir=template_dir,
+                category="stores",
+                template="store",
+                extra_context=dict(inventory=rt.as_markdown(), **store_attributes),
+            )
         )
-    )
 
 
 @site_app.command()
