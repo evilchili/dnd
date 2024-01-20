@@ -4,7 +4,8 @@
 title: {{ title }}
 author: {{ author if author else 'evilchili' }}
 show_dm_content: False
-tags: {{ tags }}
+tags: store
+location: {{ location }}
 {% if date %}
 date: {{ date }}
 {% endif %}
